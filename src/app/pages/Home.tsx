@@ -308,18 +308,28 @@ function HeroSection() {
               </Link>
             </div>
 
-            <div ref={statsRef} style={{ display: "flex", gap: 28, flexWrap: "wrap" }}>
+            <div
+              ref={statsRef}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, max-content)",
+                gap: "20px 28px",
+                justifyItems: "start",
+                maxWidth: "100%",
+              }}
+              className="hero-stats-grid"
+            >
               {[
-                { icon: "⚡", value: `${projects}+`, label: "Projecten" },
-                { icon: "☀️", value: `${mw} MW+`, label: "Geïnstalleerd" },
+                { icon: "⚡", value: `${String(projects).padStart(3, "0")}+`, label: "Projecten" },
+                { icon: "☀️", value: `${String(mw).padStart(2, "0")} MW+`, label: "Geïnstalleerd" },
                 { icon: "🔋", value: "261 kWh", label: "Max Opslag" },
               ].map((stat) => (
-                <div key={stat.label} style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                  <div style={{ width: 48, height: 48, backgroundColor: "rgba(45,198,83,0.1)", border: "1px solid rgba(45,198,83,0.25)", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20 }}>
+                <div key={stat.label} style={{ display: "flex", alignItems: "center", gap: 12, width: "max-content", maxWidth: "100%" }}>
+                  <div style={{ width: 48, height: 48, flexShrink: 0, backgroundColor: "rgba(45,198,83,0.1)", border: "1px solid rgba(45,198,83,0.25)", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20 }}>
                     {stat.icon}
                   </div>
-                  <div>
-                    <div style={{ color: TEXT, fontSize: 22, fontWeight: 800, fontFamily: "'Syne', sans-serif" }}>{stat.value}</div>
+                  <div style={{ minWidth: 0 }}>
+                    <div style={{ color: TEXT, fontSize: 22, fontWeight: 800, fontFamily: "'Syne', sans-serif", lineHeight: 1.2, fontVariantNumeric: "tabular-nums", whiteSpace: "nowrap" }}>{stat.value}</div>
                     <div style={{ color: MUTED, fontSize: 12 }}>{stat.label}</div>
                   </div>
                 </div>
@@ -352,7 +362,7 @@ function HeroSection() {
 
       <style>{`
         @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
-        @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr !important; } .hero-image-col { display: none !important; } }
+        @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr !important; } .hero-image-col { display: none !important; } .hero-stats-grid { grid-template-columns: 1fr !important; } }
       `}</style>
     </section>
   );
@@ -585,16 +595,16 @@ function StatsSection() {
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 32, marginBottom: 60 }}>
           {[
-            { value: `${p1}+`, label: "Geïnstalleerde Projecten", Icon: TrendingUp },
-            { value: `${p2} MW`, label: "Totaal Geïnstalleerd", Icon: Zap },
-            { value: `${p3} Jaar`, label: "Paneel Garantie", Icon: Shield },
+            { value: `${String(p1).padStart(3, "0")}+`, label: "Geïnstalleerde Projecten", Icon: TrendingUp },
+            { value: `${String(p2).padStart(2, "0")} MW`, label: "Totaal Geïnstalleerd", Icon: Zap },
+            { value: `${String(p3).padStart(2, "0")} Jaar`, label: "Paneel Garantie", Icon: Shield },
             { value: "24/7", label: "Support Beschikbaar", Icon: Clock },
           ].map(({ value, label, Icon }) => (
             <div key={label} style={{ textAlign: "center" }}>
               <div style={{ width: 56, height: 56, backgroundColor: "rgba(45,198,83,0.12)", border: "1px solid rgba(45,198,83,0.25)", borderRadius: 14, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px" }}>
                 <Icon size={24} color={NSS_GREEN} />
               </div>
-              <div style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(36px, 5vw, 52px)", fontWeight: 900, color: TEXT, lineHeight: 1 }}>{value}</div>
+              <div style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(36px, 5vw, 52px)", fontWeight: 900, color: TEXT, lineHeight: 1, fontVariantNumeric: "tabular-nums", whiteSpace: "nowrap" }}>{value}</div>
               <div style={{ color: MUTED, fontSize: 14, marginTop: 8 }}>{label}</div>
             </div>
           ))}
