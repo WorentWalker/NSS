@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send, MessageCircle, Clock, CheckCircle2 } from "lucide-react";
+import { useI18n } from "../i18n";
 
 const NSS_GREEN = "#2DC653";
 const DARK_GREEN = "#1A9E35";
@@ -11,6 +12,7 @@ const TEXT = "#0F172A";
 const MUTED = "#64748B";
 
 export function Contact() {
+  const { t } = useI18n();
   const [formData, setFormData] = useState({
     name: "", company: "", phone: "", email: "", type: "", message: "",
   });
@@ -55,11 +57,11 @@ export function Contact() {
       }}>
         <div style={{ position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(45,198,83,0.10) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
-          <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 900, color: TEXT, marginBottom: 12 }}>
-            Neem{" "}<span style={{ background: "linear-gradient(135deg, #2DC653, #1DA040)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Contact Op</span>
+          <h1 style={{ fontFamily: "'Onest', sans-serif", fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 900, color: TEXT, marginBottom: 12 }}>
+            {t("contactPage.titlePrefix")}<span style={{ background: "linear-gradient(135deg, #2DC653, #1DA040)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>{t("contactPage.titleHighlight")}</span>
           </h1>
           <p style={{ color: MUTED, fontSize: 16, maxWidth: 500 }}>
-            Klaar om uw zonneproject te starten? Ons team van experts staat klaar om de perfecte oplossing voor u te vinden.
+            {t("contactPage.subtitle")}
           </p>
         </div>
       </div>
@@ -69,8 +71,8 @@ export function Contact() {
           {/* Left — info */}
           <div>
             <div style={{ backgroundColor: WHITE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 32, marginBottom: 24, boxShadow: "0 4px 16px rgba(0,0,0,0.06)" }}>
-              <h3 style={{ color: TEXT, fontSize: 18, fontWeight: 700, fontFamily: "'Syne', sans-serif", marginBottom: 24 }}>
-                Contactgegevens
+              <h3 style={{ color: TEXT, fontSize: 18, fontWeight: 700, fontFamily: "'Onest', sans-serif", marginBottom: 24 }}>
+                {t("contactPage.detailsTitle")}
               </h3>
               <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
                 <a href="tel:+31201234567" style={{ display: "flex", alignItems: "flex-start", gap: 16, textDecoration: "none" }}>
@@ -78,7 +80,7 @@ export function Contact() {
                     <Phone size={18} color={NSS_GREEN} />
                   </div>
                   <div>
-                    <div style={{ color: MUTED, fontSize: 12, marginBottom: 4 }}>Telefoon</div>
+                    <div style={{ color: MUTED, fontSize: 12, marginBottom: 4 }}>{t("contactPage.phoneLbl")}</div>
                     <div style={{ color: TEXT, fontSize: 15, fontWeight: 600 }}>+31 (20) 123-45-67</div>
                   </div>
                 </a>
@@ -88,7 +90,7 @@ export function Contact() {
                     <Mail size={18} color={NSS_GREEN} />
                   </div>
                   <div>
-                    <div style={{ color: MUTED, fontSize: 12, marginBottom: 4 }}>E-mail</div>
+                    <div style={{ color: MUTED, fontSize: 12, marginBottom: 4 }}>{t("contactPage.emailLbl")}</div>
                     <div style={{ color: TEXT, fontSize: 15, fontWeight: 600 }}>info@nss.energy</div>
                   </div>
                 </a>
@@ -98,9 +100,9 @@ export function Contact() {
                     <MapPin size={18} color={NSS_GREEN} />
                   </div>
                   <div>
-                    <div style={{ color: MUTED, fontSize: 12, marginBottom: 4 }}>Adres</div>
-                    <div style={{ color: TEXT, fontSize: 15, fontWeight: 600 }}>Amsterdam, Nederland</div>
-                    <div style={{ color: MUTED, fontSize: 13 }}>& Heel Europa 🇪🇺</div>
+                    <div style={{ color: MUTED, fontSize: 12, marginBottom: 4 }}>{t("contactPage.addrLbl")}</div>
+                    <div style={{ color: TEXT, fontSize: 15, fontWeight: 600 }}>{t("contactPage.addrLine")}</div>
+                    <div style={{ color: MUTED, fontSize: 13 }}>{t("contactPage.addrGlobe")}</div>
                   </div>
                 </div>
 
@@ -109,9 +111,9 @@ export function Contact() {
                     <Clock size={18} color={NSS_GREEN} />
                   </div>
                   <div>
-                    <div style={{ color: MUTED, fontSize: 12, marginBottom: 4 }}>Openingstijden</div>
-                    <div style={{ color: TEXT, fontSize: 15, fontWeight: 600 }}>Ma–Vr: 9:00–18:00</div>
-                    <div style={{ color: MUTED, fontSize: 13 }}>Za: 10:00–15:00 (CET)</div>
+                    <div style={{ color: MUTED, fontSize: 12, marginBottom: 4 }}>{t("contactPage.hoursLbl")}</div>
+                    <div style={{ color: TEXT, fontSize: 15, fontWeight: 600 }}>{t("contactPage.hoursMain")}</div>
+                    <div style={{ color: MUTED, fontSize: 13 }}>{t("contactPage.hoursSat")}</div>
                   </div>
                 </div>
               </div>
@@ -170,15 +172,16 @@ export function Contact() {
             }}>
               <MapPin size={32} color={NSS_GREEN} />
               <div style={{ color: MUTED, fontSize: 14, textAlign: "center" }}>
-                Amsterdam, Nederland<br />& Europa
+                {t("contactPage.mapHint")}<br />
+                {t("contactPage.addrGlobe")}
               </div>
               <a
-                href="https://maps.google.com/?q=Amsterdam,Netherlands"
+                href="https://maps.google.com/?q=Kyiv,Ukraine"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: NSS_GREEN, fontSize: 13, fontWeight: 600, textDecoration: "none" }}
               >
-                Bekijk op Google Maps →
+                {t("contactPage.mapsLink")}
               </a>
             </div>
           </div>
@@ -187,21 +190,21 @@ export function Contact() {
           <div>
             {!submitted ? (
               <div style={{ backgroundColor: WHITE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: 40, boxShadow: "0 8px 32px rgba(0,0,0,0.08)" }}>
-                <h3 style={{ color: TEXT, fontSize: 20, fontWeight: 700, fontFamily: "'Syne', sans-serif", marginBottom: 8 }}>
-                  Stuur Ons een Bericht
+                <h3 style={{ color: TEXT, fontSize: 20, fontWeight: 700, fontFamily: "'Onest', sans-serif", marginBottom: 8 }}>
+                  {t("contactPage.msgTitle")}
                 </h3>
                 <p style={{ color: MUTED, fontSize: 14, marginBottom: 28 }}>
-                  Vul het formulier in en wij nemen binnen 24 uur contact met u op met een aangepaste offerte.
+                  {t("contactPage.msgBody")}
                 </p>
 
                 <form onSubmit={handleSubmit}>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 20 }} className="form-two-col">
                     <div>
-                      <label style={labelStyle}>Volledige Naam *</label>
+                      <label style={labelStyle}>{t("contactPage.fldName")}</label>
                       <input
                         type="text"
                         required
-                        placeholder="Jan de Vries"
+                        placeholder={t("home.phName")}
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         style={inputStyle}
@@ -210,10 +213,10 @@ export function Contact() {
                       />
                     </div>
                     <div>
-                      <label style={labelStyle}>Bedrijf</label>
+                      <label style={labelStyle}>{t("contactPage.fldCompany")}</label>
                       <input
                         type="text"
-                        placeholder="Uw Bedrijf"
+                        placeholder={t("contactPage.fldCompanyPlaceholder")}
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         style={inputStyle}
@@ -222,11 +225,11 @@ export function Contact() {
                       />
                     </div>
                     <div>
-                      <label style={labelStyle}>Telefoon *</label>
+                      <label style={labelStyle}>{t("contactPage.fldPhone")}</label>
                       <input
                         type="tel"
                         required
-                        placeholder="+31 6 XX XX XX XX"
+                        placeholder={t("home.phPhone")}
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         style={inputStyle}
@@ -235,11 +238,11 @@ export function Contact() {
                       />
                     </div>
                     <div>
-                      <label style={labelStyle}>E-mail *</label>
+                      <label style={labelStyle}>{t("contactPage.fldEmail")}</label>
                       <input
                         type="email"
                         required
-                        placeholder="jan@bedrijf.nl"
+                        placeholder={t("home.phEmail")}
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         style={inputStyle}
@@ -250,7 +253,7 @@ export function Contact() {
                   </div>
 
                   <div style={{ marginBottom: 20 }}>
-                    <label style={labelStyle}>Projecttype *</label>
+                    <label style={labelStyle}>{t("contactPage.fldType")}</label>
                     <select
                       required
                       value={formData.type}
@@ -259,21 +262,21 @@ export function Contact() {
                       onFocus={(e) => (e.target.style.borderColor = NSS_GREEN)}
                       onBlur={(e) => (e.target.style.borderColor = BORDER)}
                     >
-                      <option value="">Selecteer uw projecttype</option>
-                      <option value="residential">Particulier (Woning)</option>
-                      <option value="ci-small">Zakelijk — Klein (&lt;50kW)</option>
-                      <option value="ci-medium">Zakelijk — Medium (50–500kW)</option>
-                      <option value="industrial">Industrieel (&gt;500kW)</option>
-                      <option value="utility">Utiliteitsschaal (MW+)</option>
-                      <option value="other">Anders / Nog niet zeker</option>
+                      <option value="">{t("contactPage.selTypePh")}</option>
+                      <option value="residential">{t("contactPage.selRes")}</option>
+                      <option value="ci-small">{t("contactPage.selSmall")}</option>
+                      <option value="ci-medium">{t("contactPage.selMed")}</option>
+                      <option value="industrial">{t("contactPage.selLarge")}</option>
+                      <option value="utility">{t("contactPage.selMw")}</option>
+                      <option value="other">{t("contactPage.selOther")}</option>
                     </select>
                   </div>
 
                   <div style={{ marginBottom: 28 }}>
-                    <label style={labelStyle}>Bericht</label>
+                    <label style={labelStyle}>{t("contactPage.fldMessage")}</label>
                     <textarea
                       rows={4}
-                      placeholder="Vertel ons over uw project — locatie, verwachte capaciteit, speciale eisen..."
+                      placeholder={t("contactPage.msgPlaceholder")}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       style={{ ...inputStyle, resize: "vertical", lineHeight: 1.6 }}
@@ -302,11 +305,11 @@ export function Contact() {
                     onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 10px 28px rgba(45,198,83,0.4)"; }}
                     onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 6px 20px rgba(45,198,83,0.3)"; }}
                   >
-                    Bericht Verzenden
+                    {t("contactPage.submit")}
                   </button>
 
                   <p style={{ color: MUTED, fontSize: 12, marginTop: 12, textAlign: "center" }}>
-                    Door te verzenden gaat u akkoord met ons privacybeleid. We reageren binnen 24 uur.
+                    {t("contactPage.legalNote")}
                   </p>
                 </form>
               </div>
@@ -326,13 +329,14 @@ export function Contact() {
                 }}>
                   <CheckCircle2 size={32} color={NSS_GREEN} />
                 </div>
-                <h3 style={{ color: TEXT, fontSize: 22, fontWeight: 800, fontFamily: "'Syne', sans-serif", marginBottom: 12 }}>
-                  Bericht Verzonden!
+                <h3 style={{ color: TEXT, fontSize: 22, fontWeight: 800, fontFamily: "'Onest', sans-serif", marginBottom: 12 }}>
+                  {t("contactPage.thanksTitle")}
                 </h3>
                 <p style={{ color: MUTED, fontSize: 15, lineHeight: 1.7, marginBottom: 28 }}>
-                  Bedankt voor uw bericht. Onze zonne-energie experts nemen binnen 24 uur contact met u op met een gepersonaliseerde oplossing.
+                  {t("contactPage.thanksBody")}
                 </p>
                 <button
+                  type="button"
                   onClick={() => setSubmitted(false)}
                   style={{
                     border: `1px solid ${NSS_GREEN}`,
@@ -346,7 +350,7 @@ export function Contact() {
                     fontFamily: "'Inter', sans-serif",
                   }}
                 >
-                  Nieuw Bericht
+                  {t("contactPage.thanksAgain")}
                 </button>
               </div>
             )}

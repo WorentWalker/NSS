@@ -1,15 +1,17 @@
 import { Link } from "react-router";
 import { Mail, Phone, MapPin, Send, MessageCircle, Linkedin, Youtube } from "lucide-react";
+import { useI18n } from "../i18n";
 
 const NSS_GREEN = "#2DC653";
 const BG = "#F6F9FC";
 const WHITE = "#FFFFFF";
-const SURFACE = "#EEF2F8";
 const BORDER = "#D4DEE9";
 const TEXT = "#0F172A";
 const MUTED = "#64748B";
 
 export function Footer() {
+  const { t } = useI18n();
+
   return (
     <footer style={{ backgroundColor: BG, borderTop: `1px solid ${BORDER}` }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "64px 24px 32px" }}>
@@ -19,7 +21,6 @@ export function Footer() {
           gap: 40,
           marginBottom: 48,
         }}>
-          {/* Brand */}
           <div style={{ gridColumn: "span 2" }} className="footer-brand">
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
               <div style={{
@@ -29,19 +30,19 @@ export function Footer() {
                 display: "flex", alignItems: "center", justifyContent: "center",
                 boxShadow: "0 4px 12px rgba(45,198,83,0.25)",
               }}>
-                <span style={{ color: "#fff", fontFamily: "'Syne', sans-serif", fontSize: 15, fontWeight: 900, letterSpacing: "-0.02em" }}>NSS</span>
+                <span style={{ color: "#fff", fontFamily: "'Onest', sans-serif", fontSize: 15, fontWeight: 900, letterSpacing: "-0.02em" }}>NSS</span>
               </div>
               <div>
-                <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 22, fontWeight: 800, color: TEXT, lineHeight: 1.1 }}>
+                <div style={{ fontFamily: "'Onest', sans-serif", fontSize: 22, fontWeight: 800, color: TEXT, lineHeight: 1.1 }}>
                   <span style={{ color: NSS_GREEN }}>NSS</span>
                 </div>
-                <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.12em", color: MUTED, textTransform: "uppercase" }}>
-                  New Solar System
+                <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "var(--tracking-caps-sm, 0.05em)", color: MUTED, textTransform: "uppercase" }}>
+                  {t("brand.taglineShort")}
                 </div>
               </div>
             </div>
             <p style={{ color: MUTED, fontSize: 14, lineHeight: 1.7, maxWidth: 280, marginBottom: 20 }}>
-              Slimme zonne-energiesystemen voor woningen en bedrijven in Nederland en Europa.
+              {t("footer.blurb")}
             </p>
             <div style={{ display: "flex", gap: 10 }}>
               {[
@@ -52,6 +53,7 @@ export function Footer() {
               ].map((social) => (
                 <button
                   key={social.label}
+                  type="button"
                   title={social.label}
                   style={{
                     width: 36, height: 36,
@@ -81,12 +83,16 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Products */}
           <div>
-            <h4 style={{ color: TEXT, fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 20 }}>
-              Producten
+            <h4 style={{ color: TEXT, fontSize: 13, fontWeight: 700, letterSpacing: "var(--tracking-caps-sm, 0.05em)", textTransform: "uppercase", marginBottom: 20 }}>
+              {t("footer.columnProducts")}
             </h4>
-            {["Zonnepanelen", "Omvormers", "Batterijopslag", "Complete Systemen"].map((item) => (
+            {[
+              t("footer.panels"),
+              t("footer.inverters"),
+              t("footer.storage"),
+              t("footer.systems"),
+            ].map((item) => (
               <Link key={item} to="/products" style={{
                 display: "block", color: MUTED, fontSize: 14, textDecoration: "none",
                 marginBottom: 10, transition: "color 0.2s",
@@ -99,12 +105,16 @@ export function Footer() {
             ))}
           </div>
 
-          {/* Solutions */}
           <div>
-            <h4 style={{ color: TEXT, fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 20 }}>
-              Oplossingen
+            <h4 style={{ color: TEXT, fontSize: 13, fontWeight: 700, letterSpacing: "var(--tracking-caps-sm, 0.05em)", textTransform: "uppercase", marginBottom: 20 }}>
+              {t("footer.columnSolutions")}
             </h4>
-            {["Particulier", "Zakelijk & Industrie", "Utiliteitsschaal", "Maatwerk"].map((item) => (
+            {[
+              t("footer.private"),
+              t("footer.businessIndustrial"),
+              t("footer.utilityScale"),
+              t("footer.custom"),
+            ].map((item) => (
               <Link key={item} to="/solutions" style={{
                 display: "block", color: MUTED, fontSize: 14, textDecoration: "none",
                 marginBottom: 10, transition: "color 0.2s",
@@ -117,10 +127,9 @@ export function Footer() {
             ))}
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 style={{ color: TEXT, fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 20 }}>
-              Contact
+            <h4 style={{ color: TEXT, fontSize: 13, fontWeight: 700, letterSpacing: "var(--tracking-caps-sm, 0.05em)", textTransform: "uppercase", marginBottom: 20 }}>
+              {t("footer.columnContact")}
             </h4>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               <a href="tel:+31201234567" style={{ display: "flex", alignItems: "center", gap: 10, color: MUTED, textDecoration: "none", fontSize: 14 }}>
@@ -133,16 +142,17 @@ export function Footer() {
               </a>
               <div style={{ display: "flex", alignItems: "flex-start", gap: 10, color: MUTED, fontSize: 14 }}>
                 <MapPin size={14} color={NSS_GREEN} style={{ flexShrink: 0, marginTop: 2 }} />
-                Amsterdam, Nederland<br />& Europa
+                {t("footer.location")}
+                <br />
+                {t("footer.locationLine2")}
               </div>
             </div>
           </div>
         </div>
 
-        {/* Certifications */}
         <div style={{ borderTop: `1px solid ${BORDER}`, paddingTop: 32, marginBottom: 24 }}>
           <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12, marginBottom: 20 }}>
-            <span style={{ color: MUTED, fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase" }}>Gecertificeerd:</span>
+            <span style={{ color: MUTED, fontSize: 12, letterSpacing: "var(--tracking-caps-sm, 0.05em)", textTransform: "uppercase" }}>{t("footer.certified")}:</span>
             {["IEC 61215", "IEC 61730", "ISO 9001", "CE", "TÜV"].map((cert) => (
               <span key={cert} style={{
                 padding: "4px 10px",
@@ -160,7 +170,7 @@ export function Footer() {
             ))}
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8 }}>
-            <span style={{ color: MUTED, fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase" }}>Partners:</span>
+            <span style={{ color: MUTED, fontSize: 12, letterSpacing: "var(--tracking-caps-sm, 0.05em)", textTransform: "uppercase" }}>{t("footer.partners")}:</span>
             {["Q-Sun Solar", "GoodWe", "QCL Energy", "RochexEnergy"].map((partner) => (
               <span key={partner} style={{
                 padding: "4px 12px",
@@ -177,7 +187,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
         <div style={{
           borderTop: `1px solid ${BORDER}`,
           paddingTop: 24,
@@ -188,10 +197,10 @@ export function Footer() {
           gap: 12,
         }}>
           <p style={{ color: MUTED, fontSize: 13 }}>
-            © 2024 NSS — New Solar System. Alle rechten voorbehouden.
+            {t("footer.rights")}
           </p>
           <div style={{ display: "flex", gap: 20 }}>
-            {["Privacybeleid", "Algemene Voorwaarden"].map((item) => (
+            {[t("footer.privacy"), t("footer.terms")].map((item) => (
               <span key={item} style={{ color: MUTED, fontSize: 13, cursor: "pointer" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = NSS_GREEN)}
                 onMouseLeave={(e) => (e.currentTarget.style.color = MUTED)}

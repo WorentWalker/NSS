@@ -1,14 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router";
 import { Menu, X } from "lucide-react";
-
-const navLinks = [
-  { label: "Home", path: "/" },
-  { label: "Products", path: "/products" },
-  { label: "Solutions", path: "/solutions" },
-  { label: "About", path: "/about" },
-  { label: "Contact", path: "/contact" },
-];
+import { useI18n, type Locale } from "../i18n";
 
 const NSS_GREEN = "#2DC653";
 const TEXT = "#0F172A";
@@ -18,8 +11,16 @@ const BORDER = "#E2EAF2";
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [lang, setLang] = useState("NL");
+  const { locale, setLocale, t } = useI18n();
   const location = useLocation();
+
+  const navLinks = [
+    { label: t("nav.home"), path: "/" },
+    { label: t("nav.products"), path: "/products" },
+    { label: t("nav.solutions"), path: "/solutions" },
+    { label: t("nav.about"), path: "/about" },
+    { label: t("nav.contact"), path: "/contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -29,7 +30,29 @@ export function Navbar() {
 
   useEffect(() => {
     setIsOpen(false);
-  }, [location]);
+  }, [location, locale]);
+
+  const langBtn = (l: Locale, short: string) => (
+    <button
+      key={l}
+      type="button"
+      onClick={() => setLocale(l)}
+      style={{
+        background: locale === l ? "rgba(45,198,83,0.1)" : "transparent",
+        border: locale === l ? "1px solid rgba(45,198,83,0.4)" : "1px solid transparent",
+        color: locale === l ? NSS_GREEN : MUTED,
+        padding: "4px 8px",
+        borderRadius: 4,
+        fontSize: 12,
+        fontWeight: 700,
+        cursor: "pointer",
+        letterSpacing: "0.05em",
+        transition: "all 0.2s",
+      }}
+    >
+      {short}
+    </button>
+  );
 
   return (
     <header
@@ -48,7 +71,6 @@ export function Navbar() {
     >
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
-          {/* Logo */}
           <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
             <div style={{
               width: 40, height: 40,
@@ -57,19 +79,18 @@ export function Navbar() {
               display: "flex", alignItems: "center", justifyContent: "center",
               boxShadow: "0 4px 12px rgba(45,198,83,0.3)",
             }}>
-              <span style={{ color: "#fff", fontFamily: "'Syne', sans-serif", fontSize: 14, fontWeight: 900, letterSpacing: "-0.02em" }}>NSS</span>
+              <span style={{ color: "#fff", fontFamily: "'Onest', sans-serif", fontSize: 14, fontWeight: 900, letterSpacing: "-0.02em" }}>NSS</span>
             </div>
             <div>
-              <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 20, fontWeight: 800, color: TEXT, lineHeight: 1.1 }}>
+              <div style={{ fontFamily: "'Onest', sans-serif", fontSize: 20, fontWeight: 800, color: TEXT, lineHeight: 1.1 }}>
                 <span style={{ color: NSS_GREEN }}>NSS</span>
               </div>
-              <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.12em", color: MUTED, textTransform: "uppercase", lineHeight: 1 }}>
-                New Solar System
+              <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: "var(--tracking-caps-sm, 0.05em)", color: MUTED, textTransform: "uppercase", lineHeight: 1 }}>
+                {t("brand.taglineShort")}
               </div>
             </div>
           </Link>
 
-          {/* Desktop Nav */}
           <nav style={{ display: "flex", alignItems: "center", gap: 32 }} className="hidden-mobile">
             {navLinks.map((link) => (
               <Link
@@ -93,34 +114,17 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* Right side */}
           <div style={{ display: "flex", alignItems: "center", gap: 12 }} className="hidden-mobile">
-            {/* Language switcher */}
             <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-              {["NL", "EN"].map((l) => (
-                <button
-                  key={l}
-                  onClick={() => setLang(l)}
-                  style={{
-                    background: lang === l ? "rgba(45,198,83,0.1)" : "transparent",
-                    border: lang === l ? "1px solid rgba(45,198,83,0.4)" : "1px solid transparent",
-                    color: lang === l ? NSS_GREEN : MUTED,
-                    padding: "4px 8px",
-                    borderRadius: 4,
-                    fontSize: 12,
-                    fontWeight: 700,
-                    cursor: "pointer",
-                    letterSpacing: "0.05em",
-                    transition: "all 0.2s",
-                  }}
-                >
-                  {l}
-                </button>
-              ))}
+              {langBtn("uk", "UA")}
+              {langBtn("en", "EN")}
             </div>
             <Link
               to="/contact"
               style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
                 background: "linear-gradient(135deg, #2DC653, #1DA040)",
                 color: "#fff",
                 padding: "10px 22px",
@@ -130,17 +134,19 @@ export function Navbar() {
                 textDecoration: "none",
                 boxShadow: "0 4px 12px rgba(45,198,83,0.3)",
                 transition: "all 0.2s",
+                lineHeight: 1.35,
                 whiteSpace: "nowrap",
+                textAlign: "center",
               }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 6px 20px rgba(45,198,83,0.4)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(45,198,83,0.3)"; }}
             >
-              Gratis Offerte
+              {t("common.freeQuote")}
             </Link>
           </div>
 
-          {/* Mobile hamburger */}
           <button
+            type="button"
             onClick={() => setIsOpen(!isOpen)}
             style={{
               display: "none",
@@ -157,7 +163,6 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div style={{
           backgroundColor: "#fff",
@@ -165,6 +170,10 @@ export function Navbar() {
           padding: "20px 24px",
           boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
         }}>
+          <div style={{ display: "flex", gap: 4, marginBottom: 16 }}>
+            {langBtn("uk", "UA")}
+            {langBtn("en", "EN")}
+          </div>
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -197,7 +206,7 @@ export function Navbar() {
               textAlign: "center",
             }}
           >
-            Gratis Offerte
+            {t("common.freeQuote")}
           </Link>
         </div>
       )}

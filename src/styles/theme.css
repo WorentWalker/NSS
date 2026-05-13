@@ -2,6 +2,11 @@
 
 :root {
   --font-size: 16px;
+  /* Body + display: Cyrillic-safe stacks (Uk / En) */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", "Roboto", sans-serif;
+  --font-display: "Onest", var(--font-sans);
+  --tracking-caps-sm: 0.05em;
+  --tracking-caps-md: 0.058em;
   --background: #F6F9FC;
   --foreground: #0F172A;
   --card: #ffffff;
@@ -126,6 +131,16 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-wrap: break-word;
+  }
+
+  html:lang(uk) h1,
+  html:lang(uk) h2 {
+    text-wrap: balance;
   }
 
   /**

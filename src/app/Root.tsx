@@ -11,7 +11,7 @@ export function Root() {
   }, [pathname]);
 
   return (
-    <div style={{ fontFamily: "'Inter', sans-serif", backgroundColor: "#F6F9FC", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "#F6F9FC", minHeight: "100vh" }}>
       <Navbar />
       <main>
         <Outlet />
