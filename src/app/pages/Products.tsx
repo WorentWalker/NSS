@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import { Filter, Sun, Zap } from "lucide-react";
+import { Filter, Sun, Zap, Shield, ArrowRight, Sparkles } from "lucide-react";
 import { useI18n } from "../i18n";
+import { deyeProducts } from "../data/deyeProducts";
+import type { ProductDoc } from "../data/products";
+import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import nssProduct1 from "figma:asset/2c5afeeeadc1c10b241a86ed9503d116ea92e554.png";
+import nssProduct2 from "figma:asset/006bec9218f291152af2d36ed79cef9a6b00360a.png";
 import nssProduct3 from "figma:asset/95fb35ccae0a21c77bf67f3116e76442824da4a1.png";
+import nssEssImg from "figma:asset/ea61d0fe1462718c0219330a5459f4f6456c98e2.png";
 
 const NSS_GREEN = "#2DC653";
 const DARK_GREEN = "#1A9E35";
@@ -15,7 +20,7 @@ const BORDER = "#D4DEE9";
 const TEXT = "#0F172A";
 const MUTED = "#64748B";
 
-const allProducts = [
+const nssProducts: ProductDoc[] = [
   {
     id: "qsun-570",
     category: "solarPanels" as const,
@@ -30,8 +35,8 @@ const allProducts = [
     ],
     tagKeys: ["home.tagBifacial", "home.tagDoubleGlass", "home.tagIEC"],
     warranty: "15jr materiaal / 30jr vermogen",
-    highlight: "N-Type Mono 16BB",
     highlightKey: "hiNtype",
+    image: nssProduct2,
   },
   {
     id: "qsun-590",
@@ -47,9 +52,9 @@ const allProducts = [
     ],
     tagKeys: ["home.tagBifacial", "home.tagDoubleGlass", "home.tagIso"],
     warranty: "15jr materiaal / 30jr vermogen",
-    highlight: "Vlaggenschip Model",
     highlightKey: "hiFlagship",
     featured: true,
+    image: nssProduct2,
   },
   {
     id: "gw35k",
@@ -65,8 +70,8 @@ const allProducts = [
     ],
     tagKeys: ["home.tagThreePhase", "productsPage.ptagStringInv", "productsPage.ptagWifi4g"],
     warranty: "5jr standaard",
-    highlight: "Particulier & Zakelijk",
     highlightKey: "hiResCom",
+    image: nssProduct1,
   },
   {
     id: "gw60k",
@@ -82,8 +87,8 @@ const allProducts = [
     ],
     tagKeys: ["home.tagThreePhase", "productsPage.ptagAfciOpt", "productsPage.ptagRs485"],
     warranty: "5jr standaard",
-    highlight: "Medium Zakelijk",
     highlightKey: "hiMediumBiz",
+    image: nssProduct1,
   },
   {
     id: "gw80k",
@@ -99,9 +104,9 @@ const allProducts = [
     ],
     tagKeys: ["home.tagIp66", "productsPage.ptagSpdType2", "productsPage.ptagLan4g"],
     warranty: "5jr standaard",
-    highlight: "Top Prestatie",
     highlightKey: "hiTopPerf",
     featured: true,
+    image: nssProduct1,
   },
   {
     id: "qcl-5",
@@ -117,8 +122,8 @@ const allProducts = [
     ],
     tagKeys: ["productsPage.ptagRackMount", "productsPage.ptagBms", "productsPage.ptagWifiMon"],
     warranty: "10jr prestatie",
-    highlight: "Thuisopslag",
     highlightKey: "hiHomeStorage",
+    image: nssProduct3,
   },
   {
     id: "qcl-10",
@@ -134,9 +139,9 @@ const allProducts = [
     ],
     tagKeys: ["home.tagLfp", "productsPage.ptagStackable", "home.tag4g"],
     warranty: "10jr prestatie",
-    highlight: "Populaire Keuze",
     highlightKey: "hiPopular",
     featured: true,
+    image: nssProduct3,
   },
   {
     id: "qcl-261",
@@ -152,9 +157,9 @@ const allProducts = [
     ],
     tagKeys: ["home.tagIp54", "home.tagLfp", "home.tagThreePhase"],
     warranty: "8000+ cycli",
-    highlight: "Industrieel",
     highlightKey: "hiIndustrialUse",
     featured: true,
+    image: nssProduct3,
   },
   {
     id: "rochex-261",
@@ -170,8 +175,8 @@ const allProducts = [
     ],
     tagKeys: ["home.tagTuvCe", "home.tagLfp", "productsPage.ptagLiquidCoolShort"],
     warranty: "TÜV Gecertificeerd",
-    highlight: "EU Gecertificeerd",
     highlightKey: "hiEuCert",
+    image: nssProduct3,
   },
   {
     id: "rochex-5mwh",
@@ -187,15 +192,15 @@ const allProducts = [
     ],
     tagKeys: ["productsPage.hiUtilityScale", "productsPage.ptagTuvBadge", "productsPage.ptagBnefBadge"],
     warranty: "BNEF Tier 1",
-    highlight: "Utiliteitsschaal",
     highlightKey: "hiUtilityScale",
     featured: true,
+    image: nssEssImg,
   },
 ];
 
-type ProdDoc = (typeof allProducts)[number];
+const allProducts: ProductDoc[] = [...nssProducts, ...deyeProducts];
 
-const CATEGORY_ORDER: ReadonlyArray<"all" | ProdDoc["category"]> = [
+const CATEGORY_ORDER: ReadonlyArray<"all" | ProductDoc["category"]> = [
   "all",
   "solarPanels",
   "inverters",
@@ -224,6 +229,8 @@ function translateSpecLabel(label: string, t: (key: string) => string): string {
     Config: "productsPage.specCfg",
     "IP Niveau": "productsPage.specIp",
     Type: "productsPage.specTypeField",
+    Fase: "productsPage.specPhase",
+    Merk: "productsPage.specBrand",
     Net: "productsPage.specNet",
     Monitor: "productsPage.specMon",
   };
@@ -231,7 +238,10 @@ function translateSpecLabel(label: string, t: (key: string) => string): string {
   return path ? t(path) : label;
 }
 
-function warrantyForProduct(product: ProdDoc, t: (key: string) => string): string {
+function warrantyForProduct(product: ProductDoc, t: (key: string) => string): string {
+  if (product.id.startsWith("deye-")) {
+    return t("productsPage.wStd");
+  }
   switch (product.id) {
     case "qsun-570":
     case "qsun-590":
@@ -254,139 +264,112 @@ function warrantyForProduct(product: ProdDoc, t: (key: string) => string): strin
   }
 }
 
-function ProductCard({ product }: { product: ProdDoc }) {
+function ProductCard({ product }: { product: ProductDoc }) {
   const { t } = useI18n();
   const [hovered, setHovered] = useState(false);
+  const accentSoft = `${product.color}14`;
+  const accentBorder = `${product.color}33`;
+
   return (
-    <div
+    <article
+      className={`product-card${hovered ? " product-card--hover" : ""}${product.featured ? " product-card--featured" : ""}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{
-        backgroundColor: WHITE,
-        border: `1px solid ${hovered ? product.color + "66" : BORDER}`,
-        borderRadius: 16,
-        padding: 24,
-        transition: "all 0.3s",
-        boxShadow: hovered ? `0 8px 32px ${product.color}18` : "0 2px 8px rgba(0,0,0,0.05)",
-        position: "relative",
-        overflow: "hidden",
-        transform: hovered ? "translateY(-3px)" : "translateY(0)",
-      }}
+      style={{ "--card-accent": product.color } as React.CSSProperties}
     >
-      {product.featured && (
-        <div style={{
-          position: "absolute", top: 0, right: 0,
-          backgroundColor: NSS_GREEN,
-          color: "#fff",
-          fontSize: 10,
-          fontWeight: 700,
-          padding: "4px 12px",
-          borderRadius: "0 16px 0 8px",
-          letterSpacing: "0.05em",
-        }}>
-          {t("common.recommended")}
+      {product.image ? (
+        <div className="product-card__media">
+          <ImageWithFallback
+            src={product.image}
+            alt={product.name}
+            className="product-card__img"
+            loading="lazy"
+          />
+          <div className="product-card__media-shade" />
+          <div className="product-card__media-fade" />
+
+          <span className="product-card__category-pill">
+            {t(`productsPage.cats.${product.category}`)}
+          </span>
+
+          {product.featured && (
+            <span className="product-card__featured">
+              <Sparkles size={11} />
+              {t("common.recommended")}
+            </span>
+          )}
+
+          <span className="product-card__power-badge">{product.badge}</span>
+        </div>
+      ) : (
+        <div className="product-card__media product-card__media--empty">
+          <span className="product-card__category-pill">
+            {t(`productsPage.cats.${product.category}`)}
+          </span>
+          {product.featured && (
+            <span className="product-card__featured">
+              <Sparkles size={11} />
+              {t("common.recommended")}
+            </span>
+          )}
         </div>
       )}
 
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 20 }}>
-        <div>
-          <span style={{
-            fontSize: 10, fontWeight: 700, letterSpacing: "var(--tracking-caps-sm, 0.05em)", textTransform: "uppercase",
-            color: product.color, display: "block", marginBottom: 6,
-          }}>
-            {t(`productsPage.cats.${product.category}`)}
-          </span>
-          <h3 style={{ color: TEXT, fontSize: 14, fontWeight: 700, lineHeight: 1.4 }}>{product.name}</h3>
-          <p style={{ color: MUTED, fontSize: 12, marginTop: 4 }}>{t(`productsPage.${product.highlightKey}`)}</p>
-        </div>
-        <span style={{
-          backgroundColor: `${product.color}18`,
-          border: `1px solid ${product.color}55`,
-          borderRadius: 8,
-          padding: "6px 12px",
-          color: product.color,
-          fontSize: 14,
-          fontWeight: 800,
-          textAlign: "right",
-          flexShrink: 0,
-          marginLeft: 8,
-          alignSelf: "flex-start",
-        }}>
-          {product.badge}
-        </span>
-      </div>
+      <div className="product-card__body">
+        {!product.image && (
+          <span className="product-card__inline-badge">{product.badge}</span>
+        )}
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 16 }}>
-        {product.specs.map((spec) => (
-          <div key={spec.label} style={{
-            backgroundColor: SURFACE,
-            borderRadius: 8,
-            padding: "8px 12px",
-            border: `1px solid ${BORDER}`,
-          }}>
-            <div style={{ color: MUTED, fontSize: 10, marginBottom: 2 }}>{translateSpecLabel(spec.label, t)}</div>
-            <div style={{ color: TEXT, fontSize: 13, fontWeight: 700 }}>{spec.value}</div>
+        <header className="product-card__header">
+          {!product.image && product.featured && (
+            <span className="product-card__featured product-card__featured--inline">
+              <Sparkles size={11} />
+              {t("common.recommended")}
+            </span>
+          )}
+          {product.image && (
+            <p className="product-card__subtitle">{t(`productsPage.${product.highlightKey}`)}</p>
+          )}
+          <h3 className="product-card__title">{product.name}</h3>
+          {!product.image && (
+            <p className="product-card__subtitle">{t(`productsPage.${product.highlightKey}`)}</p>
+          )}
+        </header>
+
+        <dl className="product-card__specs">
+          {product.specs.map((spec) => (
+            <div key={spec.label} className="product-card__spec">
+              <dt>{translateSpecLabel(spec.label, t)}</dt>
+              <dd>{spec.value}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <div className="product-card__tags">
+          {product.tagKeys.slice(0, 3).map((tagKey) => (
+            <span key={tagKey} className="product-card__tag">
+              {t(tagKey)}
+            </span>
+          ))}
+        </div>
+
+        <footer className="product-card__footer">
+          <div className="product-card__warranty">
+            <Shield size={14} />
+            <span>{warrantyForProduct(product, t)}</span>
           </div>
-        ))}
+          <div className="product-card__actions">
+            <button type="button" className="product-card__btn-secondary">
+              {t("common.details")}
+            </button>
+            <Link to="/contact" className="product-card__btn-primary">
+              {t("common.quote")}
+              <ArrowRight size={14} />
+            </Link>
+          </div>
+        </footer>
       </div>
-
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 20 }}>
-        {product.tagKeys.map((tagKey) => (
-          <span key={tagKey} style={{
-            padding: "3px 8px",
-            backgroundColor: SURFACE,
-            border: `1px solid ${BORDER}`,
-            borderRadius: 4,
-            color: MUTED,
-            fontSize: 11,
-            fontWeight: 500,
-          }}>
-            {t(tagKey)}
-          </span>
-        ))}
-      </div>
-
-      <div style={{ borderTop: `1px solid ${BORDER}`, paddingTop: 16 }}>
-        <div style={{ color: MUTED, fontSize: 11, marginBottom: 12 }}>⚙ {warrantyForProduct(product, t)}</div>
-        <div style={{ display: "flex", gap: 10 }}>
-          <button type="button" style={{
-            flex: 1,
-            padding: "9px 0",
-            backgroundColor: "transparent",
-            border: `1px solid ${BORDER}`,
-            borderRadius: 6,
-            color: MUTED,
-            fontSize: 12,
-            fontWeight: 600,
-            cursor: "pointer",
-            transition: "all 0.2s",
-          }}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = TEXT; e.currentTarget.style.color = TEXT; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = BORDER; e.currentTarget.style.color = MUTED; }}
-          >
-            {t("common.details")}
-          </button>
-          <Link to="/contact" style={{
-            flex: 1,
-            padding: "9px 0",
-            background: `linear-gradient(135deg, #2DC653, #1DA040)`,
-            border: "none",
-            borderRadius: 6,
-            color: "#fff",
-            fontSize: 12,
-            fontWeight: 700,
-            cursor: "pointer",
-            textDecoration: "none",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            boxShadow: "0 3px 10px rgba(45,198,83,0.25)",
-          }}>
-            {t("common.quote")}
-          </Link>
-        </div>
-      </div>
-    </div>
+    </article>
   );
 }
 
@@ -534,7 +517,7 @@ export function Products() {
               {t("productsPage.resultsCount", { count: filtered.length })}
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 20 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 24 }}>
               {filtered.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -551,6 +534,278 @@ export function Products() {
       </div>
 
       <style>{`
+        .product-card {
+          --card-accent: #2DC653;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          border-radius: 22px;
+          overflow: hidden;
+          background: #fff;
+          border: 1px solid #D4DEE9;
+          box-shadow: none;
+          transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s;
+        }
+        .product-card--featured {
+          box-shadow: none;
+        }
+        .product-card--hover {
+          transform: translateY(-4px);
+          border-color: color-mix(in srgb, var(--card-accent) 35%, #D4DEE9);
+          box-shadow: none;
+        }
+
+        .product-card__media {
+          position: relative;
+          width: 100%;
+          height: 214px;
+          flex-shrink: 0;
+          overflow: hidden;
+          background:
+            radial-gradient(120% 90% at 50% 0%, color-mix(in srgb, var(--card-accent) 16%, #fff) 0%, transparent 58%),
+            linear-gradient(180deg, #f1f5f9 0%, #f8fafc 100%);
+        }
+        .product-card__media--empty {
+          height: 72px;
+        }
+        .product-card__img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .product-card--hover .product-card__img {
+          transform: scale(1.06);
+        }
+        .product-card__media-shade {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background:
+            linear-gradient(180deg, rgba(15, 23, 42, 0.12) 0%, transparent 28%),
+            linear-gradient(0deg, rgba(15, 23, 42, 0.18) 0%, transparent 42%);
+        }
+        .product-card__media-fade {
+          display: none;
+        }
+
+        .product-card__category-pill {
+          position: absolute;
+          top: 14px;
+          left: 14px;
+          z-index: 3;
+          padding: 5px 11px;
+          border-radius: 999px;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          color: #fff;
+          background: rgba(15, 23, 42, 0.42);
+          border: 1px solid rgba(255, 255, 255, 0.22);
+          backdrop-filter: blur(10px);
+        }
+        .product-card__featured {
+          position: absolute;
+          top: 14px;
+          right: 14px;
+          z-index: 3;
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          padding: 5px 11px;
+          border-radius: 999px;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          color: #fff;
+          background: linear-gradient(135deg, #2DC653, #1A9E35);
+          box-shadow: 0 4px 16px rgba(45, 198, 83, 0.38);
+        }
+        .product-card__featured--inline {
+          position: static;
+          align-self: flex-start;
+          margin-bottom: 10px;
+        }
+        .product-card__power-badge {
+          position: absolute;
+          left: 14px;
+          bottom: 14px;
+          z-index: 3;
+          padding: 8px 14px;
+          border-radius: 12px;
+          font-size: 16px;
+          font-weight: 800;
+          letter-spacing: -0.03em;
+          color: var(--card-accent);
+          background: rgba(255, 255, 255, 0.94);
+          border: 1px solid rgba(255, 255, 255, 0.8);
+          backdrop-filter: blur(12px);
+          box-shadow: none;
+        }
+
+        .product-card__body {
+          position: relative;
+          z-index: 2;
+          margin-top: 0;
+          padding: 14px 20px 20px;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          background: #fff;
+          border-radius: 0;
+          box-shadow: none;
+        }
+        .product-card__inline-badge {
+          align-self: flex-start;
+          margin-bottom: 10px;
+          padding: 6px 12px;
+          border-radius: 10px;
+          font-size: 14px;
+          font-weight: 800;
+          color: var(--card-accent);
+          background: color-mix(in srgb, var(--card-accent) 10%, #fff);
+          border: 1px solid color-mix(in srgb, var(--card-accent) 22%, #D4DEE9);
+        }
+        .product-card__header {
+          margin-bottom: 14px;
+        }
+        .product-card__subtitle {
+          margin: 4px 0 10px;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          color: var(--card-accent);
+        }
+        .product-card__title {
+          margin: 0 0 4px;
+          font-family: 'Onest', sans-serif;
+          font-size: 15px;
+          font-weight: 700;
+          line-height: 1.35;
+          letter-spacing: -0.02em;
+          color: #0F172A;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+
+        .product-card__specs {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1px;
+          margin: 0 0 14px;
+          padding: 0;
+          border-radius: 14px;
+          overflow: hidden;
+          border: 1px solid #D4DEE9;
+          background: #D4DEE9;
+        }
+        .product-card__spec {
+          margin: 0;
+          padding: 11px 12px;
+          background: #F8FAFC;
+        }
+        .product-card__spec:first-child {
+          background: color-mix(in srgb, var(--card-accent) 7%, #fff);
+        }
+        .product-card__spec dt {
+          margin: 0 0 3px;
+          font-size: 10px;
+          font-weight: 500;
+          color: #64748B;
+        }
+        .product-card__spec dd {
+          margin: 0;
+          font-size: 13px;
+          font-weight: 700;
+          color: #0F172A;
+          letter-spacing: -0.01em;
+        }
+
+        .product-card__tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          margin-bottom: 16px;
+        }
+        .product-card__tag {
+          padding: 4px 10px;
+          border-radius: 999px;
+          font-size: 10px;
+          font-weight: 600;
+          color: #64748B;
+          background: #fff;
+          border: 1px solid #E2E8F0;
+        }
+
+        .product-card__footer {
+          margin-top: auto;
+          padding-top: 16px;
+          border-top: 1px solid #EEF2F8;
+        }
+        .product-card__warranty {
+          display: flex;
+          align-items: flex-start;
+          gap: 8px;
+          margin-bottom: 14px;
+          font-size: 11px;
+          line-height: 1.5;
+          color: #64748B;
+        }
+        .product-card__warranty svg {
+          flex-shrink: 0;
+          margin-top: 1px;
+          color: var(--card-accent);
+        }
+        .product-card__actions {
+          display: flex;
+          gap: 8px;
+        }
+        .product-card__btn-secondary,
+        .product-card__btn-primary {
+          flex: 1;
+          padding: 11px 0;
+          border-radius: 11px;
+          font-size: 12px;
+          font-weight: 700;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          border: none;
+        }
+        .product-card__btn-secondary {
+          background: #F8FAFC;
+          border: 1px solid #D4DEE9;
+          color: #0F172A;
+        }
+        .product-card__btn-secondary:hover {
+          background: #fff;
+          border-color: #94A3B8;
+          box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+        }
+        .product-card__btn-primary {
+          flex: 1.15;
+          color: #fff;
+          background: linear-gradient(135deg, #2DC653, #1DA040);
+          box-shadow: 0 4px 16px rgba(45, 198, 83, 0.32);
+        }
+        .product-card__btn-primary:hover {
+          transform: translateY(-1px);
+          background: linear-gradient(135deg, #34d058, #22a847);
+          box-shadow: 0 8px 22px rgba(45, 198, 83, 0.42);
+        }
+
         @media (max-width: 768px) {
           .products-layout { flex-direction: column !important; }
           .products-sidebar { width: 100% !important; }
