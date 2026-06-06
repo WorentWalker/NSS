@@ -7,7 +7,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-3.6K-SG05LP1-EU-AM2-PLUS',
     badge: '3.6kW',
     color: "#F97316",
-    image: "/products/deye/image25.png",
+    image: "/assets/deye/image25.png",
     specs: [
       { label: 'Vermogen', value: '3.6kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -24,7 +24,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-5K-SG05LP1-EU-AM2-P',
     badge: '5kW',
     color: "#F97316",
-    image: "/products/deye/image25.png",
+    image: "/assets/deye/image25.png",
     specs: [
       { label: 'Vermogen', value: '5kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -41,7 +41,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-6K-SG05LP1-EU-AM2-P',
     badge: '6kW',
     color: "#F97316",
-    image: "/products/deye/image25.png",
+    image: "/assets/deye/image25.png",
     specs: [
       { label: 'Vermogen', value: '6kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -58,7 +58,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-8K-SG05LP1-EU-AM2-P',
     badge: '8kW',
     color: "#F97316",
-    image: "/products/deye/image25.png",
+    image: "/assets/deye/image25.png",
     specs: [
       { label: 'Vermogen', value: '8kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -75,7 +75,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-10K-SG02LP1-EU-AM3-P',
     badge: '10kW',
     color: "#F97316",
-    image: "/products/deye/image26.png",
+    image: "/assets/deye/image26.png",
     specs: [
       { label: 'Vermogen', value: '10kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -92,7 +92,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-12K-SG02LP1-EU-AM3-P',
     badge: '12kW',
     color: "#F97316",
-    image: "/products/deye/image26.png",
+    image: "/assets/deye/image26.png",
     specs: [
       { label: 'Vermogen', value: '12kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -109,7 +109,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-16K-SG01LP1-EU',
     badge: '16kW',
     color: "#F97316",
-    image: "/products/deye/image27.png",
+    image: "/assets/deye/image27.png",
     specs: [
       { label: 'Vermogen', value: '16kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -126,7 +126,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-5K-SG05LP3-EU',
     badge: '5kW',
     color: "#F97316",
-    image: "/products/deye/image29.png",
+    image: "/assets/deye/image29.png",
     specs: [
       { label: 'Vermogen', value: '5kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -143,7 +143,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-6K-SG05LP3-EU',
     badge: '6kW',
     color: "#F97316",
-    image: "/products/deye/image29.png",
+    image: "/assets/deye/image29.png",
     specs: [
       { label: 'Vermogen', value: '6kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -160,7 +160,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-8K-SG05LP3-EU',
     badge: '8kW',
     color: "#F97316",
-    image: "/products/deye/image28.png",
+    image: "/assets/deye/image28.png",
     specs: [
       { label: 'Vermogen', value: '8kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -177,7 +177,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-10K-SG05LP3-EU',
     badge: '10kW',
     color: "#F97316",
-    image: "/products/deye/image28.png",
+    image: "/assets/deye/image28.png",
     specs: [
       { label: 'Vermogen', value: '10kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -194,7 +194,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-12K-SG05LP3-EU',
     badge: '12kW',
     color: "#F97316",
-    image: "/products/deye/image28.png",
+    image: "/assets/deye/image28.png",
     specs: [
       { label: 'Vermogen', value: '12kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -211,7 +211,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-15K-SG05LP3-EU',
     badge: '15kW',
     color: "#F97316",
-    image: "/products/deye/image30.png",
+    image: "/assets/deye/image30.png",
     specs: [
       { label: 'Vermogen', value: '15kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -228,7 +228,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-20K-SG05LP3-EU',
     badge: '20kW',
     color: "#F97316",
-    image: "/products/deye/image30.png",
+    image: "/assets/deye/image30.png",
     specs: [
       { label: 'Vermogen', value: '20kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -245,7 +245,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-10K-SG01HP3-EU-AM2',
     badge: '10kW',
     color: "#F97316",
-    image: "/products/deye/image1.png",
+    image: "/assets/deye/image1.png",
     specs: [
       { label: 'Vermogen', value: '10kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -262,7 +262,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-12K-SG01HP3-EU-AM2',
     badge: '12kW',
     color: "#F97316",
-    image: "/products/deye/image1.png",
+    image: "/assets/deye/image1.png",
     specs: [
       { label: 'Vermogen', value: '12kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -279,7 +279,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-15K-SG01HP3-EU-AM2',
     badge: '15kW',
     color: "#F97316",
-    image: "/products/deye/image1.png",
+    image: "/assets/deye/image1.png",
     specs: [
       { label: 'Vermogen', value: '15kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -296,7 +296,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-20K-SG01HP3-EU-AM2',
     badge: '20kW',
     color: "#F97316",
-    image: "/products/deye/image1.png",
+    image: "/assets/deye/image1.png",
     specs: [
       { label: 'Vermogen', value: '20kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -313,7 +313,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-30K-SG02HP3-EU-AM3',
     badge: '30kW',
     color: "#F97316",
-    image: "/products/deye/image31.png",
+    image: "/assets/deye/image31.png",
     specs: [
       { label: 'Vermogen', value: '30kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -330,7 +330,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-50K-SG01HP3-EU-BM4',
     badge: '50kW',
     color: "#F97316",
-    image: "/products/deye/image31.png",
+    image: "/assets/deye/image31.png",
     specs: [
       { label: 'Vermogen', value: '50kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -347,7 +347,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-80K-SG02HP3-EU-EM6',
     badge: '80kW',
     color: "#F97316",
-    image: "/products/deye/image32.png",
+    image: "/assets/deye/image32.png",
     specs: [
       { label: 'Vermogen', value: '80kW' },
       { label: 'Type', value: 'Hybrid' },
@@ -364,7 +364,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SE-G5.1 Pro-B',
     badge: '5.1kWh',
     color: "#6366F1",
-    image: "/products/deye/image4.png",
+    image: "/assets/deye/image4.png",
     specs: [
       { label: 'Capaciteit', value: '5.1kWh' },
       { label: 'Chemie', value: 'LFP' },
@@ -380,7 +380,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SE-F5Pro-C',
     badge: '5.1kWh',
     color: "#6366F1",
-    image: "/products/deye/image16.png",
+    image: "/assets/deye/image16.png",
     specs: [
       { label: 'Capaciteit', value: '5.1kWh' },
       { label: 'Type', value: 'Modulair' },
@@ -396,7 +396,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SE-F12-C',
     badge: '12kWh',
     color: "#6366F1",
-    image: "/products/deye/image16.png",
+    image: "/assets/deye/image16.png",
     specs: [
       { label: 'Capaciteit', value: '12kWh' },
       { label: 'Type', value: 'Modulair' },
@@ -412,7 +412,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SE-F16-C',
     badge: '16kWh',
     color: "#6366F1",
-    image: "/products/deye/image19.png",
+    image: "/assets/deye/image19.png",
     specs: [
       { label: 'Capaciteit', value: '16kWh' },
       { label: 'Type', value: 'Modulair' },
@@ -428,7 +428,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye AI-W5.1-PDU1-B-BASE',
     badge: '5kWh',
     color: "#6366F1",
-    image: "/products/deye/image12.png",
+    image: "/assets/deye/image12.png",
     specs: [
       { label: 'Capaciteit', value: '5kWh' },
       { label: 'Type', value: 'Modulair' },
@@ -444,7 +444,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye AI-W5.1-B',
     badge: '5.1kWh',
     color: "#6366F1",
-    image: "/products/deye/image7.png",
+    image: "/assets/deye/image7.png",
     specs: [
       { label: 'Capaciteit', value: '5.1kWh' },
       { label: 'Type', value: 'Modulair' },
@@ -460,7 +460,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye GB-LBS+BASE',
     badge: 'Control',
     color: "#6366F1",
-    image: "/products/deye/image10.png",
+    image: "/assets/deye/image10.png",
     specs: [
       { label: 'Capaciteit', value: 'Control' },
       { label: 'Type', value: 'Modulair' },
@@ -476,7 +476,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye GB-LBS-Pro+Base',
     badge: '4kWh',
     color: "#6366F1",
-    image: "/products/deye/image10.png",
+    image: "/assets/deye/image10.png",
     specs: [
       { label: 'Capaciteit', value: '4kWh' },
       { label: 'Type', value: 'Modulair' },
@@ -492,7 +492,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye GB-LM4.0',
     badge: 'Control',
     color: "#6366F1",
-    image: "/products/deye/image10.png",
+    image: "/assets/deye/image10.png",
     specs: [
       { label: 'Capaciteit', value: 'Control' },
       { label: 'Type', value: 'Modulair' },
@@ -508,7 +508,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye GB-L-Pro-Pack4.1-2',
     badge: '4kWh',
     color: "#6366F1",
-    image: "/products/deye/image20.png",
+    image: "/assets/deye/image20.png",
     specs: [
       { label: 'Capaciteit', value: '4kWh' },
       { label: 'Type', value: 'Modulair' },
@@ -524,7 +524,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye GB-W',
     badge: '30kW',
     color: "#F97316",
-    image: "/products/deye/image33.png",
+    image: "/assets/deye/image33.png",
     specs: [
       { label: 'Vermogen', value: '30kW' },
       { label: 'Type', value: 'Accessory' },
@@ -540,7 +540,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye BOS-G-PDU-2',
     badge: 'Control',
     color: "#6366F1",
-    image: "/products/deye/image2.png",
+    image: "/assets/deye/image2.png",
     specs: [
       { label: 'Capaciteit', value: 'Control' },
       { label: 'Type', value: 'Rack' },
@@ -556,7 +556,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye BOS-G-pack 5,1',
     badge: '5.12kWh',
     color: "#6366F1",
-    image: "/products/deye/image5.png",
+    image: "/assets/deye/image5.png",
     specs: [
       { label: 'Capaciteit', value: '5.12kWh' },
       { label: 'Chemie', value: 'LFP' },
@@ -572,7 +572,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye 3U-HRACK',
     badge: 'Rack',
     color: "#6366F1",
-    image: "/products/deye/image3.png",
+    image: "/assets/deye/image3.png",
     specs: [
       { label: 'Capaciteit', value: 'Rack' },
       { label: 'Type', value: 'Rack' },
@@ -588,7 +588,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye BOS-B-PDU-2',
     badge: 'Control',
     color: "#6366F1",
-    image: "/products/deye/image17.png",
+    image: "/assets/deye/image17.png",
     specs: [
       { label: 'Capaciteit', value: 'Control' },
       { label: 'Chemie', value: 'LFP' },
@@ -604,7 +604,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye BOS-B-Pack14.3',
     badge: '14.3kWh',
     color: "#6366F1",
-    image: "/products/deye/image18.png",
+    image: "/assets/deye/image18.png",
     specs: [
       { label: 'Capaciteit', value: '14.3kWh' },
       { label: 'Chemie', value: 'LFP' },
@@ -620,7 +620,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye BOS-B-PDU-2-A',
     badge: '16kWh',
     color: "#6366F1",
-    image: "/products/deye/image17.png",
+    image: "/assets/deye/image17.png",
     specs: [
       { label: 'Capaciteit', value: '16kWh' },
       { label: 'Type', value: 'Controller' },
@@ -636,7 +636,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye BOS-B-Pack16-A3',
     badge: '16kWh',
     color: "#6366F1",
-    image: "/products/deye/image18.png",
+    image: "/assets/deye/image18.png",
     specs: [
       { label: 'Capaciteit', value: '16kWh' },
       { label: 'Chemie', value: 'LFP' },
@@ -652,7 +652,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye BOS-B Rack',
     badge: '16kWh',
     color: "#6366F1",
-    image: "/products/deye/image24.png",
+    image: "/assets/deye/image24.png",
     specs: [
       { label: 'Capaciteit', value: '16kWh' },
       { label: 'Type', value: 'Rack' },
@@ -668,7 +668,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-STS500L',
     badge: '500kW',
     color: "#F97316",
-    image: "/products/deye/image21.png",
+    image: "/assets/deye/image21.png",
     specs: [
       { label: 'Vermogen', value: '500kW' },
       { label: 'Type', value: 'Static Transfer Switch' },
@@ -683,7 +683,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-MPPT-L01-EU-AM8',
     badge: 'MPPT',
     color: "#F97316",
-    image: "/products/deye/image22.png",
+    image: "/assets/deye/image22.png",
     specs: [
       { label: 'Vermogen', value: 'MPPT' },
       { label: 'Type', value: 'MPPT module' },
@@ -698,7 +698,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye SUN-125K-PCSL01HP3',
     badge: '125kW',
     color: "#F97316",
-    image: "/products/deye/image23.png",
+    image: "/assets/deye/image23.png",
     specs: [
       { label: 'Vermogen', value: '125kW' },
       { label: 'Type', value: 'PCS module' },
@@ -713,7 +713,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye GE-F60（EU） 61.44Kwh 614.4V 100Ah',
     badge: '60kWh',
     color: "#8B5CF6",
-    image: "/products/deye/image6.png",
+    image: "/assets/deye/image6.png",
     specs: [
       { label: 'Capaciteit', value: '60kWh' },
       { label: 'Type', value: 'Cabinet' },
@@ -729,7 +729,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye GE-F120-2H2',
     badge: '—',
     color: "#8B5CF6",
-    image: "/products/deye/image9.png",
+    image: "/assets/deye/image9.png",
     specs: [
       { label: 'Capaciteit', value: '—' },
       { label: 'Type', value: 'Cabinet' },
@@ -745,7 +745,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye Deye GE-F240+Hybrid125k(NEW)',
     badge: '240kWh',
     color: "#8B5CF6",
-    image: "/products/deye/image34.png",
+    image: "/assets/deye/image34.png",
     specs: [
       { label: 'Capaciteit', value: '240kWh' },
       { label: 'Type', value: 'Cabinet' },
@@ -761,7 +761,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye MS-GS215-2H3',
     badge: '215kWh',
     color: "#8B5CF6",
-    image: "/products/deye/image8.png",
+    image: "/assets/deye/image8.png",
     specs: [
       { label: 'Capaciteit', value: '215kWh' },
       { label: 'Type', value: 'Cabinet' },
@@ -777,7 +777,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye MS-TS500-2-A',
     badge: '500kW',
     color: "#8B5CF6",
-    image: "/products/deye/image14.png",
+    image: "/assets/deye/image14.png",
     specs: [
       { label: 'Capaciteit', value: '500kW' },
       { label: 'Chemie', value: 'LFP' },
@@ -793,7 +793,7 @@ export const deyeProducts: ProductDoc[] = [
     name: 'Deye EMS1000',
     badge: 'EMS',
     color: "#8B5CF6",
-    image: "/products/deye/image15.png",
+    image: "/assets/deye/image15.png",
     specs: [
       { label: 'Capaciteit', value: 'EMS' },
       { label: 'Type', value: 'Cabinet' },
