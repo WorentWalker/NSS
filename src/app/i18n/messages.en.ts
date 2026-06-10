@@ -187,10 +187,34 @@ export const enMessages = {
 
     projectsOverline: "Case studies",
     projectsTitle: "DELIVERED PROJECTS",
+    projectsSubtitle: "Real industrial and commercial installations across Ukraine — engineered, supplied and commissioned by NSS.",
     caseView: "View case study",
     projCatBusiness: "Commercial",
     projCatIndustrial: "Industrial",
     projCatResidential: "Residential",
+    projCatAgro: "Agribusiness",
+    projectKolodneTitle: "Metal tile manufacturing plant",
+    projectKolodneLocation: "Kolodne, Ukraine",
+    projectKolodneDesc:
+      "Rooftop solar PV on a corrugated metal profile roof at a metal tile production facility — designed for high self-consumption, professional cable routing and long-term industrial operation.",
+    projectKolodneTag0: "Industrial rooftop",
+    projectKolodneTag1: "Trapezoidal metal roof",
+    projectKolodneTag2: "Turnkey delivery",
+    projectKolodneCta: "Discuss your project",
+    projectKolodneAltPhoto: "Kolodne plant — photo {{n}}",
+    projectKolodneAltVideo: "Kolodne plant — installation video",
+    projectGalleryPrev: "Previous photo",
+    projectGalleryNext: "Next photo",
+    projectGalleryCounter: "{{current}} / {{total}}",
+    projectMaminSyrTitle: "Mamin Syr 🧀",
+    projectMaminSyrLocation: "Ukraine",
+    projectMaminSyrDesc:
+      "Rooftop solar for a cheese dairy — from panel delivery and mounting rails to a full array on corrugated metal roofing, built for stable farm operations.",
+    projectMaminSyrTag0: "Food production",
+    projectMaminSyrTag1: "Corrugated roof",
+    projectMaminSyrTag2: "Turnkey install",
+    projectMaminSyrCta: "Discuss your project",
+    projectMaminSyrAltPhoto: "Mamin Syr dairy — photo {{n}}",
 
     specsOverline: "Technical data",
     specsTitle: "SYSTEM PARAMETERS",
@@ -428,6 +452,47 @@ export const enMessages = {
     hiDeyeBatHv: "High voltage battery",
     hiDeyeCiEss: "Commercial & industrial ESS",
     hiDeyeAccessory: "System accessory",
+    modalSku: "SKU",
+    descFallback:
+      "{{name}} — a {{category}} solution from the NSS catalogue. Contact our engineers for sizing, compatibility checks and a tailored quote.",
+    desc: {
+      hiNtype:
+        "N-type monocrystalline module with 16BB busbars and bifacial gain — engineered for high irradiance rooftops and long performance warranties.",
+      hiFlagship:
+        "Flagship Q-Sun module delivering top-tier efficiency in the 590W class with bifacial architecture and double-glass durability.",
+      hiResCom:
+        "GoodWe string inverter sized for residential and light commercial rooftops — high conversion efficiency with multi-MPPT flexibility.",
+      hiMediumBiz:
+        "Mid-scale three-phase inverter for growing commercial loads — six MPPT channels and robust IP66 enclosure for outdoor installs.",
+      hiTopPerf:
+        "Performance leader in the GoodWe SMT range — maximum AC output with enterprise-grade monitoring and protection.",
+      hiHomeStorage:
+        "Compact LFP rack battery for home backup — stackable architecture with integrated BMS and remote supervision.",
+      hiPopular:
+        "Customer-favourite 10 kWh LFP cabinet — proven cycle life, scalable capacity and Wi-Fi/4G monitoring ready.",
+      hiIndustrialUse:
+        "Industrial-grade liquid-cooled ESS skid — high power density for factories, warehouses and C&I peak shaving.",
+      hiEuCert:
+        "EU-conformity battery system with TÜV certification — liquid cooling and LFP chemistry for safe long-duration storage.",
+      hiUtilityScale:
+        "Containerised 5 MWh utility storage with SCADA integration — designed for grid-scale solar + storage hybrids.",
+      hiDeyeInvSingle:
+        "Single-phase Deye hybrid inverter — solar, grid and battery blending for residential self-consumption and outage resilience.",
+      hiDeyeInvThreeLv:
+        "Three-phase low-voltage Deye hybrid — multi-MPPT solar input with LV battery coupling for homes and small business.",
+      hiDeyeInvThreeHv:
+        "Three-phase high-voltage Deye hybrid — optimised for HV battery strings and larger commercial PV arrays.",
+      hiDeyeInvHybrid:
+        "Versatile Deye hybrid inverter platform — flexible AC/DC coupling for retrofit and new-build solar + storage.",
+      hiDeyeBatLv:
+        "Deye low-voltage LFP battery module — modular expansion, CAN/RS485 BMS communication and long cycle life.",
+      hiDeyeBatHv:
+        "Deye high-voltage battery stack — higher string voltage for reduced cabling losses in commercial ESS.",
+      hiDeyeCiEss:
+        "Commercial & industrial Deye ESS cabinet — scalable power and energy for peak shaving, UPS paths and tariff optimisation.",
+      hiDeyeAccessory:
+        "Genuine Deye system accessory — meters, comms gateways and integration hardware for complete hybrid stacks.",
+    },
   },
   solutionsPage: {
     titleLead: "",

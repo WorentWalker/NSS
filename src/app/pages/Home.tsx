@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router";
 import { useI18n } from "../i18n";
+import { realizedProjects, type RealizedProject } from "../data/realizedProjects";
+import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import {
   ArrowRight, Play, Zap, Battery, Shield, Wifi, Wrench, Building2,
-  ChevronRight, MapPin, CheckCircle2, TrendingUp, Clock,
+  ChevronRight, ChevronLeft, MapPin, CheckCircle2, TrendingUp, Clock,
   Search, PenTool, Package, Settings, Sun
 } from "lucide-react";
 import nssProduct1 from "figma:asset/2c5afeeeadc1c10b241a86ed9503d116ea92e554.png";
@@ -208,44 +210,321 @@ function ShowcaseCard({ name, type, badge, color, specs, tags, warranty, quoteLa
   );
 }
 
-// ─── Project Card ─────────────────────────────────────────────────────────────
-interface ProjectCardProps { title: string; category: string; location: string; img: string; capacity: string; desc: string; caseLabel: string }
-function ProjectCard({ title, category, location, img, capacity, desc, caseLabel }: ProjectCardProps) {
-  const [hovered, setHovered] = useState(false);
+// ─── Realized project showcase ────────────────────────────────────────────────
+function RealizedProjectShowcase({ project }: { project: RealizedProject }) {
+  const { t } = useI18n();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const thumbsRef = useRef<HTMLDivElement>(null);
+  const { media } = project;
+  const active = media[activeIndex];
+  const tags = project.tagKeys.map((key) => t(key));
+
+  const goPrev = () => setActiveIndex((i) => (i === 0 ? media.length - 1 : i - 1));
+  const goNext = () => setActiveIndex((i) => (i === media.length - 1 ? 0 : i + 1));
+
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [project.id]);
+
+  useEffect(() => {
+    const strip = thumbsRef.current;
+    if (!strip) return;
+    const thumb = strip.children[activeIndex] as HTMLElement | undefined;
+    thumb?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  }, [activeIndex, project.id]);
+
+  const mediaAlt = active.type === "video" && project.altVideoKey
+    ? t(project.altVideoKey)
+    : t(project.altPhotoKey, { n: activeIndex + 1 });
+
+  const thumbLabel = (item: typeof active, i: number) =>
+    item.type === "video" && project.altVideoKey
+      ? t(project.altVideoKey)
+      : t(project.altPhotoKey, { n: i + 1 });
+
   return (
-    <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{
-        backgroundColor: WHITE,
-        border: `1px solid ${hovered ? NSS_GREEN + "55" : BORDER}`,
-        borderRadius: 16, overflow: "hidden",
-        transition: "all 0.3s",
-        boxShadow: hovered ? "0 8px 40px rgba(45,198,83,0.12)" : "0 2px 8px rgba(0,0,0,0.05)",
-        transform: hovered ? "translateY(-4px)" : "translateY(0)",
-      }}
-    >
-      <div style={{ height: 200, position: "relative", overflow: "hidden" }}>
-        <img src={img} alt={title} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.4s", transform: hovered ? "scale(1.05)" : "scale(1)" }} />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.3))" }} />
-        <div style={{ position: "absolute", top: 12, left: 12 }}>
-          <span style={{ backgroundColor: NSS_GREEN, color: "#fff", padding: "4px 10px", borderRadius: 4, fontSize: 11, fontWeight: 700 }}>{category}</span>
+    <div className="realized-project">
+      <div className="realized-project__layout">
+        <div className="realized-project__gallery">
+          <div className="realized-project__viewer">
+            {active.type === "video" ? (
+              <video
+                key={active.src}
+                src={active.src}
+                poster={active.poster}
+                controls
+                playsInline
+                className="realized-project__media"
+              />
+            ) : (
+              <ImageWithFallback
+                key={active.src}
+                src={active.src}
+                alt={mediaAlt}
+                className="realized-project__media"
+              />
+            )}
+
+            <button type="button" onClick={goPrev} aria-label={t("home.projectGalleryPrev")} className="realized-project__nav realized-project__nav--prev">
+              <ChevronLeft size={20} />
+            </button>
+            <button type="button" onClick={goNext} aria-label={t("home.projectGalleryNext")} className="realized-project__nav realized-project__nav--next">
+              <ChevronRight size={20} />
+            </button>
+
+            <span className="realized-project__counter">
+              {t("home.projectGalleryCounter", { current: activeIndex + 1, total: media.length })}
+            </span>
+          </div>
+
+          <div className="realized-project__thumbs" ref={thumbsRef}>
+            {media.map((item, i) => (
+              <button
+                key={`${project.id}-${i}`}
+                type="button"
+                onClick={() => setActiveIndex(i)}
+                aria-label={thumbLabel(item, i)}
+                aria-current={activeIndex === i ? "true" : undefined}
+                className={`realized-project__thumb${activeIndex === i ? " realized-project__thumb--active" : ""}`}
+              >
+                <ImageWithFallback
+                  src={item.type === "video" ? item.poster : item.src}
+                  alt=""
+                  loading="lazy"
+                />
+                {item.type === "video" && (
+                  <span className="realized-project__thumb-play">
+                    <Play size={14} fill="#fff" color="#fff" />
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
         </div>
-        <div style={{ position: "absolute", bottom: 12, right: 12 }}>
-          <span style={{ backgroundColor: "rgba(255,255,255,0.9)", color: TEXT, padding: "4px 10px", borderRadius: 4, fontSize: 11, fontWeight: 700 }}>{capacity}</span>
+
+        <div className="realized-project__info">
+          <span style={{
+            alignSelf: "flex-start",
+            backgroundColor: "rgba(45,198,83,0.1)",
+            border: "1px solid rgba(45,198,83,0.25)",
+            color: DARK_GREEN,
+            padding: "5px 12px",
+            borderRadius: 999,
+            fontSize: 11,
+            fontWeight: 700,
+            letterSpacing: "0.04em",
+            textTransform: "uppercase",
+            marginBottom: 16,
+          }}>
+            {t(project.categoryKey)}
+          </span>
+
+          <h3 style={{
+            fontFamily: "'Onest', sans-serif",
+            fontSize: "clamp(22px, 3vw, 28px)",
+            fontWeight: 800,
+            color: TEXT,
+            lineHeight: 1.25,
+            marginBottom: 12,
+          }}>
+            {t(project.titleKey)}
+          </h3>
+
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 20 }}>
+            <MapPin size={15} color={NSS_GREEN} />
+            <span style={{ color: MUTED, fontSize: 14, fontWeight: 500 }}>{t(project.locationKey)}</span>
+          </div>
+
+          <p style={{ color: MUTED, fontSize: 15, lineHeight: 1.7, marginBottom: 24, flex: 1 }}>
+            {t(project.descKey)}
+          </p>
+
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 28 }}>
+            {tags.map((tag) => (
+              <span key={tag} style={{
+                padding: "6px 12px",
+                borderRadius: 999,
+                fontSize: 12,
+                fontWeight: 600,
+                color: MUTED,
+                backgroundColor: SURFACE,
+                border: `1px solid ${BORDER}`,
+              }}>
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <Link
+            to="/contact"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+              alignSelf: "flex-start",
+              background: "linear-gradient(135deg, #2DC653, #1DA040)",
+              color: "#fff",
+              padding: "12px 22px",
+              borderRadius: 10,
+              fontSize: 14,
+              fontWeight: 700,
+              textDecoration: "none",
+              boxShadow: "0 4px 16px rgba(45, 198, 83, 0.32)",
+              transition: "transform 0.2s, box-shadow 0.2s",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-1px)";
+              e.currentTarget.style.boxShadow = "0 8px 22px rgba(45, 198, 83, 0.42)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 4px 16px rgba(45, 198, 83, 0.32)";
+            }}
+          >
+            {t(project.ctaKey)} <ArrowRight size={16} />
+          </Link>
         </div>
       </div>
-      <div style={{ padding: 20 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 8 }}>
-          <MapPin size={12} color={NSS_GREEN} />
-          <span style={{ color: MUTED, fontSize: 12 }}>{location}</span>
-        </div>
-        <h3 style={{ color: TEXT, fontSize: 15, fontWeight: 700, marginBottom: 8 }}>{title}</h3>
-        <p style={{ color: MUTED, fontSize: 13, lineHeight: 1.6, marginBottom: 16 }}>{desc}</p>
-        <button type="button" style={{ display: "inline-flex", alignItems: "center", gap: 6, border: `1px solid ${NSS_GREEN}`, backgroundColor: "transparent", color: NSS_GREEN, padding: "8px 16px", borderRadius: 6, fontSize: 12, fontWeight: 700, cursor: "pointer" }}>
-          {caseLabel} <ChevronRight size={12} />
-        </button>
-      </div>
+
+      <style>{`
+        .realized-project {
+          max-width: 100%;
+          background-color: ${WHITE};
+          border: 1px solid ${BORDER};
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+        }
+        .realized-project__layout {
+          display: grid;
+          grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+          gap: 0;
+        }
+        .realized-project__gallery {
+          min-width: 0;
+          padding: 20px;
+          background-color: ${SURFACE};
+          border-right: 1px solid ${BORDER};
+          overflow: hidden;
+        }
+        .realized-project__viewer {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 4 / 3;
+          max-height: 420px;
+          margin-bottom: 12px;
+          border-radius: 14px;
+          overflow: hidden;
+          background-color: #fff;
+        }
+        .realized-project__media {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          background-color: #fff;
+        }
+        video.realized-project__media {
+          background-color: #000;
+        }
+        .realized-project__nav {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          border: none;
+          background-color: rgba(255, 255, 255, 0.92);
+          color: ${TEXT};
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 2px 10px rgba(15, 23, 42, 0.15);
+          z-index: 2;
+        }
+        .realized-project__nav--prev { left: 10px; }
+        .realized-project__nav--next { right: 10px; }
+        .realized-project__counter {
+          position: absolute;
+          bottom: 10px;
+          right: 10px;
+          z-index: 2;
+          padding: 4px 10px;
+          border-radius: 999px;
+          font-size: 11px;
+          font-weight: 700;
+          color: #fff;
+          background-color: rgba(15, 23, 42, 0.55);
+          backdrop-filter: blur(6px);
+        }
+        .realized-project__info {
+          min-width: 0;
+          padding: 32px 28px;
+          display: flex;
+          flex-direction: column;
+        }
+        .realized-project__thumbs {
+          display: flex;
+          gap: 8px;
+          width: 100%;
+          min-width: 0;
+          max-width: 100%;
+          overflow-x: auto;
+          overflow-y: hidden;
+          padding-bottom: 4px;
+          scroll-snap-type: x proximity;
+          -webkit-overflow-scrolling: touch;
+        }
+        .realized-project__thumbs::-webkit-scrollbar {
+          height: 6px;
+        }
+        .realized-project__thumbs::-webkit-scrollbar-thumb {
+          background: ${BORDER};
+          border-radius: 999px;
+        }
+        .realized-project__thumb {
+          position: relative;
+          flex: 0 0 72px;
+          width: 72px;
+          height: 54px;
+          padding: 0;
+          border: 2px solid ${BORDER};
+          border-radius: 8px;
+          overflow: hidden;
+          cursor: pointer;
+          background: #fff;
+          opacity: 0.78;
+          scroll-snap-align: start;
+          transition: border-color 0.2s, opacity 0.2s, transform 0.2s;
+        }
+        .realized-project__thumb img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        .realized-project__thumb--active {
+          border-color: ${NSS_GREEN};
+          opacity: 1;
+          transform: scale(1.04);
+        }
+        .realized-project__thumb-play {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(15, 23, 42, 0.38);
+          pointer-events: none;
+        }
+        @media (max-width: 900px) {
+          .realized-project__layout { grid-template-columns: 1fr !important; }
+          .realized-project__gallery { border-right: none !important; border-bottom: 1px solid ${BORDER}; }
+        }
+      `}</style>
     </div>
   );
 }
@@ -579,21 +858,44 @@ function FeaturedProductsSection() {
 // ─── PROJECTS ─────────────────────────────────────────────────────────────────
 function ProjectsSection() {
   const { t } = useI18n();
-  const projects = [
-    { title: "480 кВт / 964 кВт·год — Україна", category: t("home.projCatBusiness"), location: "Україна 🇺🇦", img: "https://images.unsplash.com/photo-1674252281682-2eec258cfa30?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600", capacity: "480 кВт / 964 кВт·год", desc: t("home.commercialDesc") },
-    { title: "125 кВт / 261 кВт·год — Словакія", category: t("home.projCatIndustrial"), location: "Словакія 🇸🇰", img: "https://images.unsplash.com/photo-1726866492047-7f9516558c6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600", capacity: "125 кВт / 261 кВт·год", desc: t("home.industrialDesc") },
-    { title: `${t("home.greenTitle")} — Україна`, category: t("home.projCatResidential"), location: "Україна 🇺🇦", img: "https://images.unsplash.com/photo-1641760078754-a2d10d7ca990?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600", capacity: "10 кВт·год", desc: t("home.greenDesc") },
-  ];
+  const [activeProjectId, setActiveProjectId] = useState(realizedProjects[0].id);
+  const activeProject = realizedProjects.find((p) => p.id === activeProjectId) ?? realizedProjects[0];
 
   return (
     <section style={{ backgroundColor: WHITE, padding: "80px 24px" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <SectionTitle overline={t("home.projectsOverline")} title={t("home.projectsTitle")} center />
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
-          {projects.map((p) => (
-            <ProjectCard key={p.title} {...p} caseLabel={t("home.caseView")} />
+        <SectionTitle
+          overline={t("home.projectsOverline")}
+          title={t("home.projectsTitle")}
+          subtitle={t("home.projectsSubtitle")}
+          center
+        />
+
+        <div style={{ display: "flex", justifyContent: "center", gap: 8, marginBottom: 28, flexWrap: "wrap" }}>
+          {realizedProjects.map((project) => (
+            <button
+              key={project.id}
+              type="button"
+              onClick={() => setActiveProjectId(project.id)}
+              style={{
+                padding: "10px 20px",
+                borderRadius: 999,
+                border: `1px solid ${activeProjectId === project.id ? NSS_GREEN : BORDER}`,
+                backgroundColor: activeProjectId === project.id ? "rgba(45,198,83,0.1)" : WHITE,
+                color: activeProjectId === project.id ? DARK_GREEN : MUTED,
+                fontSize: 14,
+                fontWeight: activeProjectId === project.id ? 700 : 500,
+                cursor: "pointer",
+                transition: "all 0.2s",
+                boxShadow: activeProjectId === project.id ? "0 2px 10px rgba(45,198,83,0.12)" : "none",
+              }}
+            >
+              {t(project.titleKey)}
+            </button>
           ))}
         </div>
+
+        <RealizedProjectShowcase key={activeProject.id} project={activeProject} />
       </div>
     </section>
   );
