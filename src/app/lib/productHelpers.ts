@@ -26,18 +26,22 @@ export function translateSpecLabel(label: string, t: (key: string) => string): s
     Merk: "productsPage.specBrand",
     Net: "productsPage.specNet",
     Monitor: "productsPage.specMon",
+    Afmetingen: "productsPage.specDims",
   };
   const path = m[label];
   return path ? t(path) : label;
 }
 
 export function warrantyForProduct(product: ProductDoc, t: (key: string) => string): string {
+  if (!product.id) {
+    return product.warranty;
+  }
   if (product.id.startsWith("deye-")) {
     return t("productsPage.wStd");
   }
   switch (product.id) {
-    case "qsun-570":
-    case "qsun-590":
+    case "qsun-620":
+    case "qsun-720":
       return t("productsPage.wMat");
     case "gw35k":
     case "gw60k":

@@ -68,6 +68,30 @@ export const enMessages = {
     tickerItem4: "BNEF Tier 1",
     tickerItem5: "TÜV Certified",
     tickerItem6: "IEC 61215",
+    tickerItem7: "MARSTEK",
+
+    marstekBadge: "MARSTEK · Plug-in backup power",
+    marstekTitle: "MARSTEK VENUS E3.0 — backup in one outlet",
+    marstekIntro:
+      "All-in-One plug-in AC battery ESS: inverter and 5.12 kWh LiFePO4 in a 15.3 cm slim body. Plug into a standard socket — no chasing walls or electrician visits.",
+    marstekSpecCapacity: "5.12 kWh",
+    marstekSpecCapacityLbl: "LiFePO4 capacity",
+    marstekSpecPower: "2.5 kW",
+    marstekSpecPowerLbl: "nominal / 3.5 kW peak",
+    marstekSpecDepth: "15.3 cm",
+    marstekSpecDepthLbl: "ultra-slim body",
+    marstekSpecPlug: "Plug-in",
+    marstekSpecPlugLbl: "standard AC socket",
+    marstekBenefit0: "Plug-in AC — instant start from a wall socket",
+    marstekBenefit1: "0 dB — fanless natural cooling for bedrooms",
+    marstekBenefit2: "LiFePO4 · >6000 cycles · IP65 enclosure",
+    marstekBenefit3: "Scale to 22.5 kW via SmartBox (3-phase)",
+    marstekDetailEff: ">93.5% efficiency",
+    marstekDetailSine: "Pure sine THDu <3%",
+    marstekDetailComm: "Wi-Fi · BT · Ethernet · RS-485",
+    marstekDetailSize: "480×153×624 mm · 60 kg",
+    marstekCta: "Request Venus E3.0 quote",
+    marstekAltProduct: "MARSTEK VENUS E3.0 plug-in battery ESS",
 
     prodOverline: "Our catalogue",
     prodTitle: "COMPLETE SOLAR STACK",
@@ -399,6 +423,7 @@ export const enMessages = {
     specChem: "Chemistry",
     specCool: "Cooling",
     specWeight: "Weight",
+    specDims: "Dimensions",
     specEnergy: "Energy",
     specCfg: "Configuration",
     specIp: "IP rating",
@@ -414,6 +439,8 @@ export const enMessages = {
     wBnef: "BNEF Tier 1",
     hiNtype: "N-type mono 16BB",
     hiFlagship: "Flagship module",
+    hiQsun620: "620W bifacial dual glass",
+    hiQsun720: "720W high-power module",
     hiResCom: "Residential / light C&I",
     hiMediumBiz: "Mid-scale enterprise",
     hiTopPerf: "Performance leader",
@@ -424,7 +451,7 @@ export const enMessages = {
     hiUtilityScale: "Utility skid",
     altInv: "NSS inverter lineup",
     altInvPro: "NSS pro inverter render",
-    ptagStringInv: "String inverter",
+    ptagSilverFrame: "Silver frame",
     ptagWifi4g: "Wi‑Fi / 4G",
     ptagAfciOpt: "AFCI optional",
     ptagRs485: "RS485",
@@ -460,6 +487,10 @@ export const enMessages = {
         "N-type monocrystalline module with 16BB busbars and bifacial gain — engineered for high irradiance rooftops and long performance warranties.",
       hiFlagship:
         "Flagship Q-Sun module delivering top-tier efficiency in the 590W class with bifacial architecture and double-glass durability.",
+      hiQsun620:
+        "N-type Q-SUN module with silver frame and bifacial dual-glass construction — 620W in a 2382×1134×35 mm footprint for commercial rooftops and utility-scale arrays.",
+      hiQsun720:
+        "High-power 720W N-type bifacial dual-glass module with silver frame — 2384×1303×33 mm format for maximum yield per rack.",
       hiResCom:
         "GoodWe string inverter sized for residential and light commercial rooftops — high conversion efficiency with multi-MPPT flexibility.",
       hiMediumBiz:

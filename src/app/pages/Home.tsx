@@ -6,7 +6,7 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import {
   ArrowRight, Play, Zap, Battery, Shield, Wifi, Wrench, Building2,
   ChevronRight, ChevronLeft, MapPin, CheckCircle2, TrendingUp, Clock,
-  Search, PenTool, Package, Settings, Sun
+  Search, PenTool, Package, Settings, Sun, Plug, Volume2, Layers,
 } from "lucide-react";
 import nssProduct1 from "figma:asset/2c5afeeeadc1c10b241a86ed9503d116ea92e554.png";
 import nssProduct2 from "figma:asset/006bec9218f291152af2d36ed79cef9a6b00360a.png";
@@ -529,16 +529,12 @@ function RealizedProjectShowcase({ project }: { project: RealizedProject }) {
   );
 }
 
+const MARSTEK_HERO_IMG = "/assets/marstek/lifestyle.png";
+const MARSTEK_HERO_FRONT = "/assets/marstek/front.png";
+
 // ─── HERO ─────────────────────────────────────────────────────────────────────
 function HeroSection() {
-  const { t, locale } = useI18n();
-  const [slide, setSlide] = useState(0);
-  const titles = [t("home.titleSlide0"), t("home.titleSlide1"), t("home.titleSlide2")];
-
-  useEffect(() => {
-    const id = window.setInterval(() => setSlide((s) => (s + 1) % 3), 4800);
-    return () => window.clearInterval(id);
-  }, [locale]);
+  const { t } = useI18n();
 
   const tickerItems = [
     t("home.tickerItem0"),
@@ -548,6 +544,28 @@ function HeroSection() {
     t("home.tickerItem4"),
     t("home.tickerItem5"),
     t("home.tickerItem6"),
+    t("home.tickerItem7"),
+  ];
+
+  const marstekSpecs = [
+    { value: t("home.marstekSpecCapacity"), label: t("home.marstekSpecCapacityLbl") },
+    { value: t("home.marstekSpecPower"), label: t("home.marstekSpecPowerLbl") },
+    { value: t("home.marstekSpecDepth"), label: t("home.marstekSpecDepthLbl") },
+    { value: t("home.marstekSpecPlug"), label: t("home.marstekSpecPlugLbl") },
+  ];
+
+  const marstekBenefits = [
+    { icon: <Plug size={16} />, text: t("home.marstekBenefit0") },
+    { icon: <Volume2 size={16} />, text: t("home.marstekBenefit1") },
+    { icon: <Shield size={16} />, text: t("home.marstekBenefit2") },
+    { icon: <Layers size={16} />, text: t("home.marstekBenefit3") },
+  ];
+
+  const marstekDetails = [
+    t("home.marstekDetailEff"),
+    t("home.marstekDetailSine"),
+    t("home.marstekDetailComm"),
+    t("home.marstekDetailSize"),
   ];
 
   return (
@@ -563,74 +581,68 @@ function HeroSection() {
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "120px 24px 80px", width: "100%", position: "relative", zIndex: 1 }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }} className="hero-grid">
           <div style={{ maxWidth: 600 }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, backgroundColor: "rgba(45,198,83,0.1)", border: "1px solid rgba(45,198,83,0.3)", borderRadius: 100, padding: "6px 16px", marginBottom: 24 }}>
-              <div style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: NSS_GREEN }} />
-              <span style={{ color: DARK_GREEN, fontSize: 13, fontWeight: 600 }}>{t("home.badge")}</span>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, backgroundColor: "rgba(15,23,42,0.06)", border: "1px solid rgba(15,23,42,0.12)", borderRadius: 100, padding: "6px 16px", marginBottom: 24 }}>
+              <div style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: TEXT }} />
+              <span style={{ color: TEXT, fontSize: 13, fontWeight: 600 }}>{t("home.marstekBadge")}</span>
             </div>
 
-            <h1 style={{ fontFamily: "'Onest', sans-serif", fontSize: "clamp(32px, 5vw, 60px)", fontWeight: 900, lineHeight: 1.16, color: TEXT, marginBottom: 24, transition: "opacity 0.35s ease", overflowWrap: "anywhere", wordBreak: "break-word" }}>
-              {titles[slide]}
-              {" "}
-              <span style={{ background: "linear-gradient(135deg, #2DC653, #1DA040)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>NSS</span>
+            <h1 style={{ fontFamily: "'Onest', sans-serif", fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900, lineHeight: 1.16, color: TEXT, marginBottom: 24, overflowWrap: "anywhere", wordBreak: "break-word" }}>
+              {t("home.marstekTitle")}
             </h1>
 
-            <p style={{ color: MUTED, fontSize: 18, lineHeight: 1.7, marginBottom: 40, maxWidth: 520 }}>
-              {t("home.intro")}
+            <p style={{ color: MUTED, fontSize: 18, lineHeight: 1.7, marginBottom: 24, maxWidth: 520 }}>
+              {t("home.marstekIntro")}
             </p>
 
-            <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 56 }}>
-              <Link to="/solutions"
-                style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "linear-gradient(135deg, #2DC653, #1DA040)", color: "#fff", padding: "14px 28px", borderRadius: 10, fontSize: 15, fontWeight: 700, textDecoration: "none", boxShadow: "0 6px 24px rgba(45,198,83,0.35)", transition: "all 0.2s" }}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 10px 32px rgba(45,198,83,0.45)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 6px 24px rgba(45,198,83,0.35)"; }}
-              >
-                {t("home.ctaSolutions")} <ArrowRight size={16} />
-              </Link>
-              <Link to="/about"
-                style={{ display: "inline-flex", alignItems: "center", gap: 8, backgroundColor: WHITE, border: `1px solid ${BORDER}`, color: TEXT, padding: "14px 28px", borderRadius: 10, fontSize: 15, fontWeight: 600, textDecoration: "none", transition: "all 0.2s", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = NSS_GREEN; e.currentTarget.style.color = NSS_GREEN; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = BORDER; e.currentTarget.style.color = TEXT; }}
-              >
-                <Play size={16} /> {t("home.ctaAbout")}
-              </Link>
-            </div>
-
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-                gap: "20px 28px",
-                justifyItems: "start",
-                maxWidth: "100%",
-              }}
-              className="hero-stats-grid"
-            >
-              {[
-                { icon: "⚡", value: t("home.heroStatPower"), label: t("home.heroStatPowerLbl") },
-                { icon: "🏭", value: t("home.heroStatProjects"), label: t("home.heroStatProjectsLbl") },
-                { icon: "📈", value: t("home.heroStatRangeVal"), label: t("home.heroStatRangeLbl") },
-                { icon: "🌍", value: t("home.heroStatGeoVal"), label: t("home.heroStatGeoLbl") },
-              ].map((stat) => (
-                <div key={stat.label} style={{ display: "flex", alignItems: "center", gap: 12, width: "100%", maxWidth: "100%" }}>
-                  <div style={{ width: 48, height: 48, flexShrink: 0, backgroundColor: "rgba(45,198,83,0.1)", border: "1px solid rgba(45,198,83,0.25)", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20 }}>
-                    {stat.icon}
-                  </div>
-                  <div style={{ minWidth: 0 }}>
-                    <div style={{ color: TEXT, fontSize: 20, fontWeight: 800, fontFamily: "'Onest', sans-serif", lineHeight: 1.2 }}>{stat.value}</div>
-                    <div style={{ color: MUTED, fontSize: 12 }}>{stat.label}</div>
-                  </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 10, marginBottom: 20, maxWidth: 480 }}>
+              {marstekSpecs.map((spec) => (
+                <div key={spec.label} style={{ backgroundColor: WHITE, border: `1px solid ${BORDER}`, borderRadius: 12, padding: "12px 14px", boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
+                  <div style={{ color: TEXT, fontSize: 18, fontWeight: 800, fontFamily: "'Onest', sans-serif", lineHeight: 1.2, marginBottom: 4 }}>{spec.value}</div>
+                  <div style={{ color: MUTED, fontSize: 11, lineHeight: 1.4 }}>{spec.label}</div>
                 </div>
               ))}
             </div>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 32, maxWidth: 520 }}>
+              {marstekBenefits.map((b) => (
+                <div key={b.text} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 13, color: TEXT, lineHeight: 1.5 }}>
+                  <span style={{ flexShrink: 0, marginTop: 2, color: NSS_GREEN }}>{b.icon}</span>
+                  {b.text}
+                </div>
+              ))}
+            </div>
+
+            <Link to="/contact"
+              style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "linear-gradient(135deg, #2DC653, #1DA040)", color: "#fff", padding: "14px 28px", borderRadius: 10, fontSize: 15, fontWeight: 700, textDecoration: "none", boxShadow: "0 6px 24px rgba(45,198,83,0.35)", transition: "all 0.2s" }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 10px 32px rgba(45,198,83,0.45)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 6px 24px rgba(45,198,83,0.35)"; }}
+            >
+              {t("home.marstekCta")} <ArrowRight size={16} />
+            </Link>
           </div>
 
           <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center" }} className="hero-image-col">
-            <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at center, rgba(45,198,83,0.15) 0%, transparent 70%)", borderRadius: "50%" }} />
-            <img
-              src={nssProduct2}
-              alt="NSS inverter"
-              style={{ width: "100%", maxWidth: 420, height: "auto", objectFit: "contain", position: "relative", zIndex: 1, filter: "drop-shadow(0 20px 40px rgba(45,198,83,0.2))" }}
-            />
+            <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at center, rgba(45,198,83,0.12) 0%, transparent 70%)", borderRadius: "50%" }} />
+            <div className="hero-marstek-showcase">
+              <div className="hero-marstek-showcase__card">
+                <ImageWithFallback
+                  src={MARSTEK_HERO_IMG}
+                  alt={t("home.marstekAltProduct")}
+                  className="hero-marstek-showcase__img"
+                />
+                <ImageWithFallback
+                  src={MARSTEK_HERO_FRONT}
+                  alt=""
+                  className="hero-marstek-showcase__front"
+                  aria-hidden
+                />
+              </div>
+              <div className="hero-marstek-showcase__details">
+                {marstekDetails.map((detail) => (
+                  <span key={detail} className="hero-marstek-showcase__detail">{detail}</span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -647,7 +659,58 @@ function HeroSection() {
 
       <style>{`
         @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
-        @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr !important; } .hero-image-col { display: none !important; } .hero-stats-grid { grid-template-columns: 1fr !important; } }
+        .hero-marstek-showcase {
+          position: relative;
+          z-index: 1;
+          width: 100%;
+          max-width: 440px;
+        }
+        .hero-marstek-showcase__card {
+          position: relative;
+          border-radius: 20px;
+          overflow: hidden;
+          background: #fff;
+          border: 1px solid ${BORDER};
+          box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+        }
+        .hero-marstek-showcase__img {
+          display: block;
+          width: 100%;
+          height: auto;
+          aspect-ratio: 4 / 5;
+          object-fit: cover;
+        }
+        .hero-marstek-showcase__front {
+          position: absolute;
+          right: 16px;
+          bottom: 16px;
+          width: 38%;
+          max-width: 140px;
+          height: auto;
+          object-fit: contain;
+          filter: drop-shadow(0 8px 20px rgba(15, 23, 42, 0.25));
+          border-radius: 8px;
+        }
+        .hero-marstek-showcase__details {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-top: 14px;
+          justify-content: center;
+        }
+        .hero-marstek-showcase__detail {
+          padding: 6px 12px;
+          border-radius: 999px;
+          font-size: 11px;
+          font-weight: 600;
+          color: ${MUTED};
+          background: ${WHITE};
+          border: 1px solid ${BORDER};
+        }
+        @media (max-width: 768px) {
+          .hero-grid { grid-template-columns: 1fr !important; }
+          .hero-image-col { display: none !important; }
+        }
       `}</style>
     </section>
   );

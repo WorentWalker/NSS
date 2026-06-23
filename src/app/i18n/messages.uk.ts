@@ -69,6 +69,30 @@ export const ukMessages = {
     tickerItem4: "BNEF Tier 1",
     tickerItem5: "TÜV Certified",
     tickerItem6: "IEC 61215",
+    tickerItem7: "MARSTEK",
+
+    marstekBadge: "MARSTEK · Інноваційне резервне живлення",
+    marstekTitle: "MARSTEK VENUS E3.0 — резерв з однієї розетки",
+    marstekIntro:
+      "Універсальна All-in-One plug-in AC система: інвертор і акумулятор 5,12 кВт·год LiFePO4 в корпусі завтовшки 15,3 см. Підключення у звичайну євророзетку — без штроблення та електрика.",
+    marstekSpecCapacity: "5,12 кВт·год",
+    marstekSpecCapacityLbl: "ємність LiFePO4",
+    marstekSpecPower: "2,5 кВт",
+    marstekSpecPowerLbl: "номінал / 3,5 кВт пік",
+    marstekSpecDepth: "15,3 см",
+    marstekSpecDepthLbl: "ультратонкий корпус",
+    marstekSpecPlug: "Plug-in",
+    marstekSpecPlugLbl: "звичайна розетка",
+    marstekBenefit0: "Plug-in AC — миттєвий старт із розетки",
+    marstekBenefit1: "0 дБ — безвентиляторне охолодження для спальні",
+    marstekBenefit2: "LiFePO4 · >6000 циклів · корпус IP65",
+    marstekBenefit3: "Масштаб до 22,5 кВт через SmartBox (3 фази)",
+    marstekDetailEff: "ККД >93,5%",
+    marstekDetailSine: "Чиста синусоїда THDu <3%",
+    marstekDetailComm: "Wi-Fi · BT · Ethernet · RS-485",
+    marstekDetailSize: "480×153×624 мм · 60 кг",
+    marstekCta: "Розрахунок Venus E3.0",
+    marstekAltProduct: "MARSTEK VENUS E3.0 plug-in акумуляторна система",
 
     prodOverline: "Наша продукція",
     prodTitle: "ПОВНИЙ СОНЯЧНИЙ КОМПЛЕКС",
@@ -393,6 +417,7 @@ export const ukMessages = {
     specChem: "Хімія",
     specCool: "Охолодження",
     specWeight: "Вага",
+    specDims: "Габарити",
     specEnergy: "Енергія",
     specCfg: "Конфіг.",
     specIp: "IP клас",
@@ -408,6 +433,8 @@ export const ukMessages = {
     wBnef: "BNEF Tier 1",
     hiNtype: "N-Type Mono 16BB",
     hiFlagship: "Флагман",
+    hiQsun620: "620W біфаціальне подвійне скло",
+    hiQsun720: "720W високопотужний модуль",
     hiResCom: "Житлові та бізнес",
     hiMediumBiz: "Середній бізнес",
     hiTopPerf: "Топ-продуктивність",
@@ -418,7 +445,7 @@ export const ukMessages = {
     hiUtilityScale: "Мережеві проєкти",
     altInv: "Інвертор NSS",
     altInvPro: "Профільний інвертор NSS",
-    ptagStringInv: "Стрінговий інвертор",
+    ptagSilverFrame: "Срібна рама",
     ptagWifi4g: "Wi‑Fi / 4G",
     ptagAfciOpt: "AFCI (опція)",
     ptagRs485: "RS485",
@@ -454,6 +481,10 @@ export const ukMessages = {
         "N-type монокристалічний модуль з 16BB шинами та біфаціальним ефектом — для дахів з високою інсоляцією та тривалою гарантією потужності.",
       hiFlagship:
         "Флагманський модуль Q-Sun класу 590W — максимальний ККД, біфаціальна архітектура та подвійне скло для довговічності.",
+      hiQsun620:
+        "N-type модуль Q-SUN із срібною рамою та біфаціальним подвійним склом — 620W у форматі 2382×1134×35 мм для комерційних дахів і мережевих масивів.",
+      hiQsun720:
+        "Високопотужний модуль 720W N-type біфаціальний dual glass зі срібною рамою — формат 2384×1303×33 мм для максимальної віддачі з одного ряду.",
       hiResCom:
         "Стрінговий інвертор GoodWe для житлових і малих комерційних об'єктів — високий ККД перетворення та кілька MPPT.",
       hiMediumBiz:

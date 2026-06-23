@@ -6,7 +6,6 @@ import { deyeProducts } from "../data/deyeProducts";
 import type { ProductDoc } from "../data/products";
 import { ProductCard } from "../components/products/ProductCard";
 import nssProduct1 from "figma:asset/2c5afeeeadc1c10b241a86ed9503d116ea92e554.png";
-import nssProduct2 from "figma:asset/006bec9218f291152af2d36ed79cef9a6b00360a.png";
 import nssProduct3 from "figma:asset/95fb35ccae0a21c77bf67f3116e76442824da4a1.png";
 import nssEssImg from "figma:asset/ea61d0fe1462718c0219330a5459f4f6456c98e2.png";
 
@@ -22,39 +21,39 @@ const MUTED = "#64748B";
 
 const nssProducts: ProductDoc[] = [
   {
-    id: "qsun-570",
+    id: "qsun-620",
     category: "solarPanels" as const,
-    name: "Q-Sun QN-570HT-06",
-    badge: "570W",
+    name: "Q-SUN Solar 620W N-Type Silver Frame Bifacial Dual Glass",
+    badge: "620W",
     color: NSS_GREEN,
     specs: [
-      { label: "Vermogen", value: "570W" },
-      { label: "Rendement", value: "22.1%" },
+      { label: "Vermogen", value: "620W" },
       { label: "Celtype", value: "N-Type" },
-      { label: "Spanning", value: "1500VDC" },
+      { label: "Type", value: "Bifacial dual glass" },
+      { label: "Afmetingen", value: "2382×1134×35 mm" },
     ],
-    tagKeys: ["home.tagBifacial", "home.tagDoubleGlass", "home.tagIEC"],
+    tagKeys: ["home.tagBifacial", "home.tagDoubleGlass", "productsPage.ptagSilverFrame"],
     warranty: "15jr materiaal / 30jr vermogen",
-    highlightKey: "hiNtype",
-    image: nssProduct2,
+    highlightKey: "hiQsun620",
+    image: "/assets/products/qsun/620w.png",
   },
   {
-    id: "qsun-590",
+    id: "qsun-720",
     category: "solarPanels" as const,
-    name: "Q-Sun QN-590HT-06",
-    badge: "590W",
+    name: "Q-SUN Solar 720W N-Type Silver Frame Bifacial Dual Glass",
+    badge: "720W",
     color: NSS_GREEN,
     specs: [
-      { label: "Vermogen", value: "590W" },
-      { label: "Rendement", value: "22.8%" },
-      { label: "Voc", value: "52.16V" },
-      { label: "Isc", value: "14.32A" },
+      { label: "Vermogen", value: "720W" },
+      { label: "Celtype", value: "N-Type" },
+      { label: "Type", value: "Bifacial dual glass" },
+      { label: "Afmetingen", value: "2384×1303×33 mm" },
     ],
-    tagKeys: ["home.tagBifacial", "home.tagDoubleGlass", "home.tagIso"],
+    tagKeys: ["home.tagBifacial", "home.tagDoubleGlass", "productsPage.ptagSilverFrame"],
     warranty: "15jr materiaal / 30jr vermogen",
-    highlightKey: "hiFlagship",
+    highlightKey: "hiQsun720",
     featured: true,
-    image: nssProduct2,
+    image: "/assets/products/qsun/720w.png",
   },
   {
     id: "gw35k",
