@@ -8,7 +8,8 @@
     "dev": "concurrently -n api,vite -c blue,green \"tsx server/dev.ts\" \"vite\"",
     "dev:web": "vite",
     "db:seed": "tsx scripts/seed.ts",
-    "db:reseed": "tsx scripts/seed.ts -- --force"
+    "db:reseed": "tsx scripts/seed.ts -- --force",
+    "catalog:build": "tsx scripts/build-catalog.ts"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",

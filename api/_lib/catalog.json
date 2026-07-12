@@ -1,0 +1,1972 @@
+[
+  {
+    "id": "qsun-620",
+    "category": "solarPanels",
+    "name": "Q-SUN Solar 620W N-Type Silver Frame Bifacial Dual Glass",
+    "badge": "620W",
+    "color": "#2DC653",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "620W"
+      },
+      {
+        "label": "Celtype",
+        "value": "N-Type"
+      },
+      {
+        "label": "Type",
+        "value": "Bifacial dual glass"
+      },
+      {
+        "label": "Afmetingen",
+        "value": "2382×1134×35 mm"
+      }
+    ],
+    "tags": [
+      "Біфасіальна",
+      "Подвійне скло",
+      "Срібна рама"
+    ],
+    "warranty": "15 років матеріал / 30 років потужність",
+    "highlightUk": "Високоефективна N-Type панель",
+    "highlightEn": "",
+    "descriptionUk": "",
+    "descriptionEn": "",
+    "image": "/assets/products/qsun/620w.png"
+  },
+  {
+    "id": "qsun-720",
+    "category": "solarPanels",
+    "name": "Q-SUN Solar 720W N-Type Silver Frame Bifacial Dual Glass",
+    "badge": "720W",
+    "color": "#2DC653",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "720W"
+      },
+      {
+        "label": "Celtype",
+        "value": "N-Type"
+      },
+      {
+        "label": "Type",
+        "value": "Bifacial dual glass"
+      },
+      {
+        "label": "Afmetingen",
+        "value": "2384×1303×33 mm"
+      }
+    ],
+    "tags": [
+      "Біфасіальна",
+      "Подвійне скло",
+      "Срібна рама"
+    ],
+    "warranty": "15 років матеріал / 30 років потужність",
+    "highlightUk": "Топова потужність 720W",
+    "highlightEn": "",
+    "descriptionUk": "",
+    "descriptionEn": "",
+    "image": "/assets/products/qsun/720w.png",
+    "featured": true
+  },
+  {
+    "id": "gw35k",
+    "category": "inverters",
+    "name": "GoodWe GW35K-SMT-L-G20",
+    "badge": "35kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "35kW"
+      },
+      {
+        "label": "Efficiëntie",
+        "value": "98.7%"
+      },
+      {
+        "label": "MPPTs",
+        "value": "4"
+      },
+      {
+        "label": "Bescherming",
+        "value": "IP66"
+      }
+    ],
+    "tags": [
+      "3-фазний",
+      "String",
+      "Wi-Fi/4G"
+    ],
+    "warranty": "5 років",
+    "highlightUk": "Для комерції",
+    "highlightEn": "",
+    "descriptionUk": "",
+    "descriptionEn": "",
+    "image": "/assets/deye/image25.png"
+  },
+  {
+    "id": "gw60k",
+    "category": "inverters",
+    "name": "GoodWe GW60K-SMT-G20",
+    "badge": "60kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "60kW"
+      },
+      {
+        "label": "Efficiëntie",
+        "value": "98.5%"
+      },
+      {
+        "label": "MPPTs",
+        "value": "6"
+      },
+      {
+        "label": "DC Spanning",
+        "value": "1100V"
+      }
+    ],
+    "tags": [
+      "3-фазний",
+      "AFCI",
+      "RS485"
+    ],
+    "warranty": "5 років",
+    "highlightUk": "Середній бізнес",
+    "highlightEn": "",
+    "descriptionUk": "",
+    "descriptionEn": "",
+    "image": "/assets/deye/image25.png"
+  },
+  {
+    "id": "gw80k",
+    "category": "inverters",
+    "name": "GoodWe GW80K-SMT",
+    "badge": "80kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "80kW"
+      },
+      {
+        "label": "Efficiëntie",
+        "value": "98.6%"
+      },
+      {
+        "label": "MPPTs",
+        "value": "6"
+      },
+      {
+        "label": "Gewicht",
+        "value": "64kg"
+      }
+    ],
+    "tags": [
+      "IP66",
+      "SPD Type 2",
+      "LAN/4G"
+    ],
+    "warranty": "5 років",
+    "highlightUk": "Топ продуктивність",
+    "highlightEn": "",
+    "descriptionUk": "",
+    "descriptionEn": "",
+    "image": "/assets/deye/image25.png",
+    "featured": true
+  },
+  {
+    "id": "qcl-5",
+    "category": "batterySystems",
+    "name": "QCL QCL-51.2-100",
+    "badge": "5kWh",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "5.12kWh"
+      },
+      {
+        "label": "Spanning",
+        "value": "51.2V"
+      },
+      {
+        "label": "Cycli",
+        "value": "6000+"
+      },
+      {
+        "label": "Chemie",
+        "value": "LFP"
+      }
+    ],
+    "tags": [
+      "Rack mount",
+      "BMS",
+      "Wi-Fi"
+    ],
+    "warranty": "10 років",
+    "highlightUk": "Домашнє накопичення",
+    "highlightEn": "",
+    "descriptionUk": "",
+    "descriptionEn": "",
+    "image": "/assets/deye/image28.png"
+  },
+  {
+    "id": "qcl-10",
+    "category": "batterySystems",
+    "name": "QCL QCL-51.2-200",
+    "badge": "10kWh",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "10.24kWh"
+      },
+      {
+        "label": "Spanning",
+        "value": "51.2V"
+      },
+      {
+        "label": "Stroom",
+        "value": "200Ah"
+      },
+      {
+        "label": "Bescherming",
+        "value": "IP55"
+      }
+    ],
+    "tags": [
+      "LFP",
+      "Stackable",
+      "4G"
+    ],
+    "warranty": "10 років",
+    "highlightUk": "Популярний вибір",
+    "highlightEn": "",
+    "descriptionUk": "",
+    "descriptionEn": "",
+    "image": "/assets/deye/image28.png",
+    "featured": true
+  },
+  {
+    "id": "qcl-261",
+    "category": "batterySystems",
+    "name": "QCL QCL125KW-261KWH",
+    "badge": "261kWh",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "125kW"
+      },
+      {
+        "label": "Spanning",
+        "value": "DC 832V"
+      },
+      {
+        "label": "Koeling",
+        "value": "Vloeistof"
+      },
+      {
+        "label": "Gewicht",
+        "value": "2500kg"
+      }
+    ],
+    "tags": [
+      "IP54",
+      "LFP",
+      "3-фазний"
+    ],
+    "warranty": "8000+ циклів",
+    "highlightUk": "Промислове використання",
+    "highlightEn": "",
+    "descriptionUk": "",
+    "descriptionEn": "",
+    "image": "/assets/deye/image28.png",
+    "featured": true
+  },
+  {
+    "id": "rochex-261",
+    "category": "batterySystems",
+    "name": "RochexEnergy 125kW/261kWh",
+    "badge": "261kWh",
+    "color": "#8B5CF6",
+    "specs": [
+      {
+        "label": "Energie",
+        "value": "261kWh"
+      },
+      {
+        "label": "Vermogen",
+        "value": "125kW"
+      },
+      {
+        "label": "Config",
+        "value": "1P52S"
+      },
+      {
+        "label": "IP Niveau",
+        "value": "IP54"
+      }
+    ],
+    "tags": [
+      "TÜV CE",
+      "LFP",
+      "Рідинне охолодження"
+    ],
+    "warranty": "TÜV сертифікат",
+    "highlightUk": "Європейський сертифікат",
+    "highlightEn": "",
+    "descriptionUk": "",
+    "descriptionEn": "",
+    "image": "/assets/deye/image32.png"
+  },
+  {
+    "id": "rochex-5mwh",
+    "category": "batterySystems",
+    "name": "RochexEnergy 5MWh Container",
+    "badge": "5MWh",
+    "color": "#8B5CF6",
+    "specs": [
+      {
+        "label": "Energie",
+        "value": "5MWh"
+      },
+      {
+        "label": "Type",
+        "value": "Container"
+      },
+      {
+        "label": "Net",
+        "value": "35kV"
+      },
+      {
+        "label": "Monitor",
+        "value": "SCADA"
+      }
+    ],
+    "tags": [
+      "Utility scale",
+      "TÜV",
+      "BNEF Tier 1"
+    ],
+    "warranty": "BNEF Tier 1",
+    "highlightUk": "Масштабна енергетика",
+    "highlightEn": "",
+    "descriptionUk": "",
+    "descriptionEn": "",
+    "image": "/assets/deye/image31.png",
+    "featured": true
+  },
+  {
+    "id": "deye-sun-3-6k-sg05lp1-eu-am2-plus",
+    "category": "inverters",
+    "name": "Deye SUN-3.6K-SG05LP1-EU-AM2-PLUS",
+    "badge": "3.6kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "3.6kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "1-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор",
+      "Однофазний"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Однофазний гібридний інвертор",
+    "highlightEn": "Single phase hybrid inverter",
+    "descriptionUk": "Однофазний гібридний інвертор Deye — поєднання сонця, мережі та акумулятора для автономності вдома.",
+    "descriptionEn": "Single-phase Deye hybrid inverter — solar, grid and battery blending for residential self-consumption and outage resilience.",
+    "image": "/assets/deye/image25.png"
+  },
+  {
+    "id": "deye-sun-5k-sg05lp1-eu-am2-p",
+    "category": "inverters",
+    "name": "Deye SUN-5K-SG05LP1-EU-AM2-P",
+    "badge": "5kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "5kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "1-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор",
+      "Однофазний"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Однофазний гібридний інвертор",
+    "highlightEn": "Single phase hybrid inverter",
+    "descriptionUk": "Однофазний гібридний інвертор Deye — поєднання сонця, мережі та акумулятора для автономності вдома.",
+    "descriptionEn": "Single-phase Deye hybrid inverter — solar, grid and battery blending for residential self-consumption and outage resilience.",
+    "image": "/assets/deye/image25.png"
+  },
+  {
+    "id": "deye-sun-6k-sg05lp1-eu-am2-p",
+    "category": "inverters",
+    "name": "Deye SUN-6K-SG05LP1-EU-AM2-P",
+    "badge": "6kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "6kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "1-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор",
+      "Однофазний"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Однофазний гібридний інвертор",
+    "highlightEn": "Single phase hybrid inverter",
+    "descriptionUk": "Однофазний гібридний інвертор Deye — поєднання сонця, мережі та акумулятора для автономності вдома.",
+    "descriptionEn": "Single-phase Deye hybrid inverter — solar, grid and battery blending for residential self-consumption and outage resilience.",
+    "image": "/assets/deye/image25.png"
+  },
+  {
+    "id": "deye-sun-8k-sg05lp1-eu-am2-p",
+    "category": "inverters",
+    "name": "Deye SUN-8K-SG05LP1-EU-AM2-P",
+    "badge": "8kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "8kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "1-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор",
+      "Однофазний"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Однофазний гібридний інвертор",
+    "highlightEn": "Single phase hybrid inverter",
+    "descriptionUk": "Однофазний гібридний інвертор Deye — поєднання сонця, мережі та акумулятора для автономності вдома.",
+    "descriptionEn": "Single-phase Deye hybrid inverter — solar, grid and battery blending for residential self-consumption and outage resilience.",
+    "image": "/assets/deye/image25.png"
+  },
+  {
+    "id": "deye-sun-10k-sg02lp1-eu-am3-p",
+    "category": "inverters",
+    "name": "Deye SUN-10K-SG02LP1-EU-AM3-P",
+    "badge": "10kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "10kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "1-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор",
+      "Однофазний"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Однофазний гібридний інвертор",
+    "highlightEn": "Single phase hybrid inverter",
+    "descriptionUk": "Однофазний гібридний інвертор Deye — поєднання сонця, мережі та акумулятора для автономності вдома.",
+    "descriptionEn": "Single-phase Deye hybrid inverter — solar, grid and battery blending for residential self-consumption and outage resilience.",
+    "image": "/assets/deye/image26.png"
+  },
+  {
+    "id": "deye-sun-12k-sg02lp1-eu-am3-p",
+    "category": "inverters",
+    "name": "Deye SUN-12K-SG02LP1-EU-AM3-P",
+    "badge": "12kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "12kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "1-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор",
+      "Однофазний"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Однофазний гібридний інвертор",
+    "highlightEn": "Single phase hybrid inverter",
+    "descriptionUk": "Однофазний гібридний інвертор Deye — поєднання сонця, мережі та акумулятора для автономності вдома.",
+    "descriptionEn": "Single-phase Deye hybrid inverter — solar, grid and battery blending for residential self-consumption and outage resilience.",
+    "image": "/assets/deye/image26.png"
+  },
+  {
+    "id": "deye-sun-16k-sg01lp1-eu",
+    "category": "inverters",
+    "name": "Deye SUN-16K-SG01LP1-EU",
+    "badge": "16kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "16kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "1-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор",
+      "Однофазний"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Однофазний гібридний інвертор",
+    "highlightEn": "Single phase hybrid inverter",
+    "descriptionUk": "Однофазний гібридний інвертор Deye — поєднання сонця, мережі та акумулятора для автономності вдома.",
+    "descriptionEn": "Single-phase Deye hybrid inverter — solar, grid and battery blending for residential self-consumption and outage resilience.",
+    "image": "/assets/deye/image27.png"
+  },
+  {
+    "id": "deye-sun-5k-sg05lp3-eu",
+    "category": "inverters",
+    "name": "Deye SUN-5K-SG05LP3-EU",
+    "badge": "5kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "5kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "3-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Трифазний LV гібрид",
+    "highlightEn": "Three phase LV hybrid",
+    "descriptionUk": "Трифазний LV-гіbrid Deye — кілька MPPT та підключення акумуляторів низької напруги.",
+    "descriptionEn": "Three-phase low-voltage Deye hybrid — multi-MPPT solar input with LV battery coupling for homes and small business.",
+    "image": "/assets/deye/image29.png"
+  },
+  {
+    "id": "deye-sun-6k-sg05lp3-eu",
+    "category": "inverters",
+    "name": "Deye SUN-6K-SG05LP3-EU",
+    "badge": "6kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "6kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "3-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Трифазний LV гібрид",
+    "highlightEn": "Three phase LV hybrid",
+    "descriptionUk": "Трифазний LV-гіbrid Deye — кілька MPPT та підключення акумуляторів низької напруги.",
+    "descriptionEn": "Three-phase low-voltage Deye hybrid — multi-MPPT solar input with LV battery coupling for homes and small business.",
+    "image": "/assets/deye/image29.png"
+  },
+  {
+    "id": "deye-sun-8k-sg05lp3-eu",
+    "category": "inverters",
+    "name": "Deye SUN-8K-SG05LP3-EU",
+    "badge": "8kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "8kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "3-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Трифазний LV гібрид",
+    "highlightEn": "Three phase LV hybrid",
+    "descriptionUk": "Трифазний LV-гіbrid Deye — кілька MPPT та підключення акумуляторів низької напруги.",
+    "descriptionEn": "Three-phase low-voltage Deye hybrid — multi-MPPT solar input with LV battery coupling for homes and small business.",
+    "image": "/assets/deye/image28.png"
+  },
+  {
+    "id": "deye-sun-10k-sg05lp3-eu",
+    "category": "inverters",
+    "name": "Deye SUN-10K-SG05LP3-EU",
+    "badge": "10kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "10kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "3-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Трифазний LV гібрид",
+    "highlightEn": "Three phase LV hybrid",
+    "descriptionUk": "Трифазний LV-гіbrid Deye — кілька MPPT та підключення акумуляторів низької напруги.",
+    "descriptionEn": "Three-phase low-voltage Deye hybrid — multi-MPPT solar input with LV battery coupling for homes and small business.",
+    "image": "/assets/deye/image28.png"
+  },
+  {
+    "id": "deye-sun-12k-sg05lp3-eu",
+    "category": "inverters",
+    "name": "Deye SUN-12K-SG05LP3-EU",
+    "badge": "12kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "12kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "3-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Трифазний LV гібрид",
+    "highlightEn": "Three phase LV hybrid",
+    "descriptionUk": "Трифазний LV-гіbrid Deye — кілька MPPT та підключення акумуляторів низької напруги.",
+    "descriptionEn": "Three-phase low-voltage Deye hybrid — multi-MPPT solar input with LV battery coupling for homes and small business.",
+    "image": "/assets/deye/image28.png"
+  },
+  {
+    "id": "deye-sun-15k-sg05lp3-eu",
+    "category": "inverters",
+    "name": "Deye SUN-15K-SG05LP3-EU",
+    "badge": "15kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "15kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "3-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Трифазний LV гібрид",
+    "highlightEn": "Three phase LV hybrid",
+    "descriptionUk": "Трифазний LV-гіbrid Deye — кілька MPPT та підключення акумуляторів низької напруги.",
+    "descriptionEn": "Three-phase low-voltage Deye hybrid — multi-MPPT solar input with LV battery coupling for homes and small business.",
+    "image": "/assets/deye/image30.png"
+  },
+  {
+    "id": "deye-sun-20k-sg05lp3-eu",
+    "category": "inverters",
+    "name": "Deye SUN-20K-SG05LP3-EU",
+    "badge": "20kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "20kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "3-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Трифазний LV гібрид",
+    "highlightEn": "Three phase LV hybrid",
+    "descriptionUk": "Трифазний LV-гіbrid Deye — кілька MPPT та підключення акумуляторів низької напруги.",
+    "descriptionEn": "Three-phase low-voltage Deye hybrid — multi-MPPT solar input with LV battery coupling for homes and small business.",
+    "image": "/assets/deye/image30.png"
+  },
+  {
+    "id": "deye-sun-10k-sg01hp3-eu-am2",
+    "category": "inverters",
+    "name": "Deye SUN-10K-SG01HP3-EU-AM2",
+    "badge": "10kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "10kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "3-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Трифазний HV гібрид",
+    "highlightEn": "Three phase HV hybrid",
+    "descriptionUk": "Трифазний HV-гіbrid Deye — для високовольтних акумуляторних стрічок і великих PV-масивів.",
+    "descriptionEn": "Three-phase high-voltage Deye hybrid — optimised for HV battery strings and larger commercial PV arrays.",
+    "image": "/assets/deye/image1.png"
+  },
+  {
+    "id": "deye-sun-12k-sg01hp3-eu-am2",
+    "category": "inverters",
+    "name": "Deye SUN-12K-SG01HP3-EU-AM2",
+    "badge": "12kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "12kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "3-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Трифазний HV гібрид",
+    "highlightEn": "Three phase HV hybrid",
+    "descriptionUk": "Трифазний HV-гіbrid Deye — для високовольтних акумуляторних стрічок і великих PV-масивів.",
+    "descriptionEn": "Three-phase high-voltage Deye hybrid — optimised for HV battery strings and larger commercial PV arrays.",
+    "image": "/assets/deye/image1.png"
+  },
+  {
+    "id": "deye-sun-15k-sg01hp3-eu-am2",
+    "category": "inverters",
+    "name": "Deye SUN-15K-SG01HP3-EU-AM2",
+    "badge": "15kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "15kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "3-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Трифазний HV гібрид",
+    "highlightEn": "Three phase HV hybrid",
+    "descriptionUk": "Трифазний HV-гіbrid Deye — для високовольтних акумуляторних стрічок і великих PV-масивів.",
+    "descriptionEn": "Three-phase high-voltage Deye hybrid — optimised for HV battery strings and larger commercial PV arrays.",
+    "image": "/assets/deye/image1.png"
+  },
+  {
+    "id": "deye-sun-20k-sg01hp3-eu-am2",
+    "category": "inverters",
+    "name": "Deye SUN-20K-SG01HP3-EU-AM2",
+    "badge": "20kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "20kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "3-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Трифазний HV гібрид",
+    "highlightEn": "Three phase HV hybrid",
+    "descriptionUk": "Трифазний HV-гіbrid Deye — для високовольтних акумуляторних стрічок і великих PV-масивів.",
+    "descriptionEn": "Three-phase high-voltage Deye hybrid — optimised for HV battery strings and larger commercial PV arrays.",
+    "image": "/assets/deye/image1.png"
+  },
+  {
+    "id": "deye-sun-30k-sg02hp3-eu-am3",
+    "category": "inverters",
+    "name": "Deye SUN-30K-SG02HP3-EU-AM3",
+    "badge": "30kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "30kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "3-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Трифазний HV гібрид",
+    "highlightEn": "Three phase HV hybrid",
+    "descriptionUk": "Трифазний HV-гіbrid Deye — для високовольтних акумуляторних стрічок і великих PV-масивів.",
+    "descriptionEn": "Three-phase high-voltage Deye hybrid — optimised for HV battery strings and larger commercial PV arrays.",
+    "image": "/assets/deye/image31.png"
+  },
+  {
+    "id": "deye-sun-50k-sg01hp3-eu-bm4",
+    "category": "inverters",
+    "name": "Deye SUN-50K-SG01HP3-EU-BM4",
+    "badge": "50kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "50kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "3-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Трифазний HV гібрид",
+    "highlightEn": "Three phase HV hybrid",
+    "descriptionUk": "Трифазний HV-гіbrid Deye — для високовольтних акумуляторних стрічок і великих PV-масивів.",
+    "descriptionEn": "Three-phase high-voltage Deye hybrid — optimised for HV battery strings and larger commercial PV arrays.",
+    "image": "/assets/deye/image31.png"
+  },
+  {
+    "id": "deye-sun-80k-sg02hp3-eu-em6",
+    "category": "inverters",
+    "name": "Deye SUN-80K-SG02HP3-EU-EM6",
+    "badge": "80kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "80kW"
+      },
+      {
+        "label": "Type",
+        "value": "Hybrid"
+      },
+      {
+        "label": "Fase",
+        "value": "3-fase"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Трифазний HV гібрид",
+    "highlightEn": "Three phase HV hybrid",
+    "descriptionUk": "Трифазний HV-гіbrid Deye — для високовольтних акумуляторних стрічок і великих PV-масивів.",
+    "descriptionEn": "Three-phase high-voltage Deye hybrid — optimised for HV battery strings and larger commercial PV arrays.",
+    "image": "/assets/deye/image32.png"
+  },
+  {
+    "id": "deye-se-g5-1-pro-b",
+    "category": "batterySystems",
+    "name": "Deye SE-G5.1 Pro-B",
+    "badge": "5.1kWh",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "5.1kWh"
+      },
+      {
+        "label": "Chemie",
+        "value": "LFP"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Стекування"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор низької напруги",
+    "highlightEn": "Low voltage battery",
+    "descriptionUk": "LFP-модуль Deye низької напруги — модульне розширення, CAN/RS485 BMS і довгий ресурс циклів.",
+    "descriptionEn": "Deye low-voltage LFP battery module — modular expansion, CAN/RS485 BMS communication and long cycle life.",
+    "image": "/assets/deye/image4.png"
+  },
+  {
+    "id": "deye-se-f5pro-c",
+    "category": "batterySystems",
+    "name": "Deye SE-F5Pro-C",
+    "badge": "5.1kWh",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "5.1kWh"
+      },
+      {
+        "label": "Type",
+        "value": "Modulair"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Стекування"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор низької напруги",
+    "highlightEn": "Low voltage battery",
+    "descriptionUk": "LFP-модуль Deye низької напруги — модульне розширення, CAN/RS485 BMS і довгий ресурс циклів.",
+    "descriptionEn": "Deye low-voltage LFP battery module — modular expansion, CAN/RS485 BMS communication and long cycle life.",
+    "image": "/assets/deye/image16.png"
+  },
+  {
+    "id": "deye-se-f12-c",
+    "category": "batterySystems",
+    "name": "Deye SE-F12-C",
+    "badge": "12kWh",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "12kWh"
+      },
+      {
+        "label": "Type",
+        "value": "Modulair"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Стекування"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор низької напруги",
+    "highlightEn": "Low voltage battery",
+    "descriptionUk": "LFP-модуль Deye низької напруги — модульне розширення, CAN/RS485 BMS і довгий ресурс циклів.",
+    "descriptionEn": "Deye low-voltage LFP battery module — modular expansion, CAN/RS485 BMS communication and long cycle life.",
+    "image": "/assets/deye/image16.png"
+  },
+  {
+    "id": "deye-se-f16-c",
+    "category": "batterySystems",
+    "name": "Deye SE-F16-C",
+    "badge": "16kWh",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "16kWh"
+      },
+      {
+        "label": "Type",
+        "value": "Modulair"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Стекування"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор низької напруги",
+    "highlightEn": "Low voltage battery",
+    "descriptionUk": "LFP-модуль Deye низької напруги — модульне розширення, CAN/RS485 BMS і довгий ресурс циклів.",
+    "descriptionEn": "Deye low-voltage LFP battery module — modular expansion, CAN/RS485 BMS communication and long cycle life.",
+    "image": "/assets/deye/image19.png"
+  },
+  {
+    "id": "deye-ai-w5-1-pdu1-b-base",
+    "category": "batterySystems",
+    "name": "Deye AI-W5.1-PDU1-B-BASE",
+    "badge": "5kWh",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "5kWh"
+      },
+      {
+        "label": "Type",
+        "value": "Modulair"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Стекування"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор низької напруги",
+    "highlightEn": "Low voltage battery",
+    "descriptionUk": "LFP-модуль Deye низької напруги — модульне розширення, CAN/RS485 BMS і довгий ресурс циклів.",
+    "descriptionEn": "Deye low-voltage LFP battery module — modular expansion, CAN/RS485 BMS communication and long cycle life.",
+    "image": "/assets/deye/image12.png"
+  },
+  {
+    "id": "deye-ai-w5-1-b",
+    "category": "batterySystems",
+    "name": "Deye AI-W5.1-B",
+    "badge": "5.1kWh",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "5.1kWh"
+      },
+      {
+        "label": "Type",
+        "value": "Modulair"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Стекування"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор низької напруги",
+    "highlightEn": "Low voltage battery",
+    "descriptionUk": "LFP-модуль Deye низької напруги — модульне розширення, CAN/RS485 BMS і довгий ресурс циклів.",
+    "descriptionEn": "Deye low-voltage LFP battery module — modular expansion, CAN/RS485 BMS communication and long cycle life.",
+    "image": "/assets/deye/image7.png"
+  },
+  {
+    "id": "deye-gb-lbs-base",
+    "category": "batterySystems",
+    "name": "Deye GB-LBS+BASE",
+    "badge": "Control",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "Control"
+      },
+      {
+        "label": "Type",
+        "value": "Modulair"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор високої напруги",
+    "highlightEn": "High voltage battery",
+    "descriptionUk": "Високовольтний акумуляторний стек Deye — менші втрати в кабелях на комерційних ESS.",
+    "descriptionEn": "Deye high-voltage battery stack — higher string voltage for reduced cabling losses in commercial ESS.",
+    "image": "/assets/deye/image10.png"
+  },
+  {
+    "id": "deye-gb-lbs-pro-base",
+    "category": "batterySystems",
+    "name": "Deye GB-LBS-Pro+Base",
+    "badge": "4kWh",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "4kWh"
+      },
+      {
+        "label": "Type",
+        "value": "Modulair"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор високої напруги",
+    "highlightEn": "High voltage battery",
+    "descriptionUk": "Високовольтний акумуляторний стек Deye — менші втрати в кабелях на комерційних ESS.",
+    "descriptionEn": "Deye high-voltage battery stack — higher string voltage for reduced cabling losses in commercial ESS.",
+    "image": "/assets/deye/image10.png"
+  },
+  {
+    "id": "deye-gb-lm4-0",
+    "category": "batterySystems",
+    "name": "Deye GB-LM4.0",
+    "badge": "Control",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "Control"
+      },
+      {
+        "label": "Type",
+        "value": "Modulair"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор високої напруги",
+    "highlightEn": "High voltage battery",
+    "descriptionUk": "Високовольтний акумуляторний стек Deye — менші втрати в кабелях на комерційних ESS.",
+    "descriptionEn": "Deye high-voltage battery stack — higher string voltage for reduced cabling losses in commercial ESS.",
+    "image": "/assets/deye/image10.png"
+  },
+  {
+    "id": "deye-gb-l-pro-pack4-1-2",
+    "category": "batterySystems",
+    "name": "Deye GB-L-Pro-Pack4.1-2",
+    "badge": "4kWh",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "4kWh"
+      },
+      {
+        "label": "Type",
+        "value": "Modulair"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор високої напруги",
+    "highlightEn": "High voltage battery",
+    "descriptionUk": "Високовольтний акумуляторний стек Deye — менші втрати в кабелях на комерційних ESS.",
+    "descriptionEn": "Deye high-voltage battery stack — higher string voltage for reduced cabling losses in commercial ESS.",
+    "image": "/assets/deye/image20.png"
+  },
+  {
+    "id": "deye-gb-w",
+    "category": "inverters",
+    "name": "Deye GB-W",
+    "badge": "30kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "30kW"
+      },
+      {
+        "label": "Type",
+        "value": "Accessory"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Гібридний інвертор"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Гібридний інвертор",
+    "highlightEn": "Hybrid inverter",
+    "descriptionUk": "Універсальна гібридна платформа Deye — гнучке AC/DC-з'єднання для модернізації та нових систем.",
+    "descriptionEn": "Versatile Deye hybrid inverter platform — flexible AC/DC coupling for retrofit and new-build solar + storage.",
+    "image": "/assets/deye/image33.png"
+  },
+  {
+    "id": "deye-bos-g-pdu-2",
+    "category": "batterySystems",
+    "name": "Deye BOS-G-PDU-2",
+    "badge": "Control",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "Control"
+      },
+      {
+        "label": "Type",
+        "value": "Rack"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор високої напруги",
+    "highlightEn": "High voltage battery",
+    "descriptionUk": "Високовольтний акумуляторний стек Deye — менші втрати в кабелях на комерційних ESS.",
+    "descriptionEn": "Deye high-voltage battery stack — higher string voltage for reduced cabling losses in commercial ESS.",
+    "image": "/assets/deye/image2.png"
+  },
+  {
+    "id": "deye-bos-g-pack-5-1",
+    "category": "batterySystems",
+    "name": "Deye BOS-G-pack 5,1",
+    "badge": "5.12kWh",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "5.12kWh"
+      },
+      {
+        "label": "Chemie",
+        "value": "LFP"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор високої напруги",
+    "highlightEn": "High voltage battery",
+    "descriptionUk": "Високовольтний акумуляторний стек Deye — менші втрати в кабелях на комерційних ESS.",
+    "descriptionEn": "Deye high-voltage battery stack — higher string voltage for reduced cabling losses in commercial ESS.",
+    "image": "/assets/deye/image5.png"
+  },
+  {
+    "id": "deye-3u-hrack",
+    "category": "batterySystems",
+    "name": "Deye 3U-HRACK",
+    "badge": "Rack",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "Rack"
+      },
+      {
+        "label": "Type",
+        "value": "Rack"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор високої напруги",
+    "highlightEn": "High voltage battery",
+    "descriptionUk": "Високовольтний акумуляторний стек Deye — менші втрати в кабелях на комерційних ESS.",
+    "descriptionEn": "Deye high-voltage battery stack — higher string voltage for reduced cabling losses in commercial ESS.",
+    "image": "/assets/deye/image3.png"
+  },
+  {
+    "id": "deye-bos-b-pdu-2",
+    "category": "batterySystems",
+    "name": "Deye BOS-B-PDU-2",
+    "badge": "Control",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "Control"
+      },
+      {
+        "label": "Chemie",
+        "value": "LFP"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор високої напруги",
+    "highlightEn": "High voltage battery",
+    "descriptionUk": "Високовольтний акумуляторний стек Deye — менші втрати в кабелях на комерційних ESS.",
+    "descriptionEn": "Deye high-voltage battery stack — higher string voltage for reduced cabling losses in commercial ESS.",
+    "image": "/assets/deye/image17.png"
+  },
+  {
+    "id": "deye-bos-b-pack14-3",
+    "category": "batterySystems",
+    "name": "Deye BOS-B-Pack14.3",
+    "badge": "14.3kWh",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "14.3kWh"
+      },
+      {
+        "label": "Chemie",
+        "value": "LFP"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор високої напруги",
+    "highlightEn": "High voltage battery",
+    "descriptionUk": "Високовольтний акумуляторний стек Deye — менші втрати в кабелях на комерційних ESS.",
+    "descriptionEn": "Deye high-voltage battery stack — higher string voltage for reduced cabling losses in commercial ESS.",
+    "image": "/assets/deye/image18.png"
+  },
+  {
+    "id": "deye-bos-b-pdu-2-a",
+    "category": "batterySystems",
+    "name": "Deye BOS-B-PDU-2-A",
+    "badge": "16kWh",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "16kWh"
+      },
+      {
+        "label": "Type",
+        "value": "Controller"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор високої напруги",
+    "highlightEn": "High voltage battery",
+    "descriptionUk": "Високовольтний акумуляторний стек Deye — менші втрати в кабелях на комерційних ESS.",
+    "descriptionEn": "Deye high-voltage battery stack — higher string voltage for reduced cabling losses in commercial ESS.",
+    "image": "/assets/deye/image17.png"
+  },
+  {
+    "id": "deye-bos-b-pack16-a3",
+    "category": "batterySystems",
+    "name": "Deye BOS-B-Pack16-A3",
+    "badge": "16kWh",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "16kWh"
+      },
+      {
+        "label": "Chemie",
+        "value": "LFP"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор високої напруги",
+    "highlightEn": "High voltage battery",
+    "descriptionUk": "Високовольтний акумуляторний стек Deye — менші втрати в кабелях на комерційних ESS.",
+    "descriptionEn": "Deye high-voltage battery stack — higher string voltage for reduced cabling losses in commercial ESS.",
+    "image": "/assets/deye/image18.png"
+  },
+  {
+    "id": "deye-bos-b-rack",
+    "category": "batterySystems",
+    "name": "Deye BOS-B Rack",
+    "badge": "16kWh",
+    "color": "#6366F1",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "16kWh"
+      },
+      {
+        "label": "Type",
+        "value": "Rack"
+      },
+      {
+        "label": "Spanning",
+        "value": "Hoogspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "Висока напруга"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Акумулятор високої напруги",
+    "highlightEn": "High voltage battery",
+    "descriptionUk": "Високовольтний акумуляторний стек Deye — менші втрати в кабелях на комерційних ESS.",
+    "descriptionEn": "Deye high-voltage battery stack — higher string voltage for reduced cabling losses in commercial ESS.",
+    "image": "/assets/deye/image24.png"
+  },
+  {
+    "id": "deye-sun-sts500l",
+    "category": "inverters",
+    "name": "Deye SUN-STS500L",
+    "badge": "500kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "500kW"
+      },
+      {
+        "label": "Type",
+        "value": "Static Transfer Switch"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "C&I ESS"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Системний аксесуар",
+    "highlightEn": "System accessory",
+    "descriptionUk": "Оригінальний аксесуар Deye — лічильники, шлюзи зв'язку та комплектуючі для гібридних систем.",
+    "descriptionEn": "Genuine Deye system accessory — meters, comms gateways and integration hardware for complete hybrid stacks.",
+    "image": "/assets/deye/image21.png"
+  },
+  {
+    "id": "deye-sun-mppt-l01-eu-am8",
+    "category": "inverters",
+    "name": "Deye SUN-MPPT-L01-EU-AM8",
+    "badge": "MPPT",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "MPPT"
+      },
+      {
+        "label": "Type",
+        "value": "MPPT module"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "C&I ESS"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Системний аксесуар",
+    "highlightEn": "System accessory",
+    "descriptionUk": "Оригінальний аксесуар Deye — лічильники, шлюзи зв'язку та комплектуючі для гібридних систем.",
+    "descriptionEn": "Genuine Deye system accessory — meters, comms gateways and integration hardware for complete hybrid stacks.",
+    "image": "/assets/deye/image22.png"
+  },
+  {
+    "id": "deye-sun-125k-pcsl01hp3",
+    "category": "inverters",
+    "name": "Deye SUN-125K-PCSL01HP3",
+    "badge": "125kW",
+    "color": "#F97316",
+    "specs": [
+      {
+        "label": "Vermogen",
+        "value": "125kW"
+      },
+      {
+        "label": "Type",
+        "value": "PCS module"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "C&I ESS"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Системний аксесуар",
+    "highlightEn": "System accessory",
+    "descriptionUk": "Оригінальний аксесуар Deye — лічильники, шлюзи зв'язку та комплектуючі для гібридних систем.",
+    "descriptionEn": "Genuine Deye system accessory — meters, comms gateways and integration hardware for complete hybrid stacks.",
+    "image": "/assets/deye/image23.png"
+  },
+  {
+    "id": "deye-ge-f60-eu-61-44kwh-614-4v-100ah",
+    "category": "batterySystems",
+    "name": "Deye GE-F60（EU） 61.44Kwh 614.4V 100Ah",
+    "badge": "60kWh",
+    "color": "#8B5CF6",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "60kWh"
+      },
+      {
+        "label": "Type",
+        "value": "Cabinet"
+      },
+      {
+        "label": "Spanning",
+        "value": "614.4V"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "C&I ESS"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Комерційне та промислове ESS",
+    "highlightEn": "Commercial & industrial ESS",
+    "descriptionUk": "Комерційне та промислове ESS Deye — масштабована потужність для пікового зрізу та UPS-режиму.",
+    "descriptionEn": "Commercial & industrial Deye ESS cabinet — scalable power and energy for peak shaving, UPS paths and tariff optimisation.",
+    "image": "/assets/deye/image6.png"
+  },
+  {
+    "id": "deye-ge-f120-2h2",
+    "category": "batterySystems",
+    "name": "Deye GE-F120-2H2",
+    "badge": "—",
+    "color": "#8B5CF6",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "—"
+      },
+      {
+        "label": "Type",
+        "value": "Cabinet"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "C&I ESS"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Комерційне та промислове ESS",
+    "highlightEn": "Commercial & industrial ESS",
+    "descriptionUk": "Комерційне та промислове ESS Deye — масштабована потужність для пікового зрізу та UPS-режиму.",
+    "descriptionEn": "Commercial & industrial Deye ESS cabinet — scalable power and energy for peak shaving, UPS paths and tariff optimisation.",
+    "image": "/assets/deye/image9.png"
+  },
+  {
+    "id": "deye-deye-ge-f240-hybrid125k-new",
+    "category": "batterySystems",
+    "name": "Deye Deye GE-F240+Hybrid125k(NEW)",
+    "badge": "240kWh",
+    "color": "#8B5CF6",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "240kWh"
+      },
+      {
+        "label": "Type",
+        "value": "Cabinet"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "C&I ESS"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Комерційне та промислове ESS",
+    "highlightEn": "Commercial & industrial ESS",
+    "descriptionUk": "Комерційне та промислове ESS Deye — масштабована потужність для пікового зрізу та UPS-режиму.",
+    "descriptionEn": "Commercial & industrial Deye ESS cabinet — scalable power and energy for peak shaving, UPS paths and tariff optimisation.",
+    "image": "/assets/deye/image34.png"
+  },
+  {
+    "id": "deye-ms-gs215-2h3",
+    "category": "batterySystems",
+    "name": "Deye MS-GS215-2H3",
+    "badge": "215kWh",
+    "color": "#8B5CF6",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "215kWh"
+      },
+      {
+        "label": "Type",
+        "value": "Cabinet"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "C&I ESS"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Комерційне та промислове ESS",
+    "highlightEn": "Commercial & industrial ESS",
+    "descriptionUk": "Комерційне та промислове ESS Deye — масштабована потужність для пікового зрізу та UPS-режиму.",
+    "descriptionEn": "Commercial & industrial Deye ESS cabinet — scalable power and energy for peak shaving, UPS paths and tariff optimisation.",
+    "image": "/assets/deye/image8.png"
+  },
+  {
+    "id": "deye-ms-ts500-2-a",
+    "category": "batterySystems",
+    "name": "Deye MS-TS500-2-A",
+    "badge": "500kW",
+    "color": "#8B5CF6",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "500kW"
+      },
+      {
+        "label": "Chemie",
+        "value": "LFP"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "C&I ESS"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Комерційне та промислове ESS",
+    "highlightEn": "Commercial & industrial ESS",
+    "descriptionUk": "Комерційне та промислове ESS Deye — масштабована потужність для пікового зрізу та UPS-режиму.",
+    "descriptionEn": "Commercial & industrial Deye ESS cabinet — scalable power and energy for peak shaving, UPS paths and tariff optimisation.",
+    "image": "/assets/deye/image14.png"
+  },
+  {
+    "id": "deye-ems1000",
+    "category": "batterySystems",
+    "name": "Deye EMS1000",
+    "badge": "EMS",
+    "color": "#8B5CF6",
+    "specs": [
+      {
+        "label": "Capaciteit",
+        "value": "EMS"
+      },
+      {
+        "label": "Type",
+        "value": "Cabinet"
+      },
+      {
+        "label": "Spanning",
+        "value": "Laagspanning"
+      }
+    ],
+    "tags": [
+      "Deye",
+      "C&I ESS"
+    ],
+    "warranty": "5 років стандарту",
+    "highlightUk": "Комерційне та промислове ESS",
+    "highlightEn": "Commercial & industrial ESS",
+    "descriptionUk": "Комерційне та промислове ESS Deye — масштабована потужність для пікового зрізу та UPS-режиму.",
+    "descriptionEn": "Commercial & industrial Deye ESS cabinet — scalable power and energy for peak shaving, UPS paths and tariff optimisation.",
+    "image": "/assets/deye/image15.png"
+  }
+]

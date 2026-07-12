@@ -299,6 +299,7 @@ export function Admin() {
   const [catEn, setCatEn] = useState("");
   const [error, setError] = useState("");
   const [seedMsg, setSeedMsg] = useState("");
+  const [seeding, setSeeding] = useState(false);
 
   const load = async () => {
     const [p, c] = await Promise.all([adminFetchProducts(), adminFetchCategories()]);
@@ -355,6 +356,7 @@ export function Admin() {
 
   const runSeed = async (force = false) => {
     if (force && !confirm("Замінити всі товари в БД каталогом NSS (59 шт.)?")) return;
+    setSeeding(true);
     setSeedMsg("Імпорт...");
     try {
       const result = await adminSeed(force);
@@ -366,6 +368,8 @@ export function Admin() {
       await load();
     } catch (err) {
       setSeedMsg(err instanceof Error ? err.message : "Помилка імпорту");
+    } finally {
+      setSeeding(false);
     }
   };
 
@@ -400,18 +404,20 @@ export function Admin() {
               <button
                 type="button"
                 onClick={() => runSeed(false)}
-                className="bg-[#0F172A] text-white px-4 py-2 rounded-lg text-sm font-semibold"
+                disabled={seeding}
+                className="bg-[#0F172A] text-white px-4 py-2 rounded-lg text-sm font-semibold disabled:opacity-50"
               >
-                Відновити каталог (59 товарів)
+                {seeding ? "Імпорт..." : "Відновити каталог (59 товарів)"}
               </button>
               <button
                 type="button"
                 onClick={() => runSeed(true)}
-                className="border border-[#D4DEE9] px-4 py-2 rounded-lg text-sm font-semibold text-[#64748B]"
+                disabled={seeding}
+                className="border border-[#D4DEE9] px-4 py-2 rounded-lg text-sm font-semibold text-[#64748B] disabled:opacity-50"
               >
                 Оновити каталог (замінити все)
               </button>
-              {seedMsg && <span className="text-sm text-[#64748B]">{seedMsg}</span>}
+              {seedMsg && <span className={`text-sm ${seedMsg.includes("✓") ? "text-[#2DC653]" : "text-red-600"}`}>{seedMsg}</span>}
             </div>
 
             {!editing && (

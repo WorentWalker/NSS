@@ -54,14 +54,22 @@ export async function adminSeed(force = false): Promise<{ count: number; skipped
     method: "POST",
     headers: adminHeaders(),
   });
-  const data = await res.json().catch(() => ({}));
+  let data: { error?: string; skipped?: boolean; catalogSize?: number; count?: number } = {};
+  try {
+    data = await res.json();
+  } catch {
+    if (res.status === 504) {
+      throw new Error("Таймаут сервера. Спробуйте ще раз або запустіть npm run db:seed локально.");
+    }
+    throw new Error(`Сервер повернув ${res.status} без JSON — перевірте /api/health`);
+  }
   if (!res.ok) {
-    throw new Error(data.error || "Failed to seed database");
+    throw new Error(data.error || `Помилка сервера (${res.status})`);
   }
   if (data.skipped) {
-    return { count: data.catalogSize, skipped: true };
+    return { count: data.catalogSize ?? 0, skipped: true };
   }
-  return { count: data.count };
+  return { count: data.count ?? 0 };
 }
 
 export async function adminLogin(password: string): Promise<void> {
