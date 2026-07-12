@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router";
 import { useI18n } from "../i18n";
+import { PageSlogan } from "../components/PageSlogan";
 import { realizedProjects, type RealizedProject } from "../data/realizedProjects";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import {
@@ -585,6 +586,8 @@ function HeroSection() {
               <div style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: TEXT }} />
               <span style={{ color: TEXT, fontSize: 13, fontWeight: 600 }}>{t("home.marstekBadge")}</span>
             </div>
+
+            <PageSlogan page="home" />
 
             <h1 style={{ fontFamily: "'Onest', sans-serif", fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 900, lineHeight: 1.16, color: TEXT, marginBottom: 24, overflowWrap: "anywhere", wordBreak: "break-word" }}>
               {t("home.marstekTitle")}

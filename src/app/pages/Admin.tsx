@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Trash2, Plus, Package, FolderOpen, LogOut } from "lucide-react";
+import { usePageSeo } from "../seo/usePageSeo";
 import {
   adminCreateCategory,
   adminCreateProduct,
@@ -290,6 +291,7 @@ function ProductForm({
 }
 
 export function Admin() {
+  usePageSeo("admin");
   const [loggedIn, setLoggedIn] = useState(Boolean(getAdminPassword()));
   const [tab, setTab] = useState<"products" | "categories">("products");
   const [products, setProducts] = useState<ApiProduct[]>([]);

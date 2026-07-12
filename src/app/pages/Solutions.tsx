@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router";
 import { CheckCircle2, ArrowRight, Zap, Battery, Sun, TrendingUp, Shield, Wifi } from "lucide-react";
 import { useI18n } from "../i18n";
+import { PageSlogan } from "../components/PageSlogan";
 
 const NSS_GREEN = "#2DC653";
 const DARK_GREEN = "#1A9E35";
@@ -381,6 +382,7 @@ export function Solutions() {
       }}>
         <div style={{ position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(45,198,83,0.10) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <PageSlogan page="solutions" />
           <h1 style={{ fontFamily: "'Onest', sans-serif", fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 900, color: TEXT, marginBottom: 12 }}>
             {t("solutionsPage.titleLead")}
             <span style={{ background: "linear-gradient(135deg, #2DC653, #1DA040)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>{t("solutionsPage.titleHighlight")}</span>

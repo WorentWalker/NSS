@@ -1,6 +1,7 @@
 import { CheckCircle2, Award, Users, Globe, Target } from "lucide-react";
 import uniformImg from "figma:asset/ea61d0fe1462718c0219330a5459f4f6456c98e2.png";
 import { useI18n } from "../i18n";
+import { PageSlogan } from "../components/PageSlogan";
 
 const NSS_GREEN = "#2DC653";
 const DARK_GREEN = "#1A9E35";
@@ -71,6 +72,7 @@ export function About() {
       }}>
         <div style={{ position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(45,198,83,0.10) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <PageSlogan page="about" />
           <h1 style={{ fontFamily: "'Onest', sans-serif", fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 900, color: TEXT, marginBottom: 12 }}>
             {t("about.titlePrefix")}<span style={{ background: "linear-gradient(135deg, #2DC653, #1DA040)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>{t("about.titleBrand")}</span>
           </h1>

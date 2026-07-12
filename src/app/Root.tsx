@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router";
 import { useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
+import { PageSeo } from "./seo/PageSeo";
 
 export function Root() {
   const { pathname } = useLocation();
@@ -12,6 +13,7 @@ export function Root() {
 
   return (
     <div style={{ backgroundColor: "#F6F9FC", minHeight: "100vh" }}>
+      <PageSeo />
       <Navbar />
       <main>
         <Outlet />

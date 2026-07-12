@@ -2,6 +2,51 @@ export const enMessages = {
   brand: {
     taglineShort: "New Solar System",
   },
+  seo: {
+    siteName: "NSS",
+    siteTagline: "New Solar System",
+    defaultDescription:
+      "NSS is a solar energy integrator in Ukraine and Europe — Q-SUN panels, GoodWe and Deye inverters, QCL and RochexEnergy storage. Engineering, supply and turnkey PV installation.",
+    keywords:
+      "solar panels, inverters, battery storage, solar energy, PV systems, NSS, Q-SUN, GoodWe, Deye, Ukraine, turnkey solar",
+    pages: {
+      home: {
+        title: "Home",
+        slogan: "Turnkey solar energy in Ukraine",
+        description:
+          "Cut electricity costs by up to 90%. NSS delivers complete solar systems for homes and businesses — panels, inverters, batteries, engineering and installation.",
+      },
+      products: {
+        title: "Products",
+        slogan: "Tier-1 panels, inverters & batteries",
+        description:
+          "NSS product catalog: Q-SUN solar modules, GoodWe and Deye inverters, QCL and RochexEnergy battery systems. Certified hardware with warranty and expert support.",
+      },
+      solutions: {
+        title: "Solutions",
+        slogan: "From rooftop kW to utility-scale MW",
+        description:
+          "NSS solar solutions for residential, commercial and industrial clients. Private rooftops, C&I installations and utility-scale projects — full turnkey delivery.",
+      },
+      about: {
+        title: "About NSS",
+        slogan: "Solar energy integrator",
+        description:
+          "NSS (New Solar System) engineers and supplies solar equipment across Ukraine. 2+ MW installed, 20+ completed projects, Tier-1 manufacturer partners.",
+      },
+      contact: {
+        title: "Contact",
+        slogan: "Free consultation & system quote",
+        description:
+          "Contact NSS for solar system sizing, ROI modelling and a commercial proposal. Kyiv and all Ukraine — info@nss.energy.",
+      },
+      admin: {
+        title: "Admin panel",
+        slogan: "Catalog management",
+        description: "Internal NSS product catalog administration.",
+      },
+    },
+  },
   nav: {
     home: "Home",
     products: "Products",

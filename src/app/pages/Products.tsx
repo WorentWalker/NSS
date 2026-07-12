@@ -4,6 +4,7 @@ import { Filter, Sun, Zap } from "lucide-react";
 import { useI18n } from "../i18n";
 import type { ProductDoc } from "../data/products";
 import { ProductCard } from "../components/products/ProductCard";
+import { PageSlogan } from "../components/PageSlogan";
 import { apiProductToDoc, fetchCategories, fetchProducts, type ApiCategory } from "../lib/api";
 import nssProduct1 from "figma:asset/2c5afeeeadc1c10b241a86ed9503d116ea92e554.png";
 import nssProduct3 from "figma:asset/95fb35ccae0a21c77bf67f3116e76442824da4a1.png";
@@ -82,6 +83,7 @@ export function Products() {
               <span style={{ color: NSS_GREEN }}>{t("productsPage.breadcrumbProducts")}</span>
             </span>
           </div>
+          <PageSlogan page="products" />
           <h1 style={{ fontFamily: "'Onest', sans-serif", fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 900, color: TEXT, marginBottom: 12 }}>
             {t("productsPage.headingLead")}<span style={{ background: "linear-gradient(135deg, #2DC653, #1DA040)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>{t("productsPage.headingAccent")}</span>
           </h1>
