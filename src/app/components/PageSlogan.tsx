@@ -14,9 +14,9 @@ export function PageSlogan({ page }: PageSloganProps) {
         color: "#1A9E35",
         fontSize: 14,
         fontWeight: 700,
-        letterSpacing: "0.04em",
-        textTransform: "uppercase",
+        lineHeight: 1.4,
         marginBottom: 10,
+        maxWidth: "100%",
       }}
     >
       {t(`seo.pages.${page}.slogan`)}

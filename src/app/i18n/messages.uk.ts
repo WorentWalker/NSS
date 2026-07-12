@@ -66,6 +66,7 @@ export const ukMessages = {
     blurb:
       "Сучасні сонячні енергосистеми для дому й бізнесу в Україні та Європі.",
     columnProducts: "Продукція",
+    columnSite: "Сторінки",
     panels: "Панелі",
     inverters: "Інвертори",
     storage: "Накопичувачі",

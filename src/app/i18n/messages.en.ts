@@ -65,6 +65,7 @@ export const enMessages = {
   footer: {
     blurb: "Premium solar solutions for homes and businesses in Ukraine and Europe.",
     columnProducts: "Products",
+    columnSite: "Pages",
     panels: "Solar panels",
     inverters: "Inverters",
     storage: "Battery storage",

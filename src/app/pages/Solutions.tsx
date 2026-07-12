@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { Link } from "react-router";
+import { useState, useEffect } from "react";
+import { Link, useSearchParams } from "react-router";
 import { CheckCircle2, ArrowRight, Zap, Battery, Sun, TrendingUp, Shield, Wifi } from "lucide-react";
 import { useI18n } from "../i18n";
 import { PageSlogan } from "../components/PageSlogan";
+import { SystemDiagram } from "../components/SystemDiagram";
 
 const NSS_GREEN = "#2DC653";
 const DARK_GREEN = "#1A9E35";
@@ -24,46 +25,6 @@ function SectionTitle({ overline, title, subtitle, center = false }: { overline:
       </div>
       <h2 style={{ fontFamily: "'Onest', sans-serif", fontSize: "clamp(26px, 4vw, 40px)", fontWeight: 800, color: TEXT, lineHeight: 1.2, marginBottom: subtitle ? 12 : 0 }}>{title}</h2>
       {subtitle && <p style={{ color: MUTED, fontSize: 15, lineHeight: 1.7, maxWidth: center ? 560 : "100%", margin: center ? "0 auto" : "0" }}>{subtitle}</p>}
-    </div>
-  );
-}
-
-function SystemDiagram({ nodes }: { nodes: { label: string; icon: React.ReactNode; color: string }[] }) {
-  return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap", margin: "32px 0" }}>
-      {nodes.map((node, i) => (
-        <>
-          <div key={node.label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-            <div style={{
-              width: 56, height: 56,
-              backgroundColor: `${node.color}18`,
-              border: `1px solid ${node.color}55`,
-              borderRadius: 12,
-              display: "flex", alignItems: "center", justifyContent: "center",
-              color: node.color,
-              boxShadow: `0 4px 12px ${node.color}15`,
-            }}>
-              {node.icon}
-            </div>
-            <span style={{ color: MUTED, fontSize: 11, fontWeight: 600, textAlign: "center", maxWidth: 70 }}>{node.label}</span>
-          </div>
-          {i < nodes.length - 1 && (
-            <div key={`arrow-${i}`} style={{
-              width: 32, height: 2,
-              background: `linear-gradient(90deg, ${nodes[i].color}, ${nodes[i + 1].color})`,
-              position: "relative",
-            }}>
-              <div style={{
-                position: "absolute", right: -4, top: "50%", transform: "translateY(-50%)",
-                width: 0, height: 0,
-                borderLeft: `6px solid ${nodes[i + 1].color}`,
-                borderTop: "4px solid transparent",
-                borderBottom: "4px solid transparent",
-              }} />
-            </div>
-          )}
-        </>
-      ))}
     </div>
   );
 }
@@ -363,7 +324,19 @@ function UtilityTab() {
 
 export function Solutions() {
   const { t } = useI18n();
-  const [activeTab, setActiveTab] = useState("residential");
+  const [searchParams] = useSearchParams();
+  const tabFromUrl = searchParams.get("tab");
+  const validTabs = ["residential", "ci", "utility"] as const;
+  const initialTab = validTabs.includes(tabFromUrl as typeof validTabs[number])
+    ? (tabFromUrl as typeof validTabs[number])
+    : "residential";
+  const [activeTab, setActiveTab] = useState(initialTab);
+
+  useEffect(() => {
+    if (tabFromUrl && validTabs.includes(tabFromUrl as typeof validTabs[number])) {
+      setActiveTab(tabFromUrl as typeof validTabs[number]);
+    }
+  }, [tabFromUrl]);
   const tabs = [
     { id: "residential", label: t("solutionsPage.tabRes"), icon: <Sun size={16} /> },
     { id: "ci", label: t("solutionsPage.tabCi"), icon: <Zap size={16} /> },

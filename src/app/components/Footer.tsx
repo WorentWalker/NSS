@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Link } from "react-router";
 import { Mail, Phone, MapPin, Send, MessageCircle, Linkedin, Youtube } from "lucide-react";
 import { useI18n } from "../i18n";
@@ -9,8 +10,52 @@ const BORDER = "#D4DEE9";
 const TEXT = "#0F172A";
 const MUTED = "#64748B";
 
+const linkStyle: React.CSSProperties = {
+  display: "block",
+  color: MUTED,
+  fontSize: 14,
+  textDecoration: "none",
+  marginBottom: 10,
+  transition: "color 0.2s",
+};
+
+function FooterLink({ to, children }: { to: string; children: ReactNode }) {
+  return (
+    <Link
+      to={to}
+      style={linkStyle}
+      onMouseEnter={(e) => (e.currentTarget.style.color = NSS_GREEN)}
+      onMouseLeave={(e) => (e.currentTarget.style.color = MUTED)}
+    >
+      {children}
+    </Link>
+  );
+}
+
 export function Footer() {
   const { t } = useI18n();
+
+  const siteLinks = [
+    { label: t("nav.home"), to: "/" },
+    { label: t("nav.products"), to: "/products" },
+    { label: t("nav.solutions"), to: "/solutions" },
+    { label: t("nav.about"), to: "/about" },
+    { label: t("nav.contact"), to: "/contact" },
+  ];
+
+  const productLinks = [
+    { label: t("footer.panels"), to: "/products?category=solarPanels" },
+    { label: t("footer.inverters"), to: "/products?category=inverters" },
+    { label: t("footer.storage"), to: "/products?category=batterySystems" },
+    { label: t("footer.systems"), to: "/products" },
+  ];
+
+  const solutionLinks = [
+    { label: t("footer.private"), to: "/solutions?tab=residential" },
+    { label: t("footer.businessIndustrial"), to: "/solutions?tab=ci" },
+    { label: t("footer.utilityScale"), to: "/solutions?tab=utility" },
+    { label: t("footer.custom"), to: "/contact" },
+  ];
 
   return (
     <footer style={{ backgroundColor: BG, borderTop: `1px solid ${BORDER}` }}>
@@ -85,23 +130,19 @@ export function Footer() {
 
           <div>
             <h4 style={{ color: TEXT, fontSize: 13, fontWeight: 700, letterSpacing: "var(--tracking-caps-sm, 0.05em)", textTransform: "uppercase", marginBottom: 20 }}>
+              {t("footer.columnSite")}
+            </h4>
+            {siteLinks.map((item) => (
+              <FooterLink key={item.to} to={item.to}>{item.label}</FooterLink>
+            ))}
+          </div>
+
+          <div>
+            <h4 style={{ color: TEXT, fontSize: 13, fontWeight: 700, letterSpacing: "var(--tracking-caps-sm, 0.05em)", textTransform: "uppercase", marginBottom: 20 }}>
               {t("footer.columnProducts")}
             </h4>
-            {[
-              t("footer.panels"),
-              t("footer.inverters"),
-              t("footer.storage"),
-              t("footer.systems"),
-            ].map((item) => (
-              <Link key={item} to="/products" style={{
-                display: "block", color: MUTED, fontSize: 14, textDecoration: "none",
-                marginBottom: 10, transition: "color 0.2s",
-              }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = NSS_GREEN)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = MUTED)}
-              >
-                {item}
-              </Link>
+            {productLinks.map((item) => (
+              <FooterLink key={item.to} to={item.to}>{item.label}</FooterLink>
             ))}
           </div>
 
@@ -109,21 +150,8 @@ export function Footer() {
             <h4 style={{ color: TEXT, fontSize: 13, fontWeight: 700, letterSpacing: "var(--tracking-caps-sm, 0.05em)", textTransform: "uppercase", marginBottom: 20 }}>
               {t("footer.columnSolutions")}
             </h4>
-            {[
-              t("footer.private"),
-              t("footer.businessIndustrial"),
-              t("footer.utilityScale"),
-              t("footer.custom"),
-            ].map((item) => (
-              <Link key={item} to="/solutions" style={{
-                display: "block", color: MUTED, fontSize: 14, textDecoration: "none",
-                marginBottom: 10, transition: "color 0.2s",
-              }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = NSS_GREEN)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = MUTED)}
-              >
-                {item}
-              </Link>
+            {solutionLinks.map((item) => (
+              <FooterLink key={item.to} to={item.to}>{item.label}</FooterLink>
             ))}
           </div>
 
@@ -200,12 +228,14 @@ export function Footer() {
             {t("footer.rights")}
           </p>
           <div style={{ display: "flex", gap: 20 }}>
-            {[t("footer.privacy"), t("footer.terms")].map((item) => (
-              <span key={item} style={{ color: MUTED, fontSize: 13, cursor: "pointer" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = NSS_GREEN)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = MUTED)}
-              >{item}</span>
-            ))}
+            <Link to="/contact" style={{ color: MUTED, fontSize: 13, textDecoration: "none" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = NSS_GREEN)}
+              onMouseLeave={(e) => (e.currentTarget.style.color = MUTED)}
+            >{t("footer.privacy")}</Link>
+            <Link to="/contact" style={{ color: MUTED, fontSize: 13, textDecoration: "none" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = NSS_GREEN)}
+              onMouseLeave={(e) => (e.currentTarget.style.color = MUTED)}
+            >{t("footer.terms")}</Link>
           </div>
         </div>
       </div>

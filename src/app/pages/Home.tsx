@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router";
 import { useI18n } from "../i18n";
 import { PageSlogan } from "../components/PageSlogan";
+import { HeroTicker } from "../components/HeroTicker";
 import { realizedProjects, type RealizedProject } from "../data/realizedProjects";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import {
@@ -570,16 +571,16 @@ function HeroSection() {
   ];
 
   return (
-    <section style={{
+    <section className="hero-section" style={{
       minHeight: "100vh", position: "relative",
-      display: "flex", alignItems: "center", overflow: "hidden",
+      display: "flex", alignItems: "center",
       background: "linear-gradient(135deg, #F0FDF4 0%, #ECFDF5 40%, #F0F9FF 100%)",
     }}>
       <div style={{ position: "absolute", width: 700, height: 700, borderRadius: "50%", background: "radial-gradient(circle, rgba(45,198,83,0.10) 0%, transparent 70%)", top: -200, right: -150, pointerEvents: "none" }} />
       <div style={{ position: "absolute", width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(45,198,83,0.07) 0%, transparent 70%)", bottom: -150, left: -100, pointerEvents: "none" }} />
       <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(45,198,83,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(45,198,83,0.04) 1px, transparent 1px)`, backgroundSize: "60px 60px", pointerEvents: "none" }} />
 
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "120px 24px 80px", width: "100%", position: "relative", zIndex: 1 }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "120px 24px 100px", width: "100%", position: "relative", zIndex: 1 }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }} className="hero-grid">
           <div style={{ maxWidth: 600 }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 8, backgroundColor: "rgba(15,23,42,0.06)", border: "1px solid rgba(15,23,42,0.12)", borderRadius: 100, padding: "6px 16px", marginBottom: 24 }}>
@@ -650,18 +651,12 @@ function HeroSection() {
         </div>
       </div>
 
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, backgroundColor: "rgba(255,255,255,0.85)", borderTop: `1px solid ${BORDER}`, backdropFilter: "blur(10px)", padding: "12px 0", overflow: "hidden" }}>
-        <div style={{ display: "flex", gap: 60, alignItems: "center", animation: "ticker 20s linear infinite", whiteSpace: "nowrap" }}>
-          {[...Array(3)].flatMap(() => tickerItems).map((item, i) => (
-            <span key={i} style={{ color: MUTED, fontSize: 13, fontWeight: 600, letterSpacing: "0.03em" }}>
-              <span style={{ color: NSS_GREEN, marginRight: 8 }}>◆</span>{item}
-            </span>
-          ))}
-        </div>
-      </div>
+      <HeroTicker items={tickerItems} />
 
       <style>{`
-        @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
+        .hero-section {
+          overflow: hidden;
+        }
         .hero-marstek-showcase {
           position: relative;
           z-index: 1;

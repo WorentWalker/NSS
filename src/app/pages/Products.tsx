@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { Filter, Sun, Zap } from "lucide-react";
 import { useI18n } from "../i18n";
 import type { ProductDoc } from "../data/products";
@@ -19,11 +19,19 @@ const MUTED = "#64748B";
 
 export function Products() {
   const { t, locale } = useI18n();
+  const [searchParams] = useSearchParams();
+  const categoryFromUrl = searchParams.get("category");
   const [products, setProducts] = useState<ProductDoc[]>([]);
   const [categories, setCategories] = useState<ApiCategory[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [activeCategory, setActiveCategory] = useState<string>(categoryFromUrl || "all");
   const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    if (categoryFromUrl) {
+      setActiveCategory(categoryFromUrl);
+    }
+  }, [categoryFromUrl]);
 
   useEffect(() => {
     let cancelled = false;
