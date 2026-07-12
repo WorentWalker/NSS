@@ -7,6 +7,8 @@ import {
   adminDeleteProduct,
   adminFetchCategories,
   adminFetchProducts,
+  adminLogin,
+  adminSeed,
   adminUpdateProduct,
   clearAdminPassword,
   getAdminPassword,
@@ -24,13 +26,20 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setAdminPassword(password);
+    setError("");
     try {
-      await adminFetchCategories();
+      await adminLogin(password);
+      setAdminPassword(password);
       onLogin();
-    } catch {
+    } catch (err) {
       clearAdminPassword();
-      setError("Невірний пароль");
+      if (err instanceof Error && err.message === "wrong_password") {
+        setError("Невірний пароль");
+      } else if (err instanceof TypeError) {
+        setError("API недоступний. Переконайтесь, що сервер підтримує /api (Vercel + Turso).");
+      } else {
+        setError(`Помилка сервера: ${err instanceof Error ? err.message : "невідома"}`);
+      }
     }
   };
 
@@ -289,6 +298,7 @@ export function Admin() {
   const [catUk, setCatUk] = useState("");
   const [catEn, setCatEn] = useState("");
   const [error, setError] = useState("");
+  const [seedMsg, setSeedMsg] = useState("");
 
   const load = async () => {
     const [p, c] = await Promise.all([adminFetchProducts(), adminFetchCategories()]);
@@ -343,6 +353,22 @@ export function Admin() {
     }
   };
 
+  const runSeed = async (force = false) => {
+    if (force && !confirm("Замінити всі товари в БД каталогом NSS (59 шт.)?")) return;
+    setSeedMsg("Імпорт...");
+    try {
+      const result = await adminSeed(force);
+      if (result.skipped) {
+        setSeedMsg(`У БД вже є ${result.count} товарів. Натисніть «Оновити каталог» для повної заміни.`);
+      } else {
+        setSeedMsg(`Імпортовано ${result.count} товарів ✓`);
+      }
+      await load();
+    } catch (err) {
+      setSeedMsg(err instanceof Error ? err.message : "Помилка імпорту");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#F6F9FC]">
       <header className="bg-white border-b border-[#D4DEE9] px-6 py-4 flex items-center justify-between">
@@ -370,6 +396,24 @@ export function Admin() {
 
         {tab === "products" && (
           <div className="space-y-6">
+            <div className="bg-white border border-[#D4DEE9] rounded-xl p-4 flex flex-wrap gap-3 items-center">
+              <button
+                type="button"
+                onClick={() => runSeed(false)}
+                className="bg-[#0F172A] text-white px-4 py-2 rounded-lg text-sm font-semibold"
+              >
+                Відновити каталог (59 товарів)
+              </button>
+              <button
+                type="button"
+                onClick={() => runSeed(true)}
+                className="border border-[#D4DEE9] px-4 py-2 rounded-lg text-sm font-semibold text-[#64748B]"
+              >
+                Оновити каталог (замінити все)
+              </button>
+              {seedMsg && <span className="text-sm text-[#64748B]">{seedMsg}</span>}
+            </div>
+
             {!editing && (
               <button
                 onClick={() => setEditing("new")}

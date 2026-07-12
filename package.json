@@ -7,7 +7,8 @@
     "build": "vite build",
     "dev": "concurrently -n api,vite -c blue,green \"tsx server/dev.ts\" \"vite\"",
     "dev:web": "vite",
-    "db:seed": "tsx scripts/seed.ts"
+    "db:seed": "tsx scripts/seed.ts",
+    "db:reseed": "tsx scripts/seed.ts -- --force"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",

@@ -52,6 +52,39 @@ const server = http.createServer(async (req, res) => {
   const auth = req.headers.authorization;
 
   try {
+    if (url.pathname === "/api/admin/login" && req.method === "POST") {
+      const body = await readJson<{ password?: string }>(req);
+      const expected = process.env.ADMIN_PASSWORD || "nss-admin";
+      if (body.password === expected) {
+        return send(res, 200, { ok: true });
+      }
+      return send(res, 401, { error: "Unauthorized" });
+    }
+
+    if (url.pathname === "/api/health" && req.method === "GET") {
+      try {
+        const categories = await listCategories();
+        return send(res, 200, { ok: true, db: true, categories: categories.length });
+      } catch (error) {
+        return send(res, 500, {
+          ok: false,
+          db: false,
+          error: error instanceof Error ? error.message : "Database error",
+        });
+      }
+    }
+
+    if (url.pathname === "/api/admin/seed" && req.method === "POST") {
+      requireAdmin(auth);
+      const force = url.searchParams.get("force") === "true";
+      const { seedCatalog } = await import("../api/_lib/seed.js");
+      const result = await seedCatalog({ force });
+      if (result.action === "skipped") {
+        return send(res, 200, { ok: true, skipped: true, count: result.count });
+      }
+      return send(res, 200, { ok: true, count: result.count });
+    }
+
     if (url.pathname === "/api/products" && req.method === "GET") {
       const lang = url.searchParams.get("lang") || "uk";
       return send(res, 200, await listProducts(lang));

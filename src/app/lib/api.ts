@@ -49,6 +49,44 @@ export type CategoryInput = {
 
 const ADMIN_KEY = "nss_admin_password";
 
+export async function adminSeed(force = false): Promise<{ count: number; skipped?: boolean }> {
+  const res = await fetch(`/api/admin/seed${force ? "?force=true" : ""}`, {
+    method: "POST",
+    headers: adminHeaders(),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    throw new Error(data.error || "Failed to seed database");
+  }
+  if (data.skipped) {
+    return { count: data.catalogSize, skipped: true };
+  }
+  return { count: data.count };
+}
+
+export async function adminLogin(password: string): Promise<void> {
+  const res = await fetch("/api/admin/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ password }),
+  });
+
+  if (res.status === 401) {
+    throw new Error("wrong_password");
+  }
+
+  if (!res.ok) {
+    let message = "server_error";
+    try {
+      const data = await res.json();
+      if (data.error) message = data.error;
+    } catch {
+      /* ignore */
+    }
+    throw new Error(message);
+  }
+}
+
 export function getAdminPassword(): string | null {
   return sessionStorage.getItem(ADMIN_KEY);
 }
