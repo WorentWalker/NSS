@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { ArrowRight, Eye, Shield, Sparkles } from "lucide-react";
 import { useI18n } from "../../i18n";
 import type { ProductDoc } from "../../data/products";
-import { translateSpecLabel, warrantyForProduct } from "../../lib/productHelpers";
+import { translateSpecLabel, warrantyForProduct, getCategoryLabel, getProductHighlight, getProductTags } from "../../lib/productHelpers";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
 import { ProductDetailModal } from "./ProductDetailModal";
 
@@ -68,7 +68,7 @@ export function ProductCard({ product }: ProductCardProps) {
             <div className="product-card__media-shade" />
 
             <span className="product-card__category-pill">
-              {t(`productsPage.cats.${product.category}`)}
+              {getCategoryLabel(product, t)}
             </span>
 
             {product.featured && (
@@ -83,7 +83,7 @@ export function ProductCard({ product }: ProductCardProps) {
         ) : (
           <div className="product-card__media product-card__media--empty">
             <span className="product-card__category-pill">
-              {t(`productsPage.cats.${product.category}`)}
+              {getCategoryLabel(product, t)}
             </span>
             {product.featured && (
               <span className="product-card__featured">
@@ -99,7 +99,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
         <div className="product-card__body">
           <header className="product-card__header">
-            <p className="product-card__subtitle">{t(`productsPage.${product.highlightKey}`)}</p>
+            <p className="product-card__subtitle">{getProductHighlight(product, t)}</p>
             <h3 className="product-card__title">{product.name}</h3>
           </header>
 
@@ -113,9 +113,9 @@ export function ProductCard({ product }: ProductCardProps) {
           </dl>
 
           <div className="product-card__tags">
-            {product.tagKeys.slice(0, 2).map((tagKey) => (
-              <span key={tagKey} className="product-card__tag">
-                {t(tagKey)}
+            {getProductTags(product, t).slice(0, 2).map((tag) => (
+              <span key={tag} className="product-card__tag">
+                {tag}
               </span>
             ))}
           </div>

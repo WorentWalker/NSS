@@ -5,8 +5,13 @@ import { Products } from "./pages/Products";
 import { Solutions } from "./pages/Solutions";
 import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
+import { Admin } from "./pages/Admin";
 
 export const router = createBrowserRouter([
+  {
+    path: "/admin",
+    Component: Admin,
+  },
   {
     path: "/",
     Component: Root,

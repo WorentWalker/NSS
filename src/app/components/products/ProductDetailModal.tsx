@@ -6,6 +6,9 @@ import {
   getProductDescription,
   translateSpecLabel,
   warrantyForProduct,
+  getCategoryLabel,
+  getProductHighlight,
+  getProductTags,
 } from "../../lib/productHelpers";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
 import {
@@ -57,9 +60,13 @@ export function ProductDetailModal({ product, open, onOpenChange }: ProductDetai
             <DialogDescription asChild>
               <div>
                 <p className="product-detail-modal__meta">
-                  <span>{t(`productsPage.cats.${product.category}`)}</span>
-                  <span aria-hidden>·</span>
-                  <span>{t(`productsPage.${product.highlightKey}`)}</span>
+                  <span>{getCategoryLabel(product, t)}</span>
+                  {getProductHighlight(product, t) && (
+                    <>
+                      <span aria-hidden>·</span>
+                      <span>{getProductHighlight(product, t)}</span>
+                    </>
+                  )}
                 </p>
                 <p className="product-detail-modal__sku">
                   {t("productsPage.modalSku")}: {product.id}
@@ -80,9 +87,9 @@ export function ProductDetailModal({ product, open, onOpenChange }: ProductDetai
 
             <div className="product-detail-modal__tags">
               <Tag size={14} className="product-detail-modal__tags-icon" />
-              {product.tagKeys.map((tagKey) => (
-                <span key={tagKey} className="product-detail-modal__tag">
-                  {t(tagKey)}
+              {getProductTags(product, t).map((tag) => (
+                <span key={tag} className="product-detail-modal__tag">
+                  {tag}
                 </span>
               ))}
             </div>

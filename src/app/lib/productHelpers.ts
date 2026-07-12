@@ -62,13 +62,35 @@ export function warrantyForProduct(product: ProductDoc, t: (key: string) => stri
 }
 
 export function getProductDescription(product: ProductDoc, t: (key: string) => string): string {
-  const key = `productsPage.desc.${product.highlightKey}`;
-  const translated = t(key);
-  if (translated === key) {
-    return t("productsPage.descFallback", {
-      name: product.name,
-      category: t(`productsPage.cats.${product.category}`),
-    });
+  if (product.description?.trim()) {
+    return product.description;
   }
-  return translated;
+  if (product.highlightKey) {
+    const key = `productsPage.desc.${product.highlightKey}`;
+    const translated = t(key);
+    if (translated !== key) return translated;
+  }
+  return t("productsPage.descFallback", {
+    name: product.name,
+    category: product.categoryName || t(`productsPage.cats.${product.category}`),
+  });
+}
+
+export function getCategoryLabel(product: ProductDoc, t: (key: string) => string): string {
+  return product.categoryName || t(`productsPage.cats.${product.category}`);
+}
+
+export function getProductHighlight(product: ProductDoc, t: (key: string) => string): string {
+  if (product.highlight?.trim()) return product.highlight;
+  if (product.highlightKey) {
+    const key = `productsPage.${product.highlightKey}`;
+    const translated = t(key);
+    if (translated !== key) return translated;
+  }
+  return "";
+}
+
+export function getProductTags(product: ProductDoc, t: (key: string) => string): string[] {
+  if (product.tags?.length) return product.tags;
+  return (product.tagKeys || []).map((tagKey) => t(tagKey));
 }

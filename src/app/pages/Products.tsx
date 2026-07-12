@@ -1,219 +1,63 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
 import { Filter, Sun, Zap } from "lucide-react";
 import { useI18n } from "../i18n";
-import { deyeProducts } from "../data/deyeProducts";
 import type { ProductDoc } from "../data/products";
 import { ProductCard } from "../components/products/ProductCard";
+import { apiProductToDoc, fetchCategories, fetchProducts, type ApiCategory } from "../lib/api";
 import nssProduct1 from "figma:asset/2c5afeeeadc1c10b241a86ed9503d116ea92e554.png";
 import nssProduct3 from "figma:asset/95fb35ccae0a21c77bf67f3116e76442824da4a1.png";
-import nssEssImg from "figma:asset/ea61d0fe1462718c0219330a5459f4f6456c98e2.png";
 
 const NSS_GREEN = "#2DC653";
 const DARK_GREEN = "#1A9E35";
-const ACCENT = "#F97316";
 const BG = "#F6F9FC";
 const WHITE = "#FFFFFF";
-const SURFACE = "#EEF2F8";
 const BORDER = "#D4DEE9";
 const TEXT = "#0F172A";
 const MUTED = "#64748B";
 
-const nssProducts: ProductDoc[] = [
-  {
-    id: "qsun-620",
-    category: "solarPanels" as const,
-    name: "Q-SUN Solar 620W N-Type Silver Frame Bifacial Dual Glass",
-    badge: "620W",
-    color: NSS_GREEN,
-    specs: [
-      { label: "Vermogen", value: "620W" },
-      { label: "Celtype", value: "N-Type" },
-      { label: "Type", value: "Bifacial dual glass" },
-      { label: "Afmetingen", value: "2382×1134×35 mm" },
-    ],
-    tagKeys: ["home.tagBifacial", "home.tagDoubleGlass", "productsPage.ptagSilverFrame"],
-    warranty: "15jr materiaal / 30jr vermogen",
-    highlightKey: "hiQsun620",
-    image: "/assets/products/qsun/620w.png",
-  },
-  {
-    id: "qsun-720",
-    category: "solarPanels" as const,
-    name: "Q-SUN Solar 720W N-Type Silver Frame Bifacial Dual Glass",
-    badge: "720W",
-    color: NSS_GREEN,
-    specs: [
-      { label: "Vermogen", value: "720W" },
-      { label: "Celtype", value: "N-Type" },
-      { label: "Type", value: "Bifacial dual glass" },
-      { label: "Afmetingen", value: "2384×1303×33 mm" },
-    ],
-    tagKeys: ["home.tagBifacial", "home.tagDoubleGlass", "productsPage.ptagSilverFrame"],
-    warranty: "15jr materiaal / 30jr vermogen",
-    highlightKey: "hiQsun720",
-    featured: true,
-    image: "/assets/products/qsun/720w.png",
-  },
-  {
-    id: "gw35k",
-    category: "inverters" as const,
-    name: "GoodWe GW35K-SMT-L-G20",
-    badge: "35kW",
-    color: ACCENT,
-    specs: [
-      { label: "Vermogen", value: "35kW" },
-      { label: "Efficiëntie", value: "98.7%" },
-      { label: "MPPTs", value: "4" },
-      { label: "Bescherming", value: "IP66" },
-    ],
-    tagKeys: ["home.tagThreePhase", "productsPage.ptagStringInv", "productsPage.ptagWifi4g"],
-    warranty: "5jr standaard",
-    highlightKey: "hiResCom",
-    image: nssProduct1,
-  },
-  {
-    id: "gw60k",
-    category: "inverters" as const,
-    name: "GoodWe GW60K-SMT-G20",
-    badge: "60kW",
-    color: ACCENT,
-    specs: [
-      { label: "Vermogen", value: "60kW" },
-      { label: "Efficiëntie", value: "98.5%" },
-      { label: "MPPTs", value: "6" },
-      { label: "DC Spanning", value: "1100V" },
-    ],
-    tagKeys: ["home.tagThreePhase", "productsPage.ptagAfciOpt", "productsPage.ptagRs485"],
-    warranty: "5jr standaard",
-    highlightKey: "hiMediumBiz",
-    image: nssProduct1,
-  },
-  {
-    id: "gw80k",
-    category: "inverters" as const,
-    name: "GoodWe GW80K-SMT",
-    badge: "80kW",
-    color: ACCENT,
-    specs: [
-      { label: "Vermogen", value: "80kW" },
-      { label: "Efficiëntie", value: "98.6%" },
-      { label: "MPPTs", value: "6" },
-      { label: "Gewicht", value: "64kg" },
-    ],
-    tagKeys: ["home.tagIp66", "productsPage.ptagSpdType2", "productsPage.ptagLan4g"],
-    warranty: "5jr standaard",
-    highlightKey: "hiTopPerf",
-    featured: true,
-    image: nssProduct1,
-  },
-  {
-    id: "qcl-5",
-    category: "batterySystems" as const,
-    name: "QCL QCL-51.2-100",
-    badge: "5kWh",
-    color: "#6366F1",
-    specs: [
-      { label: "Capaciteit", value: "5.12kWh" },
-      { label: "Spanning", value: "51.2V" },
-      { label: "Cycli", value: "6000+" },
-      { label: "Chemie", value: "LFP" },
-    ],
-    tagKeys: ["productsPage.ptagRackMount", "productsPage.ptagBms", "productsPage.ptagWifiMon"],
-    warranty: "10jr prestatie",
-    highlightKey: "hiHomeStorage",
-    image: nssProduct3,
-  },
-  {
-    id: "qcl-10",
-    category: "batterySystems" as const,
-    name: "QCL QCL-51.2-200",
-    badge: "10kWh",
-    color: "#6366F1",
-    specs: [
-      { label: "Capaciteit", value: "10.24kWh" },
-      { label: "Spanning", value: "51.2V" },
-      { label: "Stroom", value: "200Ah" },
-      { label: "Bescherming", value: "IP55" },
-    ],
-    tagKeys: ["home.tagLfp", "productsPage.ptagStackable", "home.tag4g"],
-    warranty: "10jr prestatie",
-    highlightKey: "hiPopular",
-    featured: true,
-    image: nssProduct3,
-  },
-  {
-    id: "qcl-261",
-    category: "batterySystems" as const,
-    name: "QCL QCL125KW-261KWH",
-    badge: "261kWh",
-    color: "#6366F1",
-    specs: [
-      { label: "Vermogen", value: "125kW" },
-      { label: "Spanning", value: "DC 832V" },
-      { label: "Koeling", value: "Vloeistof" },
-      { label: "Gewicht", value: "2500kg" },
-    ],
-    tagKeys: ["home.tagIp54", "home.tagLfp", "home.tagThreePhase"],
-    warranty: "8000+ cycli",
-    highlightKey: "hiIndustrialUse",
-    featured: true,
-    image: nssProduct3,
-  },
-  {
-    id: "rochex-261",
-    category: "batterySystems" as const,
-    name: "RochexEnergy 125kW/261kWh",
-    badge: "261kWh",
-    color: "#8B5CF6",
-    specs: [
-      { label: "Energie", value: "261kWh" },
-      { label: "Vermogen", value: "125kW" },
-      { label: "Config", value: "1P52S" },
-      { label: "IP Niveau", value: "IP54" },
-    ],
-    tagKeys: ["home.tagTuvCe", "home.tagLfp", "productsPage.ptagLiquidCoolShort"],
-    warranty: "TÜV Gecertificeerd",
-    highlightKey: "hiEuCert",
-    image: nssProduct3,
-  },
-  {
-    id: "rochex-5mwh",
-    category: "batterySystems" as const,
-    name: "RochexEnergy 5MWh Container",
-    badge: "5MWh",
-    color: "#8B5CF6",
-    specs: [
-      { label: "Energie", value: "5MWh" },
-      { label: "Type", value: "Container" },
-      { label: "Net", value: "35kV" },
-      { label: "Monitor", value: "SCADA" },
-    ],
-    tagKeys: ["productsPage.hiUtilityScale", "productsPage.ptagTuvBadge", "productsPage.ptagBnefBadge"],
-    warranty: "BNEF Tier 1",
-    highlightKey: "hiUtilityScale",
-    featured: true,
-    image: nssEssImg,
-  },
-];
-
-const allProducts: ProductDoc[] = [...nssProducts, ...deyeProducts];
-
-const CATEGORY_ORDER: ReadonlyArray<"all" | ProductDoc["category"]> = [
-  "all",
-  "solarPanels",
-  "inverters",
-  "batterySystems",
-];
-
 export function Products() {
-  const { t } = useI18n();
-  const [activeCategory, setActiveCategory] = useState<(typeof CATEGORY_ORDER)[number]>("all");
+  const { t, locale } = useI18n();
+  const [products, setProducts] = useState<ProductDoc[]>([]);
+  const [categories, setCategories] = useState<ApiCategory[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [activeCategory, setActiveCategory] = useState<string>("all");
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filtered = allProducts.filter((p) => {
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const [apiProducts, apiCategories] = await Promise.all([
+          fetchProducts(locale),
+          fetchCategories(),
+        ]);
+        if (!cancelled) {
+          setProducts(apiProducts.map(apiProductToDoc));
+          setCategories(apiCategories);
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [locale]);
+
+  const categoryOptions = useMemo(() => {
+    const items = categories.map((c) => ({
+      id: c.id,
+      label: locale === "uk" ? c.nameUk : c.nameEn,
+      count: products.filter((p) => p.category === c.id).length,
+    }));
+    return [{ id: "all", label: t("productsPage.cats.all"), count: products.length }, ...items];
+  }, [categories, products, locale, t]);
+
+  const filtered = products.filter((p) => {
+    const categoryLabel = p.categoryName || t(`productsPage.cats.${p.category}`);
     const matchesCategory = activeCategory === "all" || p.category === activeCategory;
-    const slug = `${p.name} ${t(`productsPage.cats.${p.category}`)}`.toLowerCase();
+    const slug = `${p.name} ${categoryLabel}`.toLowerCase();
     const matchesSearch =
       slug.includes(searchTerm.toLowerCase())
       || p.name.toLowerCase().includes(searchTerm.toLowerCase());
@@ -259,11 +103,11 @@ export function Products() {
               <h3 style={{ color: TEXT, fontSize: 13, fontWeight: 700, letterSpacing: "var(--tracking-caps-sm, 0.05em)", textTransform: "uppercase", marginBottom: 16, display: "flex", alignItems: "center", gap: 8 }}>
                 <Filter size={14} color={NSS_GREEN} /> {t("common.filter")}
               </h3>
-              {CATEGORY_ORDER.map((cat) => (
+              {categoryOptions.map((cat) => (
                 <button
-                  key={cat}
+                  key={cat.id}
                   type="button"
-                  onClick={() => setActiveCategory(cat)}
+                  onClick={() => setActiveCategory(cat.id)}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -271,21 +115,19 @@ export function Products() {
                     width: "100%",
                     padding: "10px 12px",
                     borderRadius: 8,
-                    border: `1px solid ${activeCategory === cat ? "rgba(45,198,83,0.4)" : "transparent"}`,
-                    backgroundColor: activeCategory === cat ? "rgba(45,198,83,0.08)" : "transparent",
-                    color: activeCategory === cat ? DARK_GREEN : MUTED,
+                    border: `1px solid ${activeCategory === cat.id ? "rgba(45,198,83,0.4)" : "transparent"}`,
+                    backgroundColor: activeCategory === cat.id ? "rgba(45,198,83,0.08)" : "transparent",
+                    color: activeCategory === cat.id ? DARK_GREEN : MUTED,
                     fontSize: 14,
-                    fontWeight: activeCategory === cat ? 700 : 400,
+                    fontWeight: activeCategory === cat.id ? 700 : 400,
                     cursor: "pointer",
                     marginBottom: 4,
                     textAlign: "left",
                     transition: "all 0.2s",
                   }}
                 >
-                  <span>{t(`productsPage.cats.${cat}`)}</span>
-                  <span style={{ fontSize: 12 }}>
-                    {cat === "all" ? allProducts.length : allProducts.filter((p) => p.category === cat).length}
-                  </span>
+                  <span>{cat.label}</span>
+                  <span style={{ fontSize: 12 }}>{cat.count}</span>
                 </button>
               ))}
             </div>
@@ -347,16 +189,20 @@ export function Products() {
             </div>
 
             <div style={{ color: MUTED, fontSize: 13, marginBottom: 20 }}>
-              {t("productsPage.resultsCount", { count: filtered.length })}
+              {loading ? "..." : t("productsPage.resultsCount", { count: filtered.length })}
             </div>
 
-            <div className="flex flex-wrap gap-6">
-              {filtered.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
+            {loading ? (
+              <div style={{ textAlign: "center", padding: "60px 0", color: MUTED }}>Завантаження...</div>
+            ) : (
+              <div className="flex flex-wrap gap-6">
+                {filtered.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+            )}
 
-            {filtered.length === 0 && (
+            {!loading && filtered.length === 0 && (
               <div style={{ textAlign: "center", padding: "60px 0", color: MUTED }}>
                 <Sun size={40} color={BORDER} style={{ margin: "0 auto 16px" }} />
                 <p>{t("productsPage.empty")}</p>
