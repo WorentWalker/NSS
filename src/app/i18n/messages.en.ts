@@ -61,6 +61,9 @@ export const enMessages = {
     quote: "Quote",
     recommended: "RECOMMENDED",
     filter: "Filter",
+    price: "Price",
+    priceOnRequest: "Price on request",
+    priceWithCurrency: "₴{{amount}}",
   },
   footer: {
     blurb: "Premium solar solutions for homes and businesses in Ukraine and Europe.",

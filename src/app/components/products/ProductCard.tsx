@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { ArrowRight, Eye, Shield, Sparkles } from "lucide-react";
 import { useI18n } from "../../i18n";
 import type { ProductDoc } from "../../data/products";
-import { translateSpecLabel, warrantyForProduct, getCategoryLabel, getProductHighlight, getProductTags } from "../../lib/productHelpers";
+import { translateSpecLabel, warrantyForProduct, getCategoryLabel, getProductHighlight, getProductTags, formatProductPrice, hasProductPrice } from "../../lib/productHelpers";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
 import { ProductDetailModal } from "./ProductDetailModal";
 
@@ -12,11 +12,12 @@ type ProductCardProps = {
 };
 
 export function ProductCard({ product }: ProductCardProps) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [hovered, setHovered] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => setModalOpen(true);
+  const priceLabel = formatProductPrice(product.price, t, locale);
 
   return (
     <>
@@ -121,9 +122,14 @@ export function ProductCard({ product }: ProductCardProps) {
           </div>
 
           <footer className="product-card__footer">
-            <div className="product-card__warranty">
-              <Shield size={14} />
-              <span>{warrantyForProduct(product, t)}</span>
+            <div className="product-card__price-row">
+              <span className={`product-card__price${hasProductPrice(product.price) ? "" : " product-card__price--request"}`}>
+                {priceLabel}
+              </span>
+              <div className="product-card__warranty">
+                <Shield size={14} />
+                <span>{warrantyForProduct(product, t)}</span>
+              </div>
             </div>
             <div className="product-card__actions">
               <button
@@ -418,11 +424,28 @@ export function ProductCard({ product }: ProductCardProps) {
           padding-top: 12px;
           border-top: 1px solid #EEF2F8;
         }
+        .product-card__price-row {
+          margin-bottom: 10px;
+        }
+        .product-card__price {
+          display: block;
+          font-family: 'Onest', sans-serif;
+          font-size: 16px;
+          font-weight: 800;
+          letter-spacing: -0.02em;
+          color: #0F172A;
+          margin-bottom: 6px;
+        }
+        .product-card__price--request {
+          font-size: 12px;
+          font-weight: 600;
+          color: #64748B;
+        }
         .product-card__warranty {
           display: flex;
           align-items: flex-start;
           gap: 6px;
-          margin-bottom: 10px;
+          margin-bottom: 0;
           font-size: 10px;
           line-height: 1.45;
           color: #64748B;

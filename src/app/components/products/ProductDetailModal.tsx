@@ -9,6 +9,8 @@ import {
   getCategoryLabel,
   getProductHighlight,
   getProductTags,
+  formatProductPrice,
+  hasProductPrice,
 } from "../../lib/productHelpers";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
 import {
@@ -25,9 +27,11 @@ type ProductDetailModalProps = {
 };
 
 export function ProductDetailModal({ product, open, onOpenChange }: ProductDetailModalProps) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   if (!product) return null;
+
+  const priceLabel = formatProductPrice(product.price, t, locale);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -75,6 +79,11 @@ export function ProductDetailModal({ product, open, onOpenChange }: ProductDetai
             </DialogDescription>
 
             <p className="product-detail-modal__desc">{getProductDescription(product, t)}</p>
+
+            <p className={`product-detail-modal__price${hasProductPrice(product.price) ? "" : " product-detail-modal__price--request"}`}>
+              <span className="product-detail-modal__price-label">{t("common.price")}</span>
+              <span className="product-detail-modal__price-value">{priceLabel}</span>
+            </p>
 
             <dl className="product-detail-modal__specs">
               {product.specs.map((spec) => (
@@ -214,6 +223,36 @@ export function ProductDetailModal({ product, open, onOpenChange }: ProductDetai
             font-size: 14px;
             line-height: 1.65;
             color: #475569;
+          }
+          .product-detail-modal__price {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 8px 14px;
+            margin: 0 0 18px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: color-mix(in srgb, var(--modal-accent) 8%, #fff);
+            border: 1px solid color-mix(in srgb, var(--modal-accent) 22%, #D4DEE9);
+          }
+          .product-detail-modal__price-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #64748B;
+          }
+          .product-detail-modal__price-value {
+            font-family: 'Onest', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #0F172A;
+          }
+          .product-detail-modal__price--request .product-detail-modal__price-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: #64748B;
           }
           .product-detail-modal__specs {
             display: grid;

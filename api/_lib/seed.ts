@@ -27,8 +27,8 @@ export async function seedCatalog(options?: { force?: boolean }): Promise<{ acti
     sql: `INSERT OR REPLACE INTO products (
       id, category_id, name, badge, color,
       description_uk, description_en, highlight_uk, highlight_en,
-      warranty, image, featured, specs, tags, sort_order
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      warranty, image, featured, specs, tags, sort_order, price
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     args: [
       product.id,
       product.category,
@@ -45,6 +45,7 @@ export async function seedCatalog(options?: { force?: boolean }): Promise<{ acti
       JSON.stringify(product.specs),
       JSON.stringify(product.tags),
       order,
+      null,
     ],
   }));
 

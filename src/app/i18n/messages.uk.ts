@@ -61,6 +61,9 @@ export const ukMessages = {
     quote: "Розрахунок",
     recommended: "РЕКОМЕНДОВАНО",
     filter: "Фільтр",
+    price: "Ціна",
+    priceOnRequest: "Ціна за запитом",
+    priceWithCurrency: "{{amount}} ₴",
   },
   footer: {
     blurb:

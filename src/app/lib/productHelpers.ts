@@ -94,3 +94,22 @@ export function getProductTags(product: ProductDoc, t: (key: string) => string):
   if (product.tags?.length) return product.tags;
   return (product.tagKeys || []).map((tagKey) => t(tagKey));
 }
+
+export function formatProductPrice(
+  price: number | null | undefined,
+  t: (key: string) => string,
+  locale: string,
+): string {
+  if (price == null || !Number.isFinite(price)) {
+    return t("common.priceOnRequest");
+  }
+  const formatted = new Intl.NumberFormat(locale === "en" ? "en-US" : "uk-UA", {
+    maximumFractionDigits: price % 1 === 0 ? 0 : 2,
+    minimumFractionDigits: 0,
+  }).format(price);
+  return t("common.priceWithCurrency", { amount: formatted });
+}
+
+export function hasProductPrice(price: number | null | undefined): boolean {
+  return price != null && Number.isFinite(price);
+}

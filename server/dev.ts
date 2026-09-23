@@ -85,6 +85,21 @@ const server = http.createServer(async (req, res) => {
       return send(res, 200, { ok: true, count: result.count });
     }
 
+    if (url.pathname === "/api/admin/upload" && req.method === "POST") {
+      requireAdmin(auth);
+      const body = await readJson<{ filename?: string; contentType?: string; dataBase64?: string }>(req);
+      if (!body.dataBase64 || !body.contentType) {
+        return send(res, 400, { error: "Missing file data" });
+      }
+      const { saveUploadedImage } = await import("../api/_lib/upload.js");
+      const result = await saveUploadedImage({
+        filename: body.filename || "upload.jpg",
+        contentType: body.contentType,
+        dataBase64: body.dataBase64,
+      });
+      return send(res, 201, result);
+    }
+
     if (url.pathname === "/api/products" && req.method === "GET") {
       const lang = url.searchParams.get("lang") || "uk";
       return send(res, 200, await listProducts(lang));

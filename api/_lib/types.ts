@@ -23,6 +23,7 @@ export type DbProduct = {
   specs: string;
   tags: string;
   sort_order: number;
+  price: number | null;
 };
 
 export type ApiCategory = {
@@ -47,6 +48,7 @@ export type ApiProduct = {
   specs: SpecRow[];
   tags: string[];
   sortOrder: number;
+  price: number | null;
 };
 
 export type ProductInput = {
@@ -65,6 +67,7 @@ export type ProductInput = {
   specs?: SpecRow[];
   tags?: string[];
   sortOrder?: number;
+  price?: number | null;
 };
 
 export type CategoryInput = {

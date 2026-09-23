@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Trash2, Plus, Package, FolderOpen, LogOut } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Trash2, Plus, Package, FolderOpen, LogOut, Upload, X } from "lucide-react";
 import { usePageSeo } from "../seo/usePageSeo";
 import {
   adminCreateCategory,
@@ -11,6 +11,7 @@ import {
   adminLogin,
   adminSeed,
   adminUpdateProduct,
+  adminUploadImage,
   clearAdminPassword,
   getAdminPassword,
   setAdminPassword,
@@ -18,6 +19,7 @@ import {
   type ApiProduct,
   type ProductInput,
 } from "../lib/api";
+import { compressImageFile } from "../lib/imageCompress";
 
 const EMPTY_SPEC = { label: "", value: "" };
 
@@ -92,18 +94,41 @@ function ProductForm({
     highlightEn: "",
     warranty: initial?.warranty || "",
     image: initial?.image || "",
+    price: initial?.price ?? null,
     featured: initial?.featured || false,
     specs: initial?.specs?.length ? initial.specs : [{ ...EMPTY_SPEC }],
     tags: initial?.tags || [],
   });
   const [tagsText, setTagsText] = useState((initial?.tags || []).join(", "));
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
+  const fileRef = useRef<HTMLInputElement>(null);
 
   const updateSpec = (index: number, field: "label" | "value", value: string) => {
     const specs = [...(form.specs || [])];
     specs[index] = { ...specs[index], [field]: value };
     setForm({ ...form, specs });
+  };
+
+  const onPickPhoto = async (file: File | null) => {
+    if (!file) return;
+    setUploading(true);
+    setError("");
+    try {
+      const compressed = await compressImageFile(file);
+      const url = await adminUploadImage({
+        filename: compressed.filename,
+        contentType: compressed.contentType,
+        dataBase64: compressed.dataBase64,
+      });
+      setForm((prev) => ({ ...prev, image: url }));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Помилка завантаження фото");
+    } finally {
+      setUploading(false);
+      if (fileRef.current) fileRef.current.value = "";
+    }
   };
 
   const submit = async (e: React.FormEvent) => {
@@ -113,6 +138,9 @@ function ProductForm({
     try {
       const payload: ProductInput = {
         ...form,
+        price: form.price == null || Number.isNaN(Number(form.price))
+          ? null
+          : Number(form.price),
         specs: (form.specs || []).filter((s) => s.label.trim() && s.value.trim()),
         tags: tagsText.split(",").map((t) => t.trim()).filter(Boolean),
       };
@@ -176,6 +204,24 @@ function ProductForm({
           />
         </label>
         <label className="block text-sm">
+          <span className="text-[#64748B]">Ціна (₴)</span>
+          <input
+            type="number"
+            min={0}
+            step="0.01"
+            className="mt-1 w-full border border-[#D4DEE9] rounded-lg px-3 py-2"
+            value={form.price ?? ""}
+            onChange={(e) => {
+              const raw = e.target.value;
+              setForm({
+                ...form,
+                price: raw === "" ? null : Number(raw),
+              });
+            }}
+            placeholder="залиште порожнім — «за запитом»"
+          />
+        </label>
+        <label className="block text-sm">
           <span className="text-[#64748B]">Колір картки</span>
           <input
             type="color"
@@ -184,15 +230,57 @@ function ProductForm({
             onChange={(e) => setForm({ ...form, color: e.target.value })}
           />
         </label>
-        <label className="block text-sm">
-          <span className="text-[#64748B]">Фото (URL)</span>
-          <input
-            className="mt-1 w-full border border-[#D4DEE9] rounded-lg px-3 py-2"
-            value={form.image}
-            onChange={(e) => setForm({ ...form, image: e.target.value })}
-            placeholder="/assets/products/qsun/620w.png"
-          />
-        </label>
+      </div>
+
+      <div className="block text-sm">
+        <span className="text-[#64748B]">Фото товару</span>
+        <div className="mt-2 flex flex-col sm:flex-row gap-4 items-start">
+          <div className="w-36 h-36 rounded-xl border border-[#D4DEE9] bg-[#F8FAFC] overflow-hidden flex items-center justify-center shrink-0">
+            {form.image ? (
+              <img src={form.image} alt="" className="w-full h-full object-contain bg-white" />
+            ) : (
+              <span className="text-xs text-[#94A3B8] px-3 text-center">Немає фото</span>
+            )}
+          </div>
+          <div className="flex-1 space-y-3 w-full">
+            <input
+              ref={fileRef}
+              type="file"
+              accept="image/jpeg,image/png,image/webp,image/gif"
+              className="hidden"
+              onChange={(e) => onPickPhoto(e.target.files?.[0] || null)}
+            />
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                disabled={uploading}
+                onClick={() => fileRef.current?.click()}
+                className="inline-flex items-center gap-2 bg-[#0F172A] text-white px-4 py-2 rounded-lg text-sm font-semibold disabled:opacity-50"
+              >
+                <Upload size={16} />
+                {uploading ? "Завантаження..." : "Завантажити фото"}
+              </button>
+              {form.image && (
+                <button
+                  type="button"
+                  onClick={() => setForm({ ...form, image: "" })}
+                  className="inline-flex items-center gap-2 border border-[#D4DEE9] px-4 py-2 rounded-lg text-sm text-[#64748B]"
+                >
+                  <X size={16} /> Прибрати
+                </button>
+              )}
+            </div>
+            <label className="block text-xs text-[#64748B]">
+              або вставте посилання вручну
+              <input
+                className="mt-1 w-full border border-[#D4DEE9] rounded-lg px-3 py-2 text-sm"
+                value={form.image}
+                onChange={(e) => setForm({ ...form, image: e.target.value })}
+                placeholder="/assets/products/qsun/620w.png"
+              />
+            </label>
+          </div>
+        </div>
       </div>
 
       <label className="block text-sm">
@@ -447,6 +535,7 @@ export function Admin() {
                     <th className="text-left p-3">Назва</th>
                     <th className="text-left p-3">Категорія</th>
                     <th className="text-left p-3">Бейдж</th>
+                    <th className="text-left p-3">Ціна</th>
                     <th className="p-3 w-24" />
                   </tr>
                 </thead>
@@ -456,6 +545,11 @@ export function Admin() {
                       <td className="p-3 font-medium">{p.name}</td>
                       <td className="p-3 text-[#64748B]">{categories.find((c) => c.id === p.category)?.nameUk}</td>
                       <td className="p-3">{p.badge}</td>
+                      <td className="p-3 whitespace-nowrap">
+                        {p.price != null
+                          ? `${new Intl.NumberFormat("uk-UA").format(p.price)} ₴`
+                          : <span className="text-[#94A3B8]">за запитом</span>}
+                      </td>
                       <td className="p-3">
                         <div className="flex gap-2 justify-end">
                           <button onClick={() => setEditing(p)} className="text-[#2DC653] text-xs font-semibold">Змінити</button>

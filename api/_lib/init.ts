@@ -29,10 +29,18 @@ export async function ensureDb() {
       specs TEXT NOT NULL DEFAULT '[]',
       tags TEXT NOT NULL DEFAULT '[]',
       sort_order INTEGER NOT NULL DEFAULT 0,
+      price REAL,
       created_at TEXT NOT NULL DEFAULT (datetime('now')),
       FOREIGN KEY (category_id) REFERENCES categories(id)
     )`,
   ]);
+
+  // Migrate existing DBs that were created before price existed
+  try {
+    await db.execute("ALTER TABLE products ADD COLUMN price REAL");
+  } catch {
+    // column already exists
+  }
 
   const defaults = [
     { id: "solarPanels", name_uk: "Сонячні панелі", name_en: "Solar Panels", sort_order: 1 },

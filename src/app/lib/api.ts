@@ -20,6 +20,7 @@ export type ApiProduct = {
   specs: { label: string; value: string }[];
   tags: string[];
   sortOrder: number;
+  price: number | null;
 };
 
 export type ProductInput = {
@@ -38,6 +39,7 @@ export type ProductInput = {
   specs?: { label: string; value: string }[];
   tags?: string[];
   sortOrder?: number;
+  price?: number | null;
 };
 
 export type CategoryInput = {
@@ -48,6 +50,23 @@ export type CategoryInput = {
 };
 
 const ADMIN_KEY = "nss_admin_password";
+
+export async function adminUploadImage(file: {
+  filename: string;
+  contentType: string;
+  dataBase64: string;
+}): Promise<string> {
+  const res = await fetch("/api/admin/upload", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...adminHeaders() },
+    body: JSON.stringify(file),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    throw new Error(data.error || "Не вдалося завантажити фото");
+  }
+  return data.url as string;
+}
 
 export async function adminSeed(force = false): Promise<{ count: number; skipped?: boolean }> {
   const res = await fetch(`/api/admin/seed${force ? "?force=true" : ""}`, {
@@ -212,5 +231,6 @@ export function apiProductToDoc(product: ApiProduct): import("../data/products")
     description: product.description,
     featured: product.featured,
     image: product.image,
+    price: product.price,
   };
 }

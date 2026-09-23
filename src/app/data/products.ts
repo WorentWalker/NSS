@@ -16,4 +16,6 @@ export type ProductDoc = {
   description?: string;
   featured?: boolean;
   image?: string;
+  /** Price in UAH; null/undefined = on request */
+  price?: number | null;
 };

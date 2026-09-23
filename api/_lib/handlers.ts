@@ -37,8 +37,16 @@ function mapCategory(row: DbCategory): ApiCategory {
   };
 }
 
+function normalizePrice(value: unknown): number | null {
+  if (value === null || value === undefined || value === "") return null;
+  const n = typeof value === "number" ? value : Number(String(value).replace(",", "."));
+  if (!Number.isFinite(n) || n < 0) return null;
+  return Math.round(n * 100) / 100;
+}
+
 function mapProduct(row: DbProduct, lang: string, categoryName: string): ApiProduct {
   const uk = lang === "uk";
+  const rawPrice = (row as DbProduct & { price?: number | null }).price;
   return {
     id: row.id,
     category: row.category_id,
@@ -54,6 +62,7 @@ function mapProduct(row: DbProduct, lang: string, categoryName: string): ApiProd
     specs: parseJson<SpecRow[]>(row.specs, []),
     tags: parseJson<string[]>(row.tags, []),
     sortOrder: row.sort_order,
+    price: rawPrice == null ? null : Number(rawPrice),
   };
 }
 
@@ -123,8 +132,8 @@ export async function createProduct(input: ProductInput): Promise<ApiProduct> {
     sql: `INSERT INTO products (
       id, category_id, name, badge, color,
       description_uk, description_en, highlight_uk, highlight_en,
-      warranty, image, featured, specs, tags, sort_order
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      warranty, image, featured, specs, tags, sort_order, price
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     args: [
       id,
       input.categoryId,
@@ -141,6 +150,7 @@ export async function createProduct(input: ProductInput): Promise<ApiProduct> {
       JSON.stringify(input.specs || []),
       JSON.stringify(input.tags || []),
       input.sortOrder ?? 0,
+      normalizePrice(input.price),
     ],
   });
   const products = await listProducts("uk");
@@ -156,7 +166,7 @@ export async function updateProduct(id: string, input: ProductInput): Promise<Ap
     sql: `UPDATE products SET
       category_id = ?, name = ?, badge = ?, color = ?,
       description_uk = ?, description_en = ?, highlight_uk = ?, highlight_en = ?,
-      warranty = ?, image = ?, featured = ?, specs = ?, tags = ?, sort_order = ?
+      warranty = ?, image = ?, featured = ?, specs = ?, tags = ?, sort_order = ?, price = ?
       WHERE id = ?`,
     args: [
       input.categoryId,
@@ -173,6 +183,7 @@ export async function updateProduct(id: string, input: ProductInput): Promise<Ap
       JSON.stringify(input.specs || []),
       JSON.stringify(input.tags || []),
       input.sortOrder ?? 0,
+      normalizePrice(input.price),
       id,
     ],
   });

@@ -5,6 +5,10 @@
   "functions": {
     "api/admin/seed.ts": {
       "maxDuration": 30
+    },
+    "api/admin/upload.ts": {
+      "maxDuration": 20,
+      "memory": 512
     }
   }
 }
